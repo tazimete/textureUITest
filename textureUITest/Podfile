@@ -10,6 +10,10 @@ target 'textureUITest' do
     pod 'RxSwift', '6.2.0'
   	pod 'RxCocoa', '6.2.0'
   	pod "RxGesture"
+    
+    # UI
+    pod "Texture"
+    pod 'RxDataSources-Texture', '~> 1.3'
 
   target 'textureUITestTests' do
     inherit! :search_paths

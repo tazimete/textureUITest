@@ -12,7 +12,7 @@ let minScalableValue: CGFloat = 8.0 // Min value that should undergo upper scali
 
 extension CGFloat {
     
-    func relativeToIphone8Width(shouldUseLimit: Bool = true) -> CGFloat {
+    func adaptiveWidth(shouldUseLimit: Bool = true) -> CGFloat {
         let upperScaleLimit: CGFloat = 1.8
         var toUpdateValue = floor(self * (UIScreen.main.bounds.width / 375))
         
@@ -32,7 +32,7 @@ extension CGFloat {
     }
     
     
-    func relativeToIphone8Height(shouldUseLimit: Bool = true) -> CGFloat {
+    func adaptiveHeight(shouldUseLimit: Bool = true) -> CGFloat {
         var extraHeight: CGFloat = 0
         
         if #available(iOS 11.0, *) {

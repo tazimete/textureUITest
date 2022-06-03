@@ -8,17 +8,18 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import AsyncDisplayKit
 
-public class BaseViewController: UIViewController, UIScrollViewDelegate, Storyboarded {
+public class BaseViewController: ASDKViewController<ASDisplayNode>, Storyboarded {
     public lazy var TAG = self.description
-    public var disposeBag = DisposeBag()
+    public let disposeBag = DisposeBag()
     var viewModel: AbstractViewModel!
     public var isShimmerNeeded: Bool = false
-    public var isPaginationEnabled: Bool = true
     public let appColors = AppConfig.shared.getTheme().getColors()
     
     init(viewModel: AbstractViewModel) {
-        super.init(nibName: nil, bundle: nil)
+//        super.init(nibName: nil, bundle: nil)
+        super.init()
         self.viewModel = viewModel
     }
     
@@ -145,91 +146,6 @@ public class BaseViewController: UIViewController, UIScrollViewDelegate, Storybo
         alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: handler))
         
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    // MARK: Pagination
-    public enum ScrollDirection : Int {
-        case none
-        case right
-        case left
-        case up
-        case down
-        case crazy
-    }
-    
-    public var lastContentOffset: CGFloat = 0.0
-    
-    public func getScrollDirection(scrollView:UIScrollView) -> ScrollDirection{
-        var scrollDirection: ScrollDirection = .none
-        
-        if lastContentOffset > scrollView.contentOffset.y {
-            scrollDirection = .up
-        } else if lastContentOffset < scrollView.contentOffset.y {
-            scrollDirection = .down
-        }
-        
-        lastContentOffset = scrollView.contentOffset.y
-        
-        return scrollDirection
-    }
-    
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//            onEndScrolling(scView: scrollView)
-    }
-    
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        onEndScrolling(scView: scrollView)
-    }
-    
-    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if (!decelerate) {
-            onEndScrolling(scView: scrollView)
-        }
-    }
-    
-    // To be overriden by child classes
-    public func hasMoreData() -> Bool{
-        fatalError("Must Override")
-        return false
-    }
-    
-    public func loadMoreData() -> Void{
-        fatalError("Must Override")
-    }
-    
-    public func getFirstVisibleItem() -> IndexPath{
-        return IndexPath(row: 0, section: 0)
-    }
-    
-    public func getLastVisibleItem() -> IndexPath{
-        fatalError("Must Override")
-        return IndexPath(row: 0, section: 0)
-    }
-    
-    public func getTotalDataCount() -> Int{
-        fatalError("Must Override")
-        return 0
-    }
-    
-    public func getPaginationOffset() -> Int{
-        fatalError("Must Override")
-        return 20
-    }
-    
-    public func onEndScrolling(scView: UIScrollView) -> Void{
-        if getScrollDirection(scrollView: scView) == .down{
-            if(hasMoreData()){
-                let firstVisibleItem = getFirstVisibleItem()
-                let lastVisibleItem = getLastVisibleItem()
-                
-//                AppLogger.debug("\(TAG) -- scrollViewDidScroll() -- down, lastVisibleItem = \(lastVisibleItem), dataCount = \(getTotalDataCount())")
-                
-                //load more data if indexpath is greater than total data count/offset
-                if ( lastVisibleItem.row > getTotalDataCount()-getPaginationOffset()) {
-                    loadMoreData()
-                }
-            }
-        }
     }
 }
 

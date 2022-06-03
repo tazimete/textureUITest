@@ -13,9 +13,9 @@ extension UIStackView {
     
     open override func awakeFromNib() {
         if self.axis == .horizontal {
-            self.spacing = self.spacing.relativeToIphone8Width()
+            self.spacing = self.spacing.adaptiveWidth()
         } else {
-            self.spacing = self.spacing.relativeToIphone8Height()
+            self.spacing = self.spacing.adaptiveHeight()
         }
         self.layoutIfNeeded()
     }
@@ -24,18 +24,18 @@ extension UIStackView {
         self.init(frame: frame)
         
         if self.axis == .horizontal {
-            self.spacing = self.spacing.relativeToIphone8Width()
+            self.spacing = self.spacing.adaptiveWidth()
         } else {
-            self.spacing = self.spacing.relativeToIphone8Height()
+            self.spacing = self.spacing.adaptiveHeight()
         }
         self.layoutIfNeeded()
     }
     
     public func applyAdaptiveLayout() {
         if self.axis == .horizontal {
-            self.spacing = self.spacing.relativeToIphone8Width()
+            self.spacing = self.spacing.adaptiveWidth()
         } else {
-            self.spacing = self.spacing.relativeToIphone8Height()
+            self.spacing = self.spacing.adaptiveHeight()
         }
         self.layoutIfNeeded()
     }
@@ -45,17 +45,17 @@ extension UIStackView {
 extension UILabel {
     
     open override func awakeFromNib() {
-        self.font = self.font.withSize(self.font.pointSize.relativeToIphone8Width())
+        self.font = self.font.withSize(self.font.pointSize.adaptiveWidth())
     }
     
     public convenience init(frame: CGRect, setAdaptive: Bool = true) {
         self.init(frame: frame)
         
-        self.font = self.font.withSize(self.font.pointSize.relativeToIphone8Width())
+        self.font = self.font.withSize(self.font.pointSize.adaptiveWidth())
     }
     
     public func applyAdaptiveLayout() {
-        self.font = self.font.withSize(self.font.pointSize.relativeToIphone8Width())
+        self.font = self.font.withSize(self.font.pointSize.adaptiveWidth())
     }
     
 }
@@ -63,17 +63,17 @@ extension UILabel {
 extension UITextView {
     
     open override func awakeFromNib() {
-        self.font = self.font?.withSize((self.font?.pointSize.relativeToIphone8Width())!)
+        self.font = self.font?.withSize((self.font?.pointSize.adaptiveWidth())!)
     }
     
     public convenience init(frame: CGRect, setAdaptive: Bool = true) {
         self.init(frame: frame)
         
-        self.font = self.font?.withSize((self.font?.pointSize.relativeToIphone8Width())!)
+        self.font = self.font?.withSize((self.font?.pointSize.adaptiveWidth())!)
     }
     
     public func applyAdaptiveLayout() {
-        self.font = self.font?.withSize((self.font?.pointSize.relativeToIphone8Width())!)
+        self.font = self.font?.withSize((self.font?.pointSize.adaptiveWidth())!)
     }
     
 }
@@ -81,17 +81,17 @@ extension UITextView {
 extension UITextField {
     
     open override func awakeFromNib() {
-        self.font = self.font?.withSize((self.font?.pointSize.relativeToIphone8Width())!)
+        self.font = self.font?.withSize((self.font?.pointSize.adaptiveWidth())!)
     }
     
     public convenience init(frame: CGRect, setAdaptive: Bool = true) {
         self.init(frame: frame)
         
-        self.font = self.font?.withSize((self.font?.pointSize.relativeToIphone8Width())!)
+        self.font = self.font?.withSize((self.font?.pointSize.adaptiveWidth())!)
     }
     
     public func applyAdaptiveLayout() {
-        self.font = self.font?.withSize((self.font?.pointSize.relativeToIphone8Width())!)
+        self.font = self.font?.withSize((self.font?.pointSize.adaptiveWidth())!)
     }
     
 }
@@ -99,17 +99,17 @@ extension UITextField {
 extension UIButton {
     
     open override func awakeFromNib() {
-        self.titleLabel?.font = self.titleLabel?.font.withSize((self.titleLabel?.font.pointSize.relativeToIphone8Width())!)
+        self.titleLabel?.font = self.titleLabel?.font.withSize((self.titleLabel?.font.pointSize.adaptiveWidth())!)
     }
     
     public convenience init(frame: CGRect, setAdaptive: Bool = true) {
         self.init(frame: frame)
         
-        self.titleLabel?.font = self.titleLabel?.font.withSize((self.titleLabel?.font.pointSize.relativeToIphone8Width())!)
+        self.titleLabel?.font = self.titleLabel?.font.withSize((self.titleLabel?.font.pointSize.adaptiveWidth())!)
     }
     
     public func applyAdaptiveLayout() {
-        self.titleLabel?.font = self.titleLabel?.font.withSize((self.titleLabel?.font.pointSize.relativeToIphone8Width())!)
+        self.titleLabel?.font = self.titleLabel?.font.withSize((self.titleLabel?.font.pointSize.adaptiveWidth())!)
     }
 }
 
