@@ -62,11 +62,12 @@ class MyBalanceViewController: BaseViewController {
     
     let loginButton: ASButtonNode = {
         let node = ASButtonNode()
-        node.titleNode.attributedText = NSAttributedString(string: "LOGIN", attributes: [
+        node.setAttributedTitle(NSAttributedString(string: "LOGIN", attributes: [
                 NSAttributedString.Key.foregroundColor: UIColor.white,
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .medium)
             ]
-        )
+        ), for: .normal)
+        
         node.borderWidth = 1
         node.borderColor = UIColor.white.cgColor
         node.backgroundColor = .systemBlue
