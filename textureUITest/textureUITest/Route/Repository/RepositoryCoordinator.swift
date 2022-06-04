@@ -1,21 +1,21 @@
 //
-//  HomeCoordinator.swift
-//  currency-converter
+//  RepositoryCoordinator.swift
+//  textureUITest
 //
-//  Created by AGM Tazim on 3/26/22.
+//  Created by AGM Tazim on 6/5/22.
 //
 
 import UIKit
 
-class HomeCoordinator: Coordinator {
+class RepositoryCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
-    init(navigationController: UINavigationController) {
+    required init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
-    public func start(window: UIWindow) {
+    public func start() {
         let repository = CurrencyRepository(localDataSource: CurrencyLocalDataSource(dbClient: DatabaseClient.shared), remoteDataSource: CurrencyRemoteDataSource(apiClient: ApiClient.shared))
         
         let usecase = CurrencyUsecase(repository: repository)
@@ -25,7 +25,7 @@ class HomeCoordinator: Coordinator {
         let balanceExecutor = BalanceOperationExecutor(operation: BalanceCheckOperation())
         
         let viewModel = MyBalanceViewModel(usecase: usecase, commissionCalculator: commissionCalculator, balanceExecutor: balanceExecutor)
-        let vc = MyBalanceViewController(viewModel: viewModel)
-        self.navigationController.pushViewController(vc, animated: true)
+        let vc = RepositoryViewController(viewModel: viewModel)
+        self.navigationController.viewControllers = [vc]
     }
 }

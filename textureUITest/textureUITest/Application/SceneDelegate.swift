@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    public var rootCoordinator: HomeCoordinator!
+    public var rootCoordinator: AuthCoordinator!
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -59,13 +59,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _window = window else { return }
         _window.windowScene = windowScene
 
-        let navController = UINavigationController()
-        rootCoordinator = HomeCoordinator(navigationController: navController)
-        _window.rootViewController = rootCoordinator.navigationController
-        _window.makeKeyAndVisible()
+        let navigationController = UINavigationController()
+        _window.rootViewController = navigationController
+       
+        rootCoordinator = AuthCoordinator(navigationController: navigationController)
         
 //        // tell the coordinator show its controller
-        rootCoordinator.start(window: _window)
+        rootCoordinator.start()
+        
+        _window.makeKeyAndVisible()
     }
 
 }

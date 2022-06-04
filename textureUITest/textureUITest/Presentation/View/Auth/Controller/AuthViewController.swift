@@ -10,7 +10,9 @@ import RxSwift
 import RxCocoa
 import AsyncDisplayKit
 
-class MyBalanceViewController: BaseViewController {
+class AuthViewController: BaseViewController {
+    var coordinator: AuthCoordinator?
+    
     let emailField: ASEditableTextNode = {
         let node = ASEditableTextNode()
         node.attributedPlaceholderText = NSAttributedString(string: "Email", attributes: [
@@ -124,7 +126,9 @@ class MyBalanceViewController: BaseViewController {
     
     override func addActionsToSubviews() {
         // did tap submit button
-        loginButton.rx.tap.subscribe()
+        loginButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?.coordinator?.navigateRepositoryScreen()
+        }).disposed(by: disposeBag)
     }
     
     override func bindViewModel() {

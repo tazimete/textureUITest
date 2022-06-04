@@ -74,7 +74,7 @@
 		FA377A80284A3DB500B7B201 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA377A0D284A3DB300B7B201 /* LaunchScreen.storyboard */; };
 		FA377A81284A3DB500B7B201 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA377A0F284A3DB300B7B201 /* Main.storyboard */; };
 		FA377A82284A3DB500B7B201 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A12284A3DB300B7B201 /* BaseViewController.swift */; };
-		FA377A83284A3DB500B7B201 /* MyBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A14284A3DB300B7B201 /* MyBalanceViewController.swift */; };
+		FA377A83284A3DB500B7B201 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A14284A3DB300B7B201 /* AuthViewController.swift */; };
 		FA377A84284A3DB500B7B201 /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A17284A3DB300B7B201 /* SearchCellViewModel.swift */; };
 		FA377A85284A3DB500B7B201 /* BalanceItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A19284A3DB300B7B201 /* BalanceItemCell.swift */; };
 		FA377A86284A3DB500B7B201 /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A1D284A3DB300B7B201 /* AppLogger.swift */; };
@@ -96,7 +96,7 @@
 		FA377A97284A3DB500B7B201 /* CurrencyConverterParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A3B284A3DB400B7B201 /* CurrencyConverterParams.swift */; };
 		FA377A98284A3DB500B7B201 /* CurrencyApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A3C284A3DB400B7B201 /* CurrencyApiRequest.swift */; };
 		FA377A99284A3DB500B7B201 /* CurrencyUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A3F284A3DB400B7B201 /* CurrencyUsecase.swift */; };
-		FA377A9A284A3DB500B7B201 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A43284A3DB400B7B201 /* HomeCoordinator.swift */; };
+		FA377A9A284A3DB500B7B201 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A43284A3DB400B7B201 /* AuthCoordinator.swift */; };
 		FA377A9B284A3DB500B7B201 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A45284A3DB400B7B201 /* Coordinator.swift */; };
 		FA503D35284B658100DF7C59 /* ASEditableTextNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D26284B658100DF7C59 /* ASEditableTextNode+Rx.swift */; };
 		FA503D36284B658100DF7C59 /* ASImageNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D27284B658100DF7C59 /* ASImageNode+Rx.swift */; };
@@ -110,6 +110,8 @@
 		FA503D3F284B658100DF7C59 /* Driver+ASSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D30284B658100DF7C59 /* Driver+ASSubscription.swift */; };
 		FA503D40284B658100DF7C59 /* ASTextNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D31284B658100DF7C59 /* ASTextNode+Rx.swift */; };
 		FA503D41284B658100DF7C59 /* ASControlNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D32284B658100DF7C59 /* ASControlNode+Rx.swift */; };
+		FAA86690284BDC700071D556 /* RepositoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */; };
+		FAA86694284BDF290071D556 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86693284BDF290071D556 /* RepositoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,7 +209,7 @@
 		FA377A0E284A3DB300B7B201 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA377A0F284A3DB300B7B201 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA377A12284A3DB300B7B201 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		FA377A14284A3DB300B7B201 /* MyBalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBalanceViewController.swift; sourceTree = "<group>"; };
+		FA377A14284A3DB300B7B201 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FA377A17284A3DB300B7B201 /* SearchCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
 		FA377A19284A3DB300B7B201 /* BalanceItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceItemCell.swift; sourceTree = "<group>"; };
 		FA377A1D284A3DB300B7B201 /* AppLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
@@ -229,7 +231,7 @@
 		FA377A3B284A3DB400B7B201 /* CurrencyConverterParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyConverterParams.swift; sourceTree = "<group>"; };
 		FA377A3C284A3DB400B7B201 /* CurrencyApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyApiRequest.swift; sourceTree = "<group>"; };
 		FA377A3F284A3DB400B7B201 /* CurrencyUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyUsecase.swift; sourceTree = "<group>"; };
-		FA377A43284A3DB400B7B201 /* HomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		FA377A43284A3DB400B7B201 /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		FA377A45284A3DB400B7B201 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		FA503D26284B658100DF7C59 /* ASEditableTextNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASEditableTextNode+Rx.swift"; sourceTree = "<group>"; };
 		FA503D27284B658100DF7C59 /* ASImageNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASImageNode+Rx.swift"; sourceTree = "<group>"; };
@@ -243,6 +245,8 @@
 		FA503D30284B658100DF7C59 /* Driver+ASSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Driver+ASSubscription.swift"; sourceTree = "<group>"; };
 		FA503D31284B658100DF7C59 /* ASTextNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASTextNode+Rx.swift"; sourceTree = "<group>"; };
 		FA503D32284B658100DF7C59 /* ASControlNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASControlNode+Rx.swift"; sourceTree = "<group>"; };
+		FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCoordinator.swift; sourceTree = "<group>"; };
+		FAA86693284BDF290071D556 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -600,7 +604,6 @@
 				FA3779F5284A3DB300B7B201 /* ViewModel */,
 				FA377A0C284A3DB300B7B201 /* Storyboard */,
 				FA377A10284A3DB300B7B201 /* View */,
-				FA377A1A284A3DB300B7B201 /* Utility */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -703,8 +706,8 @@
 			isa = PBXGroup;
 			children = (
 				FA377A11284A3DB300B7B201 /* Abstraction */,
-				FA377A13284A3DB300B7B201 /* Controller */,
-				FA377A15284A3DB300B7B201 /* Cell */,
+				FAA86691284BDD3B0071D556 /* Auth */,
+				FAA86692284BDD6A0071D556 /* Repository */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -720,7 +723,7 @@
 		FA377A13284A3DB300B7B201 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A14284A3DB300B7B201 /* MyBalanceViewController.swift */,
+				FA377A14284A3DB300B7B201 /* AuthViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -748,13 +751,6 @@
 				FA377A19284A3DB300B7B201 /* BalanceItemCell.swift */,
 			);
 			path = MyBalance;
-			sourceTree = "<group>";
-		};
-		FA377A1A284A3DB300B7B201 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utility;
 			sourceTree = "<group>";
 		};
 		FA377A1B284A3DB300B7B201 /* Components */ = {
@@ -911,18 +907,19 @@
 		FA377A41284A3DB400B7B201 /* Route */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A42284A3DB400B7B201 /* Home */,
 				FA377A44284A3DB400B7B201 /* Coordinator */,
+				FA377A42284A3DB400B7B201 /* Auth */,
+				FAA8668E284BDBD30071D556 /* Repository */,
 			);
 			path = Route;
 			sourceTree = "<group>";
 		};
-		FA377A42284A3DB400B7B201 /* Home */ = {
+		FA377A42284A3DB400B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A43284A3DB400B7B201 /* HomeCoordinator.swift */,
+				FA377A43284A3DB400B7B201 /* AuthCoordinator.swift */,
 			);
-			path = Home;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA377A44284A3DB400B7B201 /* Coordinator */ = {
@@ -958,6 +955,47 @@
 				FA503D32284B658100DF7C59 /* ASControlNode+Rx.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		FAA8668E284BDBD30071D556 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FAA86691284BDD3B0071D556 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				FA377A15284A3DB300B7B201 /* Cell */,
+				FA377A13284A3DB300B7B201 /* Controller */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		FAA86692284BDD6A0071D556 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FAA86696284BDF4C0071D556 /* Cell */,
+				FAA86695284BDF340071D556 /* Controller */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FAA86695284BDF340071D556 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FAA86693284BDF290071D556 /* RepositoryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FAA86696284BDF4C0071D556 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1231,16 +1269,17 @@
 				FA377A70284A3DB500B7B201 /* Optional+Extensions.swift in Sources */,
 				FA377A6D284A3DB500B7B201 /* UIImage+Extension.swift in Sources */,
 				FA377A7C284A3DB500B7B201 /* BalanceOperation.swift in Sources */,
+				FAA86690284BDC700071D556 /* RepositoryCoordinator.swift in Sources */,
 				FA377A8C284A3DB500B7B201 /* CGFloat+Extension.swift in Sources */,
 				FA377A94284A3DB500B7B201 /* Balance.swift in Sources */,
 				FA377A49284A3DB400B7B201 /* Parameterizable.swift in Sources */,
-				FA377A83284A3DB500B7B201 /* MyBalanceViewController.swift in Sources */,
+				FA377A83284A3DB500B7B201 /* AuthViewController.swift in Sources */,
 				FA377A69284A3DB500B7B201 /* UIImageView+Extension.swift in Sources */,
 				FA377A5B284A3DB500B7B201 /* ServerConfig.swift in Sources */,
 				FA377A74284A3DB500B7B201 /* MyBalanceViewModel.swift in Sources */,
 				FA377A46284A3DB400B7B201 /* AbstractURLSession.swift in Sources */,
 				FA377A99284A3DB500B7B201 /* CurrencyUsecase.swift in Sources */,
-				FA377A9A284A3DB500B7B201 /* HomeCoordinator.swift in Sources */,
+				FA377A9A284A3DB500B7B201 /* AuthCoordinator.swift in Sources */,
 				FA377A5F284A3DB500B7B201 /* AbstractLocalDataSource.swift in Sources */,
 				FA377A4E284A3DB400B7B201 /* DownloadDataParser.swift in Sources */,
 				FA377A53284A3DB500B7B201 /* DatabaseClient.swift in Sources */,
@@ -1286,6 +1325,7 @@
 				FA503D35284B658100DF7C59 /* ASEditableTextNode+Rx.swift in Sources */,
 				FA377A6A284A3DB500B7B201 /* UIColor+Extension.swift in Sources */,
 				FA377A71284A3DB500B7B201 /* Codable+Extension.swift in Sources */,
+				FAA86694284BDF290071D556 /* RepositoryViewController.swift in Sources */,
 				FA377A75284A3DB500B7B201 /* ComissionCalculator.swift in Sources */,
 				FA377A98284A3DB500B7B201 /* CurrencyApiRequest.swift in Sources */,
 				FA377A6E284A3DB500B7B201 /* UINavigationController+Extension.swift in Sources */,
