@@ -124,6 +124,7 @@ class MyBalanceViewController: BaseViewController {
     
     override func addActionsToSubviews() {
         // did tap submit button
+        loginButton.rx.tap.subscribe()
     }
     
     override func bindViewModel() {

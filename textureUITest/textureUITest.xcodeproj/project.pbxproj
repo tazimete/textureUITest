@@ -98,6 +98,18 @@
 		FA377A99284A3DB500B7B201 /* CurrencyUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A3F284A3DB400B7B201 /* CurrencyUsecase.swift */; };
 		FA377A9A284A3DB500B7B201 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A43284A3DB400B7B201 /* HomeCoordinator.swift */; };
 		FA377A9B284A3DB500B7B201 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A45284A3DB400B7B201 /* Coordinator.swift */; };
+		FA503D35284B658100DF7C59 /* ASEditableTextNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D26284B658100DF7C59 /* ASEditableTextNode+Rx.swift */; };
+		FA503D36284B658100DF7C59 /* ASImageNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D27284B658100DF7C59 /* ASImageNode+Rx.swift */; };
+		FA503D37284B658100DF7C59 /* ASTextNode2+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D28284B658100DF7C59 /* ASTextNode2+Rx.swift */; };
+		FA503D38284B658100DF7C59 /* ASBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D29284B658100DF7C59 /* ASBinder.swift */; };
+		FA503D3A284B658100DF7C59 /* ASButtonNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D2B284B658100DF7C59 /* ASButtonNode+Rx.swift */; };
+		FA503D3B284B658100DF7C59 /* ASControlTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D2C284B658100DF7C59 /* ASControlTarget.swift */; };
+		FA503D3C284B658100DF7C59 /* ASDisplayNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D2D284B658100DF7C59 /* ASDisplayNode+Rx.swift */; };
+		FA503D3D284B658100DF7C59 /* RxASEditableTextNodeDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D2E284B658100DF7C59 /* RxASEditableTextNodeDelegateProxy.swift */; };
+		FA503D3E284B658100DF7C59 /* ASNetworkImageNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D2F284B658100DF7C59 /* ASNetworkImageNode+Rx.swift */; };
+		FA503D3F284B658100DF7C59 /* Driver+ASSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D30284B658100DF7C59 /* Driver+ASSubscription.swift */; };
+		FA503D40284B658100DF7C59 /* ASTextNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D31284B658100DF7C59 /* ASTextNode+Rx.swift */; };
+		FA503D41284B658100DF7C59 /* ASControlNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D32284B658100DF7C59 /* ASControlNode+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +231,18 @@
 		FA377A3F284A3DB400B7B201 /* CurrencyUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyUsecase.swift; sourceTree = "<group>"; };
 		FA377A43284A3DB400B7B201 /* HomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		FA377A45284A3DB400B7B201 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		FA503D26284B658100DF7C59 /* ASEditableTextNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASEditableTextNode+Rx.swift"; sourceTree = "<group>"; };
+		FA503D27284B658100DF7C59 /* ASImageNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASImageNode+Rx.swift"; sourceTree = "<group>"; };
+		FA503D28284B658100DF7C59 /* ASTextNode2+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASTextNode2+Rx.swift"; sourceTree = "<group>"; };
+		FA503D29284B658100DF7C59 /* ASBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASBinder.swift; sourceTree = "<group>"; };
+		FA503D2B284B658100DF7C59 /* ASButtonNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASButtonNode+Rx.swift"; sourceTree = "<group>"; };
+		FA503D2C284B658100DF7C59 /* ASControlTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASControlTarget.swift; sourceTree = "<group>"; };
+		FA503D2D284B658100DF7C59 /* ASDisplayNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASDisplayNode+Rx.swift"; sourceTree = "<group>"; };
+		FA503D2E284B658100DF7C59 /* RxASEditableTextNodeDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxASEditableTextNodeDelegateProxy.swift; sourceTree = "<group>"; };
+		FA503D2F284B658100DF7C59 /* ASNetworkImageNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASNetworkImageNode+Rx.swift"; sourceTree = "<group>"; };
+		FA503D30284B658100DF7C59 /* Driver+ASSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Driver+ASSubscription.swift"; sourceTree = "<group>"; };
+		FA503D31284B658100DF7C59 /* ASTextNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASTextNode+Rx.swift"; sourceTree = "<group>"; };
+		FA503D32284B658100DF7C59 /* ASControlNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASControlNode+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +321,7 @@
 		FA37797E284A3CA800B7B201 /* textureUITest */ = {
 			isa = PBXGroup;
 			children = (
+				FA503D24284B658100DF7C59 /* RxCocoa-Texture */,
 				FA3779D2284A3DB200B7B201 /* AppConfig */,
 				FA377A27284A3DB400B7B201 /* Application */,
 				FA3779D0284A3DB200B7B201 /* Assets */,
@@ -908,6 +933,33 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		FA503D24284B658100DF7C59 /* RxCocoa-Texture */ = {
+			isa = PBXGroup;
+			children = (
+				FA503D25284B658100DF7C59 /* Classes */,
+			);
+			path = "RxCocoa-Texture";
+			sourceTree = "<group>";
+		};
+		FA503D25284B658100DF7C59 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FA503D26284B658100DF7C59 /* ASEditableTextNode+Rx.swift */,
+				FA503D27284B658100DF7C59 /* ASImageNode+Rx.swift */,
+				FA503D28284B658100DF7C59 /* ASTextNode2+Rx.swift */,
+				FA503D29284B658100DF7C59 /* ASBinder.swift */,
+				FA503D2B284B658100DF7C59 /* ASButtonNode+Rx.swift */,
+				FA503D2C284B658100DF7C59 /* ASControlTarget.swift */,
+				FA503D2D284B658100DF7C59 /* ASDisplayNode+Rx.swift */,
+				FA503D2E284B658100DF7C59 /* RxASEditableTextNodeDelegateProxy.swift */,
+				FA503D2F284B658100DF7C59 /* ASNetworkImageNode+Rx.swift */,
+				FA503D30284B658100DF7C59 /* Driver+ASSubscription.swift */,
+				FA503D31284B658100DF7C59 /* ASTextNode+Rx.swift */,
+				FA503D32284B658100DF7C59 /* ASControlNode+Rx.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -919,7 +971,7 @@
 				FA377978284A3CA800B7B201 /* Sources */,
 				FA377979284A3CA800B7B201 /* Frameworks */,
 				FA37797A284A3CA800B7B201 /* Resources */,
-				E898ED2BFF729A7CD153932E /* [CP] Embed Pods Frameworks */,
+				BE9D6B89CD877633B02C029B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -957,7 +1009,7 @@
 				FA377998284A3CAB00B7B201 /* Sources */,
 				FA377999284A3CAB00B7B201 /* Frameworks */,
 				FA37799A284A3CAB00B7B201 /* Resources */,
-				C5C0B63F7593CA962600C212 /* [CP] Embed Pods Frameworks */,
+				4691A80CDD4BEFBA0E0801DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1084,6 +1136,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4691A80CDD4BEFBA0E0801DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-textureUITest-textureUITestUITests/Pods-textureUITest-textureUITestUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-textureUITest-textureUITestUITests/Pods-textureUITest-textureUITestUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-textureUITest-textureUITestUITests/Pods-textureUITest-textureUITestUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		88C8A80F6A55081959A70EAC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1106,24 +1175,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C5C0B63F7593CA962600C212 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-textureUITest-textureUITestUITests/Pods-textureUITest-textureUITestUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-textureUITest-textureUITestUITests/Pods-textureUITest-textureUITestUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-textureUITest-textureUITestUITests/Pods-textureUITest-textureUITestUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E898ED2BFF729A7CD153932E /* [CP] Embed Pods Frameworks */ = {
+		BE9D6B89CD877633B02C029B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1149,12 +1201,14 @@
 			files = (
 				FA377A5E284A3DB500B7B201 /* AppConfig.swift in Sources */,
 				FA377A6C284A3DB500B7B201 /* UILabel+Extension.swift in Sources */,
+				FA503D3F284B658100DF7C59 /* Driver+ASSubscription.swift in Sources */,
 				FA377A9B284A3DB500B7B201 /* Coordinator.swift in Sources */,
 				FA377A90284A3DB500B7B201 /* CurrencyRemoteDataSource.swift in Sources */,
 				FA377A8B284A3DB500B7B201 /* AdaptiveLayoutConstraint.swift in Sources */,
 				FA377A72284A3DB500B7B201 /* AbstractMyBalanceViewModel.swift in Sources */,
 				FA377A68284A3DB500B7B201 /* AbstractUsecase.swift in Sources */,
 				FA377A4D284A3DB400B7B201 /* Downloader.swift in Sources */,
+				FA503D41284B658100DF7C59 /* ASControlNode+Rx.swift in Sources */,
 				FA377A55284A3DB500B7B201 /* KVLocalSorageIntereactor.swift in Sources */,
 				FA377A58284A3DB500B7B201 /* UserSessionDataClient.swift in Sources */,
 				FA377A7B284A3DB500B7B201 /* BalanceOperationExecutor.swift in Sources */,
@@ -1164,6 +1218,9 @@
 				FA377A60284A3DB500B7B201 /* AbstractCurrencyLocalDataSource.swift in Sources */,
 				FA377A8A284A3DB500B7B201 /* AdaptiveLayoutExtension.swift in Sources */,
 				FA377A63284A3DB500B7B201 /* AbstractRepository.swift in Sources */,
+				FA503D37284B658100DF7C59 /* ASTextNode2+Rx.swift in Sources */,
+				FA503D3D284B658100DF7C59 /* RxASEditableTextNodeDelegateProxy.swift in Sources */,
+				FA503D3E284B658100DF7C59 /* ASNetworkImageNode+Rx.swift in Sources */,
 				FA377A5D284A3DB500B7B201 /* ConfigComponents.swift in Sources */,
 				FA377A52284A3DB500B7B201 /* ImageDownloader.swift in Sources */,
 				FA377A6F284A3DB500B7B201 /* UIViewController+Extension.swift in Sources */,
@@ -1209,23 +1266,30 @@
 				FA377A73284A3DB500B7B201 /* AbstractViewModel.swift in Sources */,
 				FA377A61284A3DB500B7B201 /* AbstractCurrencyRemoteDataSource.swift in Sources */,
 				FA377A4C284A3DB400B7B201 /* ApiRequest.swift in Sources */,
+				FA503D40284B658100DF7C59 /* ASTextNode+Rx.swift in Sources */,
 				FA377A48284A3DB400B7B201 /* ApiClient.swift in Sources */,
 				FA377A5C284A3DB500B7B201 /* AppTheme.swift in Sources */,
 				FA377A7D284A3DB500B7B201 /* BalanceReceiveOperation.swift in Sources */,
+				FA503D3A284B658100DF7C59 /* ASButtonNode+Rx.swift in Sources */,
 				FA377A92284A3DB500B7B201 /* Response.swift in Sources */,
 				FA377A96284A3DB500B7B201 /* CurrencyExchange.swift in Sources */,
 				FA377A57284A3DB500B7B201 /* AbstractLocalStorageIntereactor.swift in Sources */,
+				FA503D38284B658100DF7C59 /* ASBinder.swift in Sources */,
 				FA377A4F284A3DB400B7B201 /* AbstractDownloader.swift in Sources */,
+				FA503D36284B658100DF7C59 /* ASImageNode+Rx.swift in Sources */,
 				FA377A65284A3DB500B7B201 /* Currency.swift in Sources */,
 				FA377A76284A3DB500B7B201 /* ComissionPolicy.swift in Sources */,
 				FA377A89284A3DB500B7B201 /* CellConfiguratorFactory.swift in Sources */,
+				FA503D3C284B658100DF7C59 /* ASDisplayNode+Rx.swift in Sources */,
 				FA377A95284A3DB500B7B201 /* BalanceDependency.swift in Sources */,
 				FA377A50284A3DB400B7B201 /* DownloaderClient.swift in Sources */,
+				FA503D35284B658100DF7C59 /* ASEditableTextNode+Rx.swift in Sources */,
 				FA377A6A284A3DB500B7B201 /* UIColor+Extension.swift in Sources */,
 				FA377A71284A3DB500B7B201 /* Codable+Extension.swift in Sources */,
 				FA377A75284A3DB500B7B201 /* ComissionCalculator.swift in Sources */,
 				FA377A98284A3DB500B7B201 /* CurrencyApiRequest.swift in Sources */,
 				FA377A6E284A3DB500B7B201 /* UINavigationController+Extension.swift in Sources */,
+				FA503D3B284B658100DF7C59 /* ASControlTarget.swift in Sources */,
 				FA377A51284A3DB500B7B201 /* AbstractDownloaderClient.swift in Sources */,
 				FA377A54284A3DB500B7B201 /* AbstractDatabaseClient.swift in Sources */,
 				FA377A7E284A3DB500B7B201 /* BalanceSellOperation.swift in Sources */,
