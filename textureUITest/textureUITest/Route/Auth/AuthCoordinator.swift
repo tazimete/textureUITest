@@ -26,6 +26,7 @@ class AuthCoordinator: Coordinator {
         
         let viewModel = MyBalanceViewModel(usecase: usecase, commissionCalculator: commissionCalculator, balanceExecutor: balanceExecutor)
         let vc = AuthViewController(viewModel: viewModel)
+        vc.coordinator = self 
         
         navigationController.pushViewController(vc, animated: true)
     }

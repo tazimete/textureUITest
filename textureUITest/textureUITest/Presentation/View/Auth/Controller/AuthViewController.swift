@@ -11,7 +11,7 @@ import RxCocoa
 import AsyncDisplayKit
 
 class AuthViewController: BaseViewController {
-    var coordinator: AuthCoordinator?
+    weak var coordinator: AuthCoordinator?
     
     let emailField: ASEditableTextNode = {
         let node = ASEditableTextNode()
@@ -126,9 +126,9 @@ class AuthViewController: BaseViewController {
     
     override func addActionsToSubviews() {
         // did tap submit button
-        loginButton.rx.tap.subscribe(onNext: { [weak self] in
+        loginButton.rx.tap.bind { [weak self] in
             self?.coordinator?.navigateRepositoryScreen()
-        }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
     }
     
     override func bindViewModel() {
