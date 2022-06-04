@@ -112,6 +112,7 @@
 		FA503D41284B658100DF7C59 /* ASControlNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D32284B658100DF7C59 /* ASControlNode+Rx.swift */; };
 		FAA86690284BDC700071D556 /* RepositoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */; };
 		FAA86694284BDF290071D556 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86693284BDF290071D556 /* RepositoryViewController.swift */; };
+		FAA86698284C13D10071D556 /* CardCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86697284C13D10071D556 /* CardCellNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +248,7 @@
 		FA503D32284B658100DF7C59 /* ASControlNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASControlNode+Rx.swift"; sourceTree = "<group>"; };
 		FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCoordinator.swift; sourceTree = "<group>"; };
 		FAA86693284BDF290071D556 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
+		FAA86697284C13D10071D556 /* CardCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -994,6 +996,7 @@
 		FAA86696284BDF4C0071D556 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				FAA86697284C13D10071D556 /* CardCellNode.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1238,6 +1241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA377A5E284A3DB500B7B201 /* AppConfig.swift in Sources */,
+				FAA86698284C13D10071D556 /* CardCellNode.swift in Sources */,
 				FA377A6C284A3DB500B7B201 /* UILabel+Extension.swift in Sources */,
 				FA503D3F284B658100DF7C59 /* Driver+ASSubscription.swift in Sources */,
 				FA377A9B284A3DB500B7B201 /* Coordinator.swift in Sources */,
