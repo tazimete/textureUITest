@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import AsyncDisplayKit
+import SafariServices
 
 class AuthViewController: BaseViewController {
     weak var coordinator: AuthCoordinator?
@@ -127,7 +128,8 @@ class AuthViewController: BaseViewController {
     override func addActionsToSubviews() {
         // did tap submit button
         loginButton.rx.tap.bind { [weak self] in
-            self?.coordinator?.navigateRepositoryScreen()
+            self?.authenticateUser()
+//            self?.coordinator?.navigateRepositoryScreen()
         }.disposed(by: disposeBag)
     }
     
@@ -135,6 +137,16 @@ class AuthViewController: BaseViewController {
         AppLogger.info("conversionCount == \(UserSessionDataClient.shared.conversionCount)")
     }
     
+    //MARK: Authentication Process
+    func authenticateUser() {
+        guard let url = URL(string: "https://github.com/login/oauth/authorize?state=state&redirect_uri=it.iacopo.github://authentication&scope=repo%20user&client_id=fd2d97030f7ca8dfe654") else {
+            return
+        }
+        
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.modalPresentationStyle = .fullScreen
+        present(safariVC, animated: true, completion: nil)
+    }
     
     // MARK: DIALOG VIEW
     private func showAlertDialog(title: String, message: String) {
