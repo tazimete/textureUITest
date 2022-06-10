@@ -10,22 +10,18 @@ import Foundation
 let scheme = "it.iacopo.github"
 
 enum DeepLink: Hashable {
+    enum DeepLinkScheme: String {
+        case OAuth = "it.iacopo.github://authentication"
+    }
+    
     case oAuth(URL)
     
     init?(url: URL) {
-        let authLinkToDeepLink: (URL) -> DeepLink = { .oAuth($0) }
-        
-        let deepLinkMap: [String: (URL) -> DeepLink] = [
-            "\(scheme)://authentication": authLinkToDeepLink
-        ]
-        
-        let deepLink = deepLinkMap.first(where: { url.absoluteString.hasPrefix($0.key) })?.value
-        
-        switch deepLink {
-        case .some(let urlToDeepLink):
-            self = urlToDeepLink(url)
-        default:
-            return nil
+        switch url.absoluteString.components(separatedBy: "?")[0] {
+            case DeepLinkScheme.OAuth.rawValue :
+                self = .oAuth(url)
+            default:
+                return nil
         }
     }
     
