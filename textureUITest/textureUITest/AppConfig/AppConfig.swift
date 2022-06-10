@@ -20,65 +20,75 @@ public class AppConfig {
         self.builder = builder
     }
 
-    public func getServerConfig() -> ServerConfig {
+    func getServerConfig() -> ServerConfig {
         return self.builder.serverConfig
     }
 
-    public func getLocal() -> String {
+    func getLocal() -> String {
         return self.builder.local
     }
 
-    public func getTheme() -> AppTheme {
+    func getTheme() -> AppTheme {
         return self.builder.theme
     }
 
-    public func getThemeType() -> ThemeType {
+    func getThemeType() -> ThemeType {
         return self.builder.themeType
     }
 
-    public func getBuildType() -> BuildType {
+    func getBuildType() -> BuildType {
         return self.builder.buildType
+    }
+    
+    func getDeeplinkHandler() -> DeepLinkHandler {
+        return self.builder.deepLinkHandler
     }
 
 
-    public class Builder{
+    class Builder{
         var local: String!
         var serverConfig: ServerConfig!
         var theme: AppTheme!
         var themeType: ThemeType!
         var buildType: BuildType!
+        var deepLinkHandler: DeepLinkHandler!
 
-        public func setServerConfig(serverConfig: ServerConfig) -> Builder{
+        func setServerConfig(serverConfig: ServerConfig) -> Builder{
             self.serverConfig = serverConfig
             return self
         }
 
-        public func setThemeType(themeType: ThemeType) -> Builder{
+        func setThemeType(themeType: ThemeType) -> Builder{
             self.themeType = themeType
             return self
         }
 
-        public func addBuildType(buildType: BuildType) -> Builder{
+        func setBuildType(buildType: BuildType) -> Builder{
             self.buildType = buildType
             return  self
         }
 
-        public func setNormalTheme(theme: AppTheme) -> Builder{
+        func setNormalTheme(theme: AppTheme) -> Builder{
             self.theme = theme
             return self
         }
 
-        public func setDarkTheme(theme: AppTheme) -> Builder{
+        func setDarkTheme(theme: AppTheme) -> Builder{
             self.theme = theme
             return self
         }
 
-        public func setLocale(local: String) -> Builder{
+        func setLocale(local: String) -> Builder{
             self.local = local
             return self
         }
+        
+        func setDeeplinkHandler(handler: DeepLinkHandler) -> Builder{
+            self.deepLinkHandler = handler
+            return self
+        }
 
-        public func commit() {
+        func commit() {
             AppConfig.shared.builder = self
         }
     }

@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let serverConfig = ServerConfig.Builder()
             .addBaseUrl(baseUrl: "http://api.evp.lt")
             .addApiVersion(apiVersion: "3")
-            .addAuthCredential(credential: AuthCredential(apiKey: ""))
+            .addAuthCredential(credential: AuthCredential())
             .addMediaBaseUrl(mediaBaseUrl: "")
             .addBuildType(buildType: .DEVELOP)
             .build()
@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .setNormalTheme(theme: theme)
             .setDarkTheme(theme: theme)
             .setLocale(local: "en")
+            .setDeeplinkHandler(handler: DeepLinkHandler())
             .commit()
     }
 

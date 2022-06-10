@@ -114,6 +114,7 @@
 		FAA86694284BDF290071D556 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86693284BDF290071D556 /* RepositoryViewController.swift */; };
 		FAA86698284C13D10071D556 /* CardCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86697284C13D10071D556 /* CardCellNode.swift */; };
 		FAD576D72852A51100E46632 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD576D62852A51100E46632 /* DeepLinkHandler.swift */; };
+		FADF774A2853C319004DFF44 /* AuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF77492853C318004DFF44 /* AuthCredential.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,6 +252,7 @@
 		FAA86693284BDF290071D556 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		FAA86697284C13D10071D556 /* CardCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellNode.swift; sourceTree = "<group>"; };
 		FAD576D62852A51100E46632 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		FADF77492853C318004DFF44 /* AuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredential.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +503,8 @@
 				FA3779D4284A3DB200B7B201 /* AppTheme.swift */,
 				FA3779D5284A3DB200B7B201 /* ConfigComponents.swift */,
 				FA3779D6284A3DB200B7B201 /* AppConfig.swift */,
+				FAD576D62852A51100E46632 /* DeepLinkHandler.swift */,
+				FADF77492853C318004DFF44 /* AuthCredential.swift */,
 			);
 			path = AppConfig;
 			sourceTree = "<group>";
@@ -904,7 +908,6 @@
 		FA377A40284A3DB400B7B201 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				FAD576D52852A4FB00E46632 /* DeepLink */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1002,14 +1005,6 @@
 				FAA86697284C13D10071D556 /* CardCellNode.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		FAD576D52852A4FB00E46632 /* DeepLink */ = {
-			isa = PBXGroup;
-			children = (
-				FAD576D62852A51100E46632 /* DeepLinkHandler.swift */,
-			);
-			path = DeepLink;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1288,6 +1283,7 @@
 				FA377A8C284A3DB500B7B201 /* CGFloat+Extension.swift in Sources */,
 				FA377A94284A3DB500B7B201 /* Balance.swift in Sources */,
 				FA377A49284A3DB400B7B201 /* Parameterizable.swift in Sources */,
+				FADF774A2853C319004DFF44 /* AuthCredential.swift in Sources */,
 				FA377A83284A3DB500B7B201 /* AuthViewController.swift in Sources */,
 				FA377A69284A3DB500B7B201 /* UIImageView+Extension.swift in Sources */,
 				FA377A5B284A3DB500B7B201 /* ServerConfig.swift in Sources */,
