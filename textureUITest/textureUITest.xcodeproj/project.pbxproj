@@ -115,6 +115,10 @@
 		FAA86698284C13D10071D556 /* CardCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86697284C13D10071D556 /* CardCellNode.swift */; };
 		FAD576D72852A51100E46632 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD576D62852A51100E46632 /* DeepLinkHandler.swift */; };
 		FADF774A2853C319004DFF44 /* AuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF77492853C318004DFF44 /* AuthCredential.swift */; };
+		FADF774D2853F771004DFF44 /* Abstractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF774C2853F771004DFF44 /* Abstractions.swift */; };
+		FADF774F2853F790004DFF44 /* DeepLinkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF774E2853F790004DFF44 /* DeepLinkCoordinator.swift */; };
+		FADF77512853F840004DFF44 /* AuthDeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF77502853F840004DFF44 /* AuthDeepLinkHandler.swift */; };
+		FADF77552853F8C6004DFF44 /* DeepLinkScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF77542853F8C6004DFF44 /* DeepLinkScheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +257,10 @@
 		FAA86697284C13D10071D556 /* CardCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellNode.swift; sourceTree = "<group>"; };
 		FAD576D62852A51100E46632 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		FADF77492853C318004DFF44 /* AuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredential.swift; sourceTree = "<group>"; };
+		FADF774C2853F771004DFF44 /* Abstractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abstractions.swift; sourceTree = "<group>"; };
+		FADF774E2853F790004DFF44 /* DeepLinkCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkCoordinator.swift; sourceTree = "<group>"; };
+		FADF77502853F840004DFF44 /* AuthDeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDeepLinkHandler.swift; sourceTree = "<group>"; };
+		FADF77542853F8C6004DFF44 /* DeepLinkScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -512,6 +520,7 @@
 		FA3779D7284A3DB200B7B201 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				FADF774B2853F758004DFF44 /* DeepLink */,
 				FA3779D8284A3DB200B7B201 /* DataSource */,
 				FA3779DE284A3DB200B7B201 /* Repository */,
 				FA3779E2284A3DB200B7B201 /* Entity */,
@@ -1007,6 +1016,41 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		FADF774B2853F758004DFF44 /* DeepLink */ = {
+			isa = PBXGroup;
+			children = (
+				FADF77562853F8F5004DFF44 /* Coordinator */,
+				FADF77532853F89F004DFF44 /* Schemes */,
+				FADF77522853F853004DFF44 /* Handlers */,
+			);
+			path = DeepLink;
+			sourceTree = "<group>";
+		};
+		FADF77522853F853004DFF44 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				FADF77502853F840004DFF44 /* AuthDeepLinkHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		FADF77532853F89F004DFF44 /* Schemes */ = {
+			isa = PBXGroup;
+			children = (
+				FADF77542853F8C6004DFF44 /* DeepLinkScheme.swift */,
+			);
+			path = Schemes;
+			sourceTree = "<group>";
+		};
+		FADF77562853F8F5004DFF44 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FADF774C2853F771004DFF44 /* Abstractions.swift */,
+				FADF774E2853F790004DFF44 /* DeepLinkCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1275,6 +1319,7 @@
 				FA377A86284A3DB500B7B201 /* AppLogger.swift in Sources */,
 				FA377A62284A3DB500B7B201 /* AbstractionRemoteDataSource.swift in Sources */,
 				FA377A59284A3DB500B7B201 /* KVLocalStorage.swift in Sources */,
+				FADF77552853F8C6004DFF44 /* DeepLinkScheme.swift in Sources */,
 				FA377A97284A3DB500B7B201 /* CurrencyConverterParams.swift in Sources */,
 				FA377A70284A3DB500B7B201 /* Optional+Extensions.swift in Sources */,
 				FA377A6D284A3DB500B7B201 /* UIImage+Extension.swift in Sources */,
@@ -1299,10 +1344,12 @@
 				FAD576D72852A51100E46632 /* DeepLinkHandler.swift in Sources */,
 				FA377A79284A3DB500B7B201 /* EveryTenthComissionPolicy.swift in Sources */,
 				FA377A84284A3DB500B7B201 /* SearchCellViewModel.swift in Sources */,
+				FADF774F2853F790004DFF44 /* DeepLinkCoordinator.swift in Sources */,
 				FA377A7F284A3DB500B7B201 /* BalanceCheckOpration.swift in Sources */,
 				FA377A91284A3DB500B7B201 /* CurrencyRepository.swift in Sources */,
 				FA377A78284A3DB500B7B201 /* FirstFiveConversionComissionPolicy.swift in Sources */,
 				FA377A85284A3DB500B7B201 /* BalanceItemCell.swift in Sources */,
+				FADF77512853F840004DFF44 /* AuthDeepLinkHandler.swift in Sources */,
 				FA377A93284A3DB500B7B201 /* EntityFactory.swift in Sources */,
 				FA377A64284A3DB500B7B201 /* AbstractCurrencyRepository.swift in Sources */,
 				FA377A8E284A3DB500B7B201 /* SceneDelegate.swift in Sources */,
@@ -1320,6 +1367,7 @@
 				FA503D40284B658100DF7C59 /* ASTextNode+Rx.swift in Sources */,
 				FA377A48284A3DB400B7B201 /* ApiClient.swift in Sources */,
 				FA377A5C284A3DB500B7B201 /* AppTheme.swift in Sources */,
+				FADF774D2853F771004DFF44 /* Abstractions.swift in Sources */,
 				FA377A7D284A3DB500B7B201 /* BalanceReceiveOperation.swift in Sources */,
 				FA503D3A284B658100DF7C59 /* ASButtonNode+Rx.swift in Sources */,
 				FA377A92284A3DB500B7B201 /* Response.swift in Sources */,

@@ -11,7 +11,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     public var rootCoordinator: AuthCoordinator!
-
+    lazy var deeplinkCoordinator: DeeplinkCoordinatorProtocol = {
+        return DeeplinkCoordinator(handlers: [
+            AuthDeepLinkHandler(rootViewController: rootCoordinator.navigationController.viewControllers.first)
+        ])
+    }()
+    
+    var rootViewController: UIViewController? {
+        return window?.rootViewController
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -23,10 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         if let urlContext = URLContexts.first {
-            let url = urlContext.url
-            if let deepLink = DeepLink(url: url) {
-//                dependencyContainer.deepLinkHandler.handleDeepLinkIfPossible(deepLink: deepLink)
-            }
+            deeplinkCoordinator.handleURL(urlContext.url)
         }
     }
 

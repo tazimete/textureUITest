@@ -8,34 +8,19 @@
 import Foundation
 
 class AuthCredential{
-    var redirectUri = URL(string: "it.iacopo.github://authentication")!
-    var authorizationUrl = URL(string: "https://github.com/login/oauth/authorize")!
-    var tokenUrl = URL(string: "https://github.com/login/oauth/access_token")!
-    var clientId = "fd2d97030f7ca8dfe654"
-    var clientSecret = "c8d121ae90c1f70a5dfdbf37c083b6fe11a4ddb1"
-    var scopes = ["repo", "user"]
-
-    func addRedirectUri(uri: URL) {
-        self.redirectUri = uri
-    }
+    let redirectUri: URL?
+    let authorizationUrl: URL?
+    let tokenUrl: URL?
+    let clientId: String?
+    let clientSecret: String?
+    let scopes: [String]?
     
-    func addAuthorizationUrl(url: URL) {
-        self.authorizationUrl = url
-    }
-    
-    func addTokenUrl(url: URL) {
-        self.tokenUrl = url
-    }
-    
-    func addClientId(client: String) {
-        self.clientId = client
-    }
-    
-    func addClientSecret(clientSecret: String) {
+    init(redirectUri: URL? = nil, authorizationUrl: URL? = nil, tokenUrl: URL? = nil, clientId: String? = nil, clientSecret: String? = nil, scopes: [String]? = nil) {
+        self.redirectUri = redirectUri
+        self.authorizationUrl = authorizationUrl
+        self.tokenUrl = tokenUrl
+        self.clientId = clientId
         self.clientSecret = clientSecret
-    }
-    
-    func addPermissionScopes(scopes: [String]) {
         self.scopes = scopes
     }
 }
