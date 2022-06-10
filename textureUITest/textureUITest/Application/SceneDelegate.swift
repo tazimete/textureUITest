@@ -10,13 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    public var rootCoordinator: AuthCoordinator!
-    lazy var deeplinkCoordinator: DeeplinkCoordinatorProtocol = {
-        return DeeplinkCoordinator(handlers: [
-            AuthDeepLinkHandler(rootViewController: rootCoordinator.navigationController.viewControllers.first)
-        ])
-    }()
-    
+    var rootCoordinator: AuthCoordinator!
     var rootViewController: UIViewController? {
         return window?.rootViewController
     }
@@ -31,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         if let urlContext = URLContexts.first {
-            deeplinkCoordinator.handleURL(urlContext.url)
+            AppConfig.shared.getDeepLinkCoordinator().handleURL(urlContext.url)
         }
     }
 
@@ -66,7 +60,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
-    private func initRootViewController(scene: UIScene) {
+    func buildAppConfig() -> Void {
+        let themeColors = Colors(primaryDark: .systemBlue, primaryLight: .systemOrange, secondaryDark: .black, secondaryLight: .systemBlue, textColorDark: .black, textColorLight: .white, primaryBackgroundColor: .white, secondaryBackgroundColor: .blue, disabledTextColor: .lightGray, whiteTransparentColor: .init(white: 1, alpha: 0.5))
+        
+        let themeFonts = Fonts()
+        
+        let theme = AppTheme.Builder()
+            .addColors(colors: themeColors)
+            .addFonts(fonts: themeFonts)
+            .build()
+
+        let authConfig = AuthCredential(redirectUri: URL(string: "it.iacopo.github://authentication"), authorizationUrl: URL(string: "https://github.com/login/oauth/authorize"), tokenUrl: URL(string: "https://github.com/login/oauth/access_token"), clientId: "fd2d97030f7ca8dfe654", clientSecret: "c8d121ae90c1f70a5dfdbf37c083b6fe11a4ddb1", scopes: ["repo", "user"])
+        
+        //server/api config builder
+        let serverConfig = ServerConfig.Builder()
+            .addBaseUrl(baseUrl: "http://api.evp.lt")
+            .addApiVersion(apiVersion: "3")
+            .addAuthCredential(credential: authConfig)
+            .addMediaBaseUrl(mediaBaseUrl: "")
+            .addBuildType(buildType: .DEVELOP)
+            .build()
+
+        let deeplinkCoordinator = DeeplinkCoordinator(handlers: [AuthDeepLinkHandler(rootViewController: rootCoordinator.navigationController.viewControllers.first as! BaseViewController)])
+        
+        //Singleton with builder, commit-> no return
+        AppConfig.Builder()
+            .setServerConfig(serverConfig: serverConfig)
+            .setThemeType(themeType: .NORMAL)
+            .setNormalTheme(theme: theme)
+            .setDarkTheme(theme: theme)
+            .setLocale(local: "en")
+            .setDeepLinkCoordinator(coordinator: deeplinkCoordinator)
+            .commit()
+    }
+    
+    func initRootViewController(scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
 

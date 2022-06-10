@@ -13,6 +13,7 @@ import SafariServices
 
 class AuthViewController: BaseViewController {
     weak var coordinator: AuthCoordinator?
+//    var authViewModel
     
     let emailField: ASEditableTextNode = {
         let node = ASEditableTextNode()
@@ -146,6 +147,10 @@ class AuthViewController: BaseViewController {
         let safariVC = SFSafariViewController(url: url)
         safariVC.modalPresentationStyle = .fullScreen
         present(safariVC, animated: true, completion: nil)
+    }
+    
+    func receivedAuthCallback(url: URL) {
+        presentedViewController?.dismiss(animated: true)
     }
     
     // MARK: DIALOG VIEW

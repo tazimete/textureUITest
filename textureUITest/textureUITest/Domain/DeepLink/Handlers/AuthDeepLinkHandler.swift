@@ -9,8 +9,8 @@ import UIKit
 
 final class AuthDeepLinkHandler: DeeplinkHandlerProtocol {
     
-    private weak var rootViewController: UIViewController?
-    init(rootViewController: UIViewController?) {
+    private weak var rootViewController: BaseViewController?
+    init(rootViewController: BaseViewController?) {
         self.rootViewController = rootViewController
     }
     
@@ -25,6 +25,7 @@ final class AuthDeepLinkHandler: DeeplinkHandlerProtocol {
             return
         }
         
-        
+        let vc = rootViewController as? AuthViewController
+        vc?.receivedAuthCallback(url: url)
     }
 }

@@ -40,8 +40,8 @@ public class AppConfig {
         return self.builder.buildType
     }
     
-    func getDeeplinkHandler() -> DeepLinkHandler {
-        return self.builder.deepLinkHandler
+    func getDeepLinkCoordinator() -> DeeplinkCoordinator {
+        return self.builder.deepLinkCoordinator
     }
 
 
@@ -51,7 +51,7 @@ public class AppConfig {
         var theme: AppTheme!
         var themeType: ThemeType!
         var buildType: BuildType!
-        var deepLinkHandler: DeepLinkHandler!
+        var deepLinkCoordinator: DeeplinkCoordinator!
 
         func setServerConfig(serverConfig: ServerConfig) -> Builder{
             self.serverConfig = serverConfig
@@ -83,8 +83,8 @@ public class AppConfig {
             return self
         }
         
-        func setDeeplinkHandler(handler: DeepLinkHandler) -> Builder{
-            self.deepLinkHandler = handler
+        func setDeepLinkCoordinator(coordinator: DeeplinkCoordinator) -> Builder{
+            self.deepLinkCoordinator = coordinator
             return self
         }
 
