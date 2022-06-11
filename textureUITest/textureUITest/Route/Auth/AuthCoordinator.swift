@@ -20,11 +20,7 @@ class AuthCoordinator: Coordinator {
         
         let usecase = CurrencyUsecase(repository: repository)
         
-        let commissionCalculator = ComissionCalculator(commissionOptions: ComissionDependency.shared, policies: [FirstFiveConversionComissionPolicy(commissionOptions: ComissionDependency.shared), EveryTenthComissionPolicy(commissionOptions: ComissionDependency.shared), UpToTwoHundredPolicy(commissionOptions: ComissionDependency.shared)])
-        
-        let balanceExecutor = BalanceOperationExecutor(operation: BalanceCheckOperation())
-        
-        let viewModel = MyBalanceViewModel(usecase: usecase, commissionCalculator: commissionCalculator, balanceExecutor: balanceExecutor)
+        let viewModel = AuthViewModel(usecase: usecase)
         let vc = AuthViewController(viewModel: viewModel)
         vc.coordinator = self 
         

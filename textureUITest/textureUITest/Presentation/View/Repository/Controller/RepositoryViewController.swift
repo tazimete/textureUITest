@@ -15,7 +15,7 @@ class RepositoryViewController: BaseViewController {
     var tableNode: ASTableNode!
     
     // MARK: Constructors
-    init(viewModel: MyBalanceViewModel) {
+    init(viewModel: AuthViewModel) {
         super.init(viewModel: viewModel)
         self.viewModel = viewModel
         let tableNode = ASTableNode(style: .plain)

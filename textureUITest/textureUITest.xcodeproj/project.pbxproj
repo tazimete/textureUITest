@@ -59,18 +59,7 @@
 		FA377A71284A3DB500B7B201 /* Codable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779F3284A3DB300B7B201 /* Codable+Extension.swift */; };
 		FA377A72284A3DB500B7B201 /* AbstractMyBalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779F8284A3DB300B7B201 /* AbstractMyBalanceViewModel.swift */; };
 		FA377A73284A3DB500B7B201 /* AbstractViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779F9284A3DB300B7B201 /* AbstractViewModel.swift */; };
-		FA377A74284A3DB500B7B201 /* MyBalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779FB284A3DB300B7B201 /* MyBalanceViewModel.swift */; };
-		FA377A75284A3DB500B7B201 /* ComissionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779FE284A3DB300B7B201 /* ComissionCalculator.swift */; };
-		FA377A76284A3DB500B7B201 /* ComissionPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779FF284A3DB300B7B201 /* ComissionPolicy.swift */; };
-		FA377A77284A3DB500B7B201 /* ComissionDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A00284A3DB300B7B201 /* ComissionDependency.swift */; };
-		FA377A78284A3DB500B7B201 /* FirstFiveConversionComissionPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A02284A3DB300B7B201 /* FirstFiveConversionComissionPolicy.swift */; };
-		FA377A79284A3DB500B7B201 /* EveryTenthComissionPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A03284A3DB300B7B201 /* EveryTenthComissionPolicy.swift */; };
-		FA377A7A284A3DB500B7B201 /* UpToTwoHundredPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A04284A3DB300B7B201 /* UpToTwoHundredPolicy.swift */; };
-		FA377A7B284A3DB500B7B201 /* BalanceOperationExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A06284A3DB300B7B201 /* BalanceOperationExecutor.swift */; };
-		FA377A7C284A3DB500B7B201 /* BalanceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A08284A3DB300B7B201 /* BalanceOperation.swift */; };
-		FA377A7D284A3DB500B7B201 /* BalanceReceiveOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A09284A3DB300B7B201 /* BalanceReceiveOperation.swift */; };
-		FA377A7E284A3DB500B7B201 /* BalanceSellOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A0A284A3DB300B7B201 /* BalanceSellOperation.swift */; };
-		FA377A7F284A3DB500B7B201 /* BalanceCheckOpration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A0B284A3DB300B7B201 /* BalanceCheckOpration.swift */; };
+		FA377A74284A3DB500B7B201 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779FB284A3DB300B7B201 /* AuthViewModel.swift */; };
 		FA377A80284A3DB500B7B201 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA377A0D284A3DB300B7B201 /* LaunchScreen.storyboard */; };
 		FA377A81284A3DB500B7B201 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA377A0F284A3DB300B7B201 /* Main.storyboard */; };
 		FA377A82284A3DB500B7B201 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A12284A3DB300B7B201 /* BaseViewController.swift */; };
@@ -201,18 +190,7 @@
 		FA3779F3284A3DB300B7B201 /* Codable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codable+Extension.swift"; sourceTree = "<group>"; };
 		FA3779F8284A3DB300B7B201 /* AbstractMyBalanceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractMyBalanceViewModel.swift; sourceTree = "<group>"; };
 		FA3779F9284A3DB300B7B201 /* AbstractViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractViewModel.swift; sourceTree = "<group>"; };
-		FA3779FB284A3DB300B7B201 /* MyBalanceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBalanceViewModel.swift; sourceTree = "<group>"; };
-		FA3779FE284A3DB300B7B201 /* ComissionCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComissionCalculator.swift; sourceTree = "<group>"; };
-		FA3779FF284A3DB300B7B201 /* ComissionPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComissionPolicy.swift; sourceTree = "<group>"; };
-		FA377A00284A3DB300B7B201 /* ComissionDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComissionDependency.swift; sourceTree = "<group>"; };
-		FA377A02284A3DB300B7B201 /* FirstFiveConversionComissionPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstFiveConversionComissionPolicy.swift; sourceTree = "<group>"; };
-		FA377A03284A3DB300B7B201 /* EveryTenthComissionPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EveryTenthComissionPolicy.swift; sourceTree = "<group>"; };
-		FA377A04284A3DB300B7B201 /* UpToTwoHundredPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpToTwoHundredPolicy.swift; sourceTree = "<group>"; };
-		FA377A06284A3DB300B7B201 /* BalanceOperationExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceOperationExecutor.swift; sourceTree = "<group>"; };
-		FA377A08284A3DB300B7B201 /* BalanceOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceOperation.swift; sourceTree = "<group>"; };
-		FA377A09284A3DB300B7B201 /* BalanceReceiveOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceReceiveOperation.swift; sourceTree = "<group>"; };
-		FA377A0A284A3DB300B7B201 /* BalanceSellOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceSellOperation.swift; sourceTree = "<group>"; };
-		FA377A0B284A3DB300B7B201 /* BalanceCheckOpration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceCheckOpration.swift; sourceTree = "<group>"; };
+		FA3779FB284A3DB300B7B201 /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		FA377A0E284A3DB300B7B201 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA377A0F284A3DB300B7B201 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA377A12284A3DB300B7B201 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -629,8 +607,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3779F6284A3DB300B7B201 /* Abstraction */,
-				FA3779FA284A3DB300B7B201 /* MyBalance */,
-				FA3779FC284A3DB300B7B201 /* Utility */,
+				FA3779FA284A3DB300B7B201 /* Auth */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -652,62 +629,12 @@
 			path = MyBalance;
 			sourceTree = "<group>";
 		};
-		FA3779FA284A3DB300B7B201 /* MyBalance */ = {
+		FA3779FA284A3DB300B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA3779FB284A3DB300B7B201 /* MyBalanceViewModel.swift */,
+				FA3779FB284A3DB300B7B201 /* AuthViewModel.swift */,
 			);
-			path = MyBalance;
-			sourceTree = "<group>";
-		};
-		FA3779FC284A3DB300B7B201 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				FA3779FD284A3DB300B7B201 /* CommissionCalculator */,
-				FA377A05284A3DB300B7B201 /* BalanceExecutor */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
-		FA3779FD284A3DB300B7B201 /* CommissionCalculator */ = {
-			isa = PBXGroup;
-			children = (
-				FA3779FE284A3DB300B7B201 /* ComissionCalculator.swift */,
-				FA3779FF284A3DB300B7B201 /* ComissionPolicy.swift */,
-				FA377A00284A3DB300B7B201 /* ComissionDependency.swift */,
-				FA377A01284A3DB300B7B201 /* Policy */,
-			);
-			path = CommissionCalculator;
-			sourceTree = "<group>";
-		};
-		FA377A01284A3DB300B7B201 /* Policy */ = {
-			isa = PBXGroup;
-			children = (
-				FA377A02284A3DB300B7B201 /* FirstFiveConversionComissionPolicy.swift */,
-				FA377A03284A3DB300B7B201 /* EveryTenthComissionPolicy.swift */,
-				FA377A04284A3DB300B7B201 /* UpToTwoHundredPolicy.swift */,
-			);
-			path = Policy;
-			sourceTree = "<group>";
-		};
-		FA377A05284A3DB300B7B201 /* BalanceExecutor */ = {
-			isa = PBXGroup;
-			children = (
-				FA377A06284A3DB300B7B201 /* BalanceOperationExecutor.swift */,
-				FA377A07284A3DB300B7B201 /* Operations */,
-			);
-			path = BalanceExecutor;
-			sourceTree = "<group>";
-		};
-		FA377A07284A3DB300B7B201 /* Operations */ = {
-			isa = PBXGroup;
-			children = (
-				FA377A08284A3DB300B7B201 /* BalanceOperation.swift */,
-				FA377A09284A3DB300B7B201 /* BalanceReceiveOperation.swift */,
-				FA377A0A284A3DB300B7B201 /* BalanceSellOperation.swift */,
-				FA377A0B284A3DB300B7B201 /* BalanceCheckOpration.swift */,
-			);
-			path = Operations;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA377A0C284A3DB300B7B201 /* Storyboard */ = {
@@ -1303,7 +1230,6 @@
 				FA503D41284B658100DF7C59 /* ASControlNode+Rx.swift in Sources */,
 				FA377A55284A3DB500B7B201 /* KVLocalSorageIntereactor.swift in Sources */,
 				FA377A58284A3DB500B7B201 /* UserSessionDataClient.swift in Sources */,
-				FA377A7B284A3DB500B7B201 /* BalanceOperationExecutor.swift in Sources */,
 				FA377A88284A3DB500B7B201 /* GenericCellComponents.swift in Sources */,
 				FA377A56284A3DB500B7B201 /* AbstractUserSessionDataClient.swift in Sources */,
 				FA377A4B284A3DB400B7B201 /* QueueManager.swift in Sources */,
@@ -1323,7 +1249,6 @@
 				FA377A97284A3DB500B7B201 /* CurrencyConverterParams.swift in Sources */,
 				FA377A70284A3DB500B7B201 /* Optional+Extensions.swift in Sources */,
 				FA377A6D284A3DB500B7B201 /* UIImage+Extension.swift in Sources */,
-				FA377A7C284A3DB500B7B201 /* BalanceOperation.swift in Sources */,
 				FAA86690284BDC700071D556 /* RepositoryCoordinator.swift in Sources */,
 				FA377A8C284A3DB500B7B201 /* CGFloat+Extension.swift in Sources */,
 				FA377A94284A3DB500B7B201 /* Balance.swift in Sources */,
@@ -1332,7 +1257,7 @@
 				FA377A83284A3DB500B7B201 /* AuthViewController.swift in Sources */,
 				FA377A69284A3DB500B7B201 /* UIImageView+Extension.swift in Sources */,
 				FA377A5B284A3DB500B7B201 /* ServerConfig.swift in Sources */,
-				FA377A74284A3DB500B7B201 /* MyBalanceViewModel.swift in Sources */,
+				FA377A74284A3DB500B7B201 /* AuthViewModel.swift in Sources */,
 				FA377A46284A3DB400B7B201 /* AbstractURLSession.swift in Sources */,
 				FA377A99284A3DB500B7B201 /* CurrencyUsecase.swift in Sources */,
 				FA377A9A284A3DB500B7B201 /* AuthCoordinator.swift in Sources */,
@@ -1342,25 +1267,20 @@
 				FA377A6B284A3DB500B7B201 /* UIView+Extensions.swift in Sources */,
 				FA377A4A284A3DB400B7B201 /* NetworkOperation.swift in Sources */,
 				FAD576D72852A51100E46632 /* DeepLinkHandler.swift in Sources */,
-				FA377A79284A3DB500B7B201 /* EveryTenthComissionPolicy.swift in Sources */,
 				FA377A84284A3DB500B7B201 /* SearchCellViewModel.swift in Sources */,
 				FADF774F2853F790004DFF44 /* DeepLinkCoordinator.swift in Sources */,
-				FA377A7F284A3DB500B7B201 /* BalanceCheckOpration.swift in Sources */,
 				FA377A91284A3DB500B7B201 /* CurrencyRepository.swift in Sources */,
-				FA377A78284A3DB500B7B201 /* FirstFiveConversionComissionPolicy.swift in Sources */,
 				FA377A85284A3DB500B7B201 /* BalanceItemCell.swift in Sources */,
 				FADF77512853F840004DFF44 /* AuthDeepLinkHandler.swift in Sources */,
 				FA377A93284A3DB500B7B201 /* EntityFactory.swift in Sources */,
 				FA377A64284A3DB500B7B201 /* AbstractCurrencyRepository.swift in Sources */,
 				FA377A8E284A3DB500B7B201 /* SceneDelegate.swift in Sources */,
 				FA377A8F284A3DB500B7B201 /* CurrencyLocalDataSource.swift in Sources */,
-				FA377A77284A3DB500B7B201 /* ComissionDependency.swift in Sources */,
 				FA377A66284A3DB500B7B201 /* AbstractDataModel.swift in Sources */,
 				FA377A47284A3DB400B7B201 /* AbstractApiClient.swift in Sources */,
 				FA377A82284A3DB500B7B201 /* BaseViewController.swift in Sources */,
 				FA377A8D284A3DB500B7B201 /* AppDelegate.swift in Sources */,
 				FA377A67284A3DB500B7B201 /* AbstractCurrencyUsecase.swift in Sources */,
-				FA377A7A284A3DB500B7B201 /* UpToTwoHundredPolicy.swift in Sources */,
 				FA377A73284A3DB500B7B201 /* AbstractViewModel.swift in Sources */,
 				FA377A61284A3DB500B7B201 /* AbstractCurrencyRemoteDataSource.swift in Sources */,
 				FA377A4C284A3DB400B7B201 /* ApiRequest.swift in Sources */,
@@ -1368,7 +1288,6 @@
 				FA377A48284A3DB400B7B201 /* ApiClient.swift in Sources */,
 				FA377A5C284A3DB500B7B201 /* AppTheme.swift in Sources */,
 				FADF774D2853F771004DFF44 /* Abstractions.swift in Sources */,
-				FA377A7D284A3DB500B7B201 /* BalanceReceiveOperation.swift in Sources */,
 				FA503D3A284B658100DF7C59 /* ASButtonNode+Rx.swift in Sources */,
 				FA377A92284A3DB500B7B201 /* Response.swift in Sources */,
 				FA377A96284A3DB500B7B201 /* CurrencyExchange.swift in Sources */,
@@ -1377,7 +1296,6 @@
 				FA377A4F284A3DB400B7B201 /* AbstractDownloader.swift in Sources */,
 				FA503D36284B658100DF7C59 /* ASImageNode+Rx.swift in Sources */,
 				FA377A65284A3DB500B7B201 /* Currency.swift in Sources */,
-				FA377A76284A3DB500B7B201 /* ComissionPolicy.swift in Sources */,
 				FA377A89284A3DB500B7B201 /* CellConfiguratorFactory.swift in Sources */,
 				FA503D3C284B658100DF7C59 /* ASDisplayNode+Rx.swift in Sources */,
 				FA377A95284A3DB500B7B201 /* BalanceDependency.swift in Sources */,
@@ -1386,13 +1304,11 @@
 				FA377A6A284A3DB500B7B201 /* UIColor+Extension.swift in Sources */,
 				FA377A71284A3DB500B7B201 /* Codable+Extension.swift in Sources */,
 				FAA86694284BDF290071D556 /* RepositoryViewController.swift in Sources */,
-				FA377A75284A3DB500B7B201 /* ComissionCalculator.swift in Sources */,
 				FA377A98284A3DB500B7B201 /* CurrencyApiRequest.swift in Sources */,
 				FA377A6E284A3DB500B7B201 /* UINavigationController+Extension.swift in Sources */,
 				FA503D3B284B658100DF7C59 /* ASControlTarget.swift in Sources */,
 				FA377A51284A3DB500B7B201 /* AbstractDownloaderClient.swift in Sources */,
 				FA377A54284A3DB500B7B201 /* AbstractDatabaseClient.swift in Sources */,
-				FA377A7E284A3DB500B7B201 /* BalanceSellOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

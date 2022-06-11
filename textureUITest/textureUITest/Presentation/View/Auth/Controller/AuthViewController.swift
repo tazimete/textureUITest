@@ -80,7 +80,7 @@ class AuthViewController: BaseViewController {
     }()
     
     // MARK: Constructors
-    init(viewModel: MyBalanceViewModel) {
+    init(viewModel: AuthViewModel) {
         super.init(viewModel: viewModel)
         self.viewModel = viewModel
     }
