@@ -19,6 +19,8 @@ protocol AbstractAuthViewModel: AbstractViewModel {
     
     // Transform the auth input to output observable
     func getAuthOutput(input: AuthInput) -> AuthOutput
+    
+    func getToken(url: URL) -> Observable<UserApiRequest.ItemType>
 }
 
 

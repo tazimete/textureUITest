@@ -33,7 +33,7 @@ class ServerConfig {
         return self.builder.apiVersion
     }
 
-    func setAuthCredential() -> AuthCredential{
+    func getAuthCredential() -> AuthCredential{
         return self.builder.credential
     }
 

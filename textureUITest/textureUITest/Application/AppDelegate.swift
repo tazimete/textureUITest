@@ -61,8 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //server/api config builder
         let serverConfig = ServerConfig.Builder()
-            .addBaseUrl(baseUrl: "http://api.evp.lt")
-            .addApiVersion(apiVersion: "3")
+            .addBaseUrl(baseUrl: "https://api.github.com")
+            .addApiVersion(apiVersion: "")
             .addAuthCredential(credential: authConfig)
             .addMediaBaseUrl(mediaBaseUrl: "")
             .addBuildType(buildType: .DEVELOP)

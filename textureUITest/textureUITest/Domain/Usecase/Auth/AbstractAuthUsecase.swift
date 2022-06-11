@@ -10,5 +10,5 @@ import RxSwift
 
 /* This is Auth usecase abstraction extented from AbstractUsecase. Which will be used to get user auth related data from auth repository*/
 protocol AbstractAuthUsecase: AbstractUsecase {
-    func getToken(authCode: String) -> Observable<UserApiRequest.ItemType>
+    func getToken(url: URL) -> Observable<UserApiRequest.ItemType>
 }

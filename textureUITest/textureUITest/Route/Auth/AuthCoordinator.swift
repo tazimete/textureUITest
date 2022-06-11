@@ -1,5 +1,5 @@
 //
-//  HomeCoordinator.swift
+//  AuthCoordinator.swift
 //  currency-converter
 //
 //  Created by AGM Tazim on 3/26/22.
@@ -16,10 +16,13 @@ class AuthCoordinator: Coordinator {
     }
 
     func start() {
-        let repository = AuthRepository(localDataSource: AuthLocalDataSource(dbClient: DatabaseClient.shared), remoteDataSource: AuthRemoteDataSource(apiClient: ApiClient.shared))
+        let repository = AuthRepository(
+                localDataSource: AuthLocalDataSource(dbClient: DatabaseClient.shared),
+                remoteDataSource: AuthRemoteDataSource(apiClient: ApiClient.shared
+            )
+        )
         
         let usecase = AuthUsecase(repository: repository)
-        
         let viewModel = AuthViewModel(usecase: usecase)
         let vc = AuthViewController(viewModel: viewModel)
         vc.coordinator = self 

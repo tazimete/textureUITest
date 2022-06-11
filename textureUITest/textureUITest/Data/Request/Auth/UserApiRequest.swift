@@ -13,7 +13,7 @@ enum UserApiRequest {
 
 extension UserApiRequest: APIRequest {
     public var baseURL: URL {
-        let url =  "\(AppConfig.shared.getServerConfig().getBaseUrl())"
+        let url =  (AppConfig.shared.getServerConfig().getAuthCredential().tokenUrl?.absoluteString).unwrappedValue
         return URL(string: url)!
     }
     

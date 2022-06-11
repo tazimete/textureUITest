@@ -16,7 +16,10 @@ class AuthUsecase: AbstractAuthUsecase {
         self.repository = repository
     }
     
-    func getToken(authCode: String) -> Observable<UserApiRequest.ItemType> {
-        return (repository as! AbstractAuthRepository).getToken(authCode: authCode)
+    func getToken(url: URL) -> Observable<UserApiRequest.ItemType> {
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        let code = (components?.queryItems?.first(where: { $0.name == "code" })?.value).unwrappedValue
+        
+        return (repository as! AbstractAuthRepository).getToken(authCode: code)
     }
 }

@@ -16,10 +16,13 @@ class RepositoryCoordinator: Coordinator {
     }
 
     public func start() {
-        let repository = AuthRepository(localDataSource: AuthLocalDataSource(dbClient: DatabaseClient.shared), remoteDataSource: AuthRemoteDataSource(apiClient: ApiClient.shared))
+        let repository = AuthRepository(
+                localDataSource: AuthLocalDataSource(dbClient: DatabaseClient.shared),
+                remoteDataSource: AuthRemoteDataSource(apiClient: ApiClient.shared
+            )
+        )
         
         let usecase = AuthUsecase(repository: repository)
-        
         let viewModel = AuthViewModel(usecase: usecase)
         let vc = RepositoryViewController(viewModel: viewModel)
         self.navigationController.viewControllers = [vc]

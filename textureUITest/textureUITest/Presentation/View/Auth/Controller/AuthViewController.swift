@@ -13,7 +13,8 @@ import SafariServices
 
 class AuthViewController: BaseViewController {
     weak var coordinator: AuthCoordinator?
-//    var authViewModel
+    var authViewModel: AuthViewModel!
+    let userAuthTokenTrigger = PublishSubject<URL>()
     
     let emailField: ASEditableTextNode = {
         let node = ASEditableTextNode()
@@ -136,6 +137,14 @@ class AuthViewController: BaseViewController {
     
     override func bindViewModel() {
         AppLogger.info("conversionCount == \(UserSessionDataClient.shared.conversionCount)")
+        
+        authViewModel = viewModel as! AuthViewModel
+        let input = AuthViewModel.AuthInput(authTrigger: userAuthTokenTrigger)
+        let output = authViewModel.getAuthOutput(input: input)
+        
+        output.authResponse.asDriver().drive(onNext: { data in
+            AppLogger.info(data.debugDescription)
+        }).disposed(by: disposeBag)
     }
     
     //MARK: Authentication Process
@@ -150,16 +159,11 @@ class AuthViewController: BaseViewController {
     }
     
     func receivedAuthCallback(url: URL) {
+        userAuthTokenTrigger.onNext(url)
         presentedViewController?.dismiss(animated: true)
     }
     
     // MARK: DIALOG VIEW
-    private func showAlertDialog(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.destructive, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     private func showAddCurrencyDialog() {
         let alertController = UIAlertController(title: "Search repository", message: "Enter epository name. Ex - testProject", preferredStyle: UIAlertController.Style.alert)
         

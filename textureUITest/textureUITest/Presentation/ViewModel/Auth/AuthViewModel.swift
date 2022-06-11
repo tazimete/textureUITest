@@ -14,12 +14,12 @@ class AuthViewModel: AbstractAuthViewModel {
     
     // This struct will be used get event with data from viewcontroller
     public struct AuthInput {
-        let authTrigger: Observable<String>
+        let authTrigger: Observable<URL>
     }
     
     // This struct will be used to send event with observable data/response to viewcontroller
     public struct AuthOutput {
-        let user: BehaviorRelay<User?>
+        let authResponse: BehaviorRelay<User?>
         let errorResponse: BehaviorRelay<NetworkError?>
     }
     
@@ -36,33 +36,32 @@ class AuthViewModel: AbstractAuthViewModel {
         let errorResponse = BehaviorRelay<NetworkError?>(value: nil)
         
         // get token trigger
-        input.authTrigger.flatMapLatest({ [weak self] (authCode) -> Observable<UserApiRequest.ItemType> in
-            // check if  self is exists and balance is enough
-            guard let weakSelf = self else {
-                return Observable.just(UserApiRequest.ItemType())
-            }
-            
-            //convert currency with balance
-            return weakSelf.getToken(authCode: "")
+        input.authTrigger
+            .flatMapLatest({ [weak self] (authUrl) -> Observable<UserApiRequest.ItemType> in
+                // check if  self is exists and balance is enough
+                guard let weakSelf = self else {
+                    return Observable.just(UserApiRequest.ItemType())
+                }
+                
+                //convert currency with balance
+                return weakSelf.getToken(url: authUrl)
                    .catch({ error in
                        errorResponse.accept(error as? NetworkError)
                        return Observable.just(UserApiRequest.ItemType())
+                    })
                 })
-        })
-        .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
-        .subscribe(onNext: { response in
-            userResponse.accept(User(id: response.id, token: response.token, name: response.email, email: response.email))
-        }, onError: { [weak self] error in
-            errorResponse.accept(error as? NetworkError)
-        }).disposed(by: disposeBag)
+            .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
+            .subscribe(onNext: { response in
+                userResponse.accept(User(token: response.accessToken))
+            }, onError: { error in
+                errorResponse.accept(error as? NetworkError)
+            }).disposed(by: disposeBag)
         
-        return AuthOutput.init(user: userResponse, errorResponse: errorResponse)
+        return AuthOutput.init(authResponse: userResponse, errorResponse: errorResponse)
     }
     
     // MARK: API CALLS
-    func getToken(authCode: String) -> Observable<UserApiRequest.ItemType> {
-        return (usecase as! AbstractAuthUsecase).getToken(authCode: authCode)
+    func getToken(url: URL) -> Observable<UserApiRequest.ItemType> {
+        return (usecase as! AbstractAuthUsecase).getToken(url: url)
     }
-    
-    
 }
