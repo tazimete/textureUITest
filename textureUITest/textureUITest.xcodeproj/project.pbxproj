@@ -609,18 +609,18 @@
 		FA3779F6284A3DB300B7B201 /* Abstraction */ = {
 			isa = PBXGroup;
 			children = (
-				FA3779F7284A3DB300B7B201 /* MyBalance */,
+				FA3779F7284A3DB300B7B201 /* Auth */,
 				FA3779F9284A3DB300B7B201 /* AbstractViewModel.swift */,
 			);
 			path = Abstraction;
 			sourceTree = "<group>";
 		};
-		FA3779F7284A3DB300B7B201 /* MyBalance */ = {
+		FA3779F7284A3DB300B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				FA3779F8284A3DB300B7B201 /* AbstractMyBalanceViewModel.swift */,
 			);
-			path = MyBalance;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA3779FA284A3DB300B7B201 /* Auth */ = {
@@ -670,7 +670,7 @@
 			isa = PBXGroup;
 			children = (
 				FA377A16284A3DB300B7B201 /* ViewModel */,
-				FA377A18284A3DB300B7B201 /* MyBalance */,
+				FA377A18284A3DB300B7B201 /* Repository */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -683,12 +683,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		FA377A18284A3DB300B7B201 /* MyBalance */ = {
+		FA377A18284A3DB300B7B201 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 				FA377A19284A3DB300B7B201 /* BalanceItemCell.swift */,
 			);
-			path = MyBalance;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		FA377A1B284A3DB300B7B201 /* Components */ = {
