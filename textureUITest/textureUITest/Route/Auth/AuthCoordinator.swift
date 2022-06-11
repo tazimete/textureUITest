@@ -16,9 +16,9 @@ class AuthCoordinator: Coordinator {
     }
 
     func start() {
-        let repository = CurrencyRepository(localDataSource: CurrencyLocalDataSource(dbClient: DatabaseClient.shared), remoteDataSource: CurrencyRemoteDataSource(apiClient: ApiClient.shared))
+        let repository = AuthRepository(localDataSource: AuthLocalDataSource(dbClient: DatabaseClient.shared), remoteDataSource: AuthRemoteDataSource(apiClient: ApiClient.shared))
         
-        let usecase = CurrencyUsecase(repository: repository)
+        let usecase = AuthUsecase(repository: repository)
         
         let viewModel = AuthViewModel(usecase: usecase)
         let vc = AuthViewController(viewModel: viewModel)

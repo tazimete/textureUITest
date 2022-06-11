@@ -39,14 +39,14 @@
 		FA377A5D284A3DB500B7B201 /* ConfigComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779D5284A3DB200B7B201 /* ConfigComponents.swift */; };
 		FA377A5E284A3DB500B7B201 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779D6284A3DB200B7B201 /* AppConfig.swift */; };
 		FA377A5F284A3DB500B7B201 /* AbstractLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779D9284A3DB200B7B201 /* AbstractLocalDataSource.swift */; };
-		FA377A60284A3DB500B7B201 /* AbstractCurrencyLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779DB284A3DB200B7B201 /* AbstractCurrencyLocalDataSource.swift */; };
-		FA377A61284A3DB500B7B201 /* AbstractCurrencyRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779DC284A3DB200B7B201 /* AbstractCurrencyRemoteDataSource.swift */; };
+		FA377A60284A3DB500B7B201 /* AbstractAuthLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779DB284A3DB200B7B201 /* AbstractAuthLocalDataSource.swift */; };
+		FA377A61284A3DB500B7B201 /* AbstractAuthRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779DC284A3DB200B7B201 /* AbstractAuthRemoteDataSource.swift */; };
 		FA377A62284A3DB500B7B201 /* AbstractionRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779DD284A3DB200B7B201 /* AbstractionRemoteDataSource.swift */; };
 		FA377A63284A3DB500B7B201 /* AbstractRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779DF284A3DB200B7B201 /* AbstractRepository.swift */; };
-		FA377A64284A3DB500B7B201 /* AbstractCurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E1284A3DB200B7B201 /* AbstractCurrencyRepository.swift */; };
+		FA377A64284A3DB500B7B201 /* AbstractAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E1284A3DB200B7B201 /* AbstractAuthRepository.swift */; };
 		FA377A65284A3DB500B7B201 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E4284A3DB200B7B201 /* User.swift */; };
 		FA377A66284A3DB500B7B201 /* AbstractDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E5284A3DB200B7B201 /* AbstractDataModel.swift */; };
-		FA377A67284A3DB500B7B201 /* AbstractCurrencyUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E8284A3DB200B7B201 /* AbstractCurrencyUsecase.swift */; };
+		FA377A67284A3DB500B7B201 /* AbstractAuthUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E8284A3DB200B7B201 /* AbstractAuthUsecase.swift */; };
 		FA377A68284A3DB500B7B201 /* AbstractUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E9284A3DB200B7B201 /* AbstractUsecase.swift */; };
 		FA377A69284A3DB500B7B201 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779EB284A3DB300B7B201 /* UIImageView+Extension.swift */; };
 		FA377A6A284A3DB500B7B201 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779EC284A3DB300B7B201 /* UIColor+Extension.swift */; };
@@ -74,17 +74,14 @@
 		FA377A8C284A3DB500B7B201 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A26284A3DB400B7B201 /* CGFloat+Extension.swift */; };
 		FA377A8D284A3DB500B7B201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A28284A3DB400B7B201 /* AppDelegate.swift */; };
 		FA377A8E284A3DB500B7B201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A29284A3DB400B7B201 /* SceneDelegate.swift */; };
-		FA377A8F284A3DB500B7B201 /* CurrencyLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A2D284A3DB400B7B201 /* CurrencyLocalDataSource.swift */; };
-		FA377A90284A3DB500B7B201 /* CurrencyRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A2E284A3DB400B7B201 /* CurrencyRemoteDataSource.swift */; };
-		FA377A91284A3DB500B7B201 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A31284A3DB400B7B201 /* CurrencyRepository.swift */; };
+		FA377A8F284A3DB500B7B201 /* AuthLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A2D284A3DB400B7B201 /* AuthLocalDataSource.swift */; };
+		FA377A90284A3DB500B7B201 /* AuthRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A2E284A3DB400B7B201 /* AuthRemoteDataSource.swift */; };
+		FA377A91284A3DB500B7B201 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A31284A3DB400B7B201 /* AuthRepository.swift */; };
 		FA377A92284A3DB500B7B201 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A33284A3DB400B7B201 /* Response.swift */; };
-		FA377A93284A3DB500B7B201 /* EntityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A35284A3DB400B7B201 /* EntityFactory.swift */; };
-		FA377A94284A3DB500B7B201 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A36284A3DB400B7B201 /* Balance.swift */; };
-		FA377A95284A3DB500B7B201 /* BalanceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A37284A3DB400B7B201 /* BalanceDependency.swift */; };
-		FA377A96284A3DB500B7B201 /* CurrencyExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A38284A3DB400B7B201 /* CurrencyExchange.swift */; };
-		FA377A97284A3DB500B7B201 /* CurrencyConverterParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A3B284A3DB400B7B201 /* CurrencyConverterParams.swift */; };
-		FA377A98284A3DB500B7B201 /* CurrencyApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A3C284A3DB400B7B201 /* CurrencyApiRequest.swift */; };
-		FA377A99284A3DB500B7B201 /* CurrencyUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A3F284A3DB400B7B201 /* CurrencyUsecase.swift */; };
+		FA377A94284A3DB500B7B201 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A36284A3DB400B7B201 /* UserAuth.swift */; };
+		FA377A97284A3DB500B7B201 /* UserAuthParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A3B284A3DB400B7B201 /* UserAuthParams.swift */; };
+		FA377A98284A3DB500B7B201 /* UserApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A3C284A3DB400B7B201 /* UserApiRequest.swift */; };
+		FA377A99284A3DB500B7B201 /* AuthUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A3F284A3DB400B7B201 /* AuthUsecase.swift */; };
 		FA377A9A284A3DB500B7B201 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A43284A3DB400B7B201 /* AuthCoordinator.swift */; };
 		FA377A9B284A3DB500B7B201 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A45284A3DB400B7B201 /* Coordinator.swift */; };
 		FA503D35284B658100DF7C59 /* ASEditableTextNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D26284B658100DF7C59 /* ASEditableTextNode+Rx.swift */; };
@@ -170,14 +167,14 @@
 		FA3779D5284A3DB200B7B201 /* ConfigComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigComponents.swift; sourceTree = "<group>"; };
 		FA3779D6284A3DB200B7B201 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		FA3779D9284A3DB200B7B201 /* AbstractLocalDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractLocalDataSource.swift; sourceTree = "<group>"; };
-		FA3779DB284A3DB200B7B201 /* AbstractCurrencyLocalDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractCurrencyLocalDataSource.swift; sourceTree = "<group>"; };
-		FA3779DC284A3DB200B7B201 /* AbstractCurrencyRemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractCurrencyRemoteDataSource.swift; sourceTree = "<group>"; };
+		FA3779DB284A3DB200B7B201 /* AbstractAuthLocalDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAuthLocalDataSource.swift; sourceTree = "<group>"; };
+		FA3779DC284A3DB200B7B201 /* AbstractAuthRemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAuthRemoteDataSource.swift; sourceTree = "<group>"; };
 		FA3779DD284A3DB200B7B201 /* AbstractionRemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractionRemoteDataSource.swift; sourceTree = "<group>"; };
 		FA3779DF284A3DB200B7B201 /* AbstractRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRepository.swift; sourceTree = "<group>"; };
-		FA3779E1284A3DB200B7B201 /* AbstractCurrencyRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractCurrencyRepository.swift; sourceTree = "<group>"; };
+		FA3779E1284A3DB200B7B201 /* AbstractAuthRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAuthRepository.swift; sourceTree = "<group>"; };
 		FA3779E4284A3DB200B7B201 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA3779E5284A3DB200B7B201 /* AbstractDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractDataModel.swift; sourceTree = "<group>"; };
-		FA3779E8284A3DB200B7B201 /* AbstractCurrencyUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractCurrencyUsecase.swift; sourceTree = "<group>"; };
+		FA3779E8284A3DB200B7B201 /* AbstractAuthUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAuthUsecase.swift; sourceTree = "<group>"; };
 		FA3779E9284A3DB200B7B201 /* AbstractUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractUsecase.swift; sourceTree = "<group>"; };
 		FA3779EB284A3DB300B7B201 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		FA3779EC284A3DB300B7B201 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -205,17 +202,14 @@
 		FA377A26284A3DB400B7B201 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		FA377A28284A3DB400B7B201 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA377A29284A3DB400B7B201 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA377A2D284A3DB400B7B201 /* CurrencyLocalDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyLocalDataSource.swift; sourceTree = "<group>"; };
-		FA377A2E284A3DB400B7B201 /* CurrencyRemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRemoteDataSource.swift; sourceTree = "<group>"; };
-		FA377A31284A3DB400B7B201 /* CurrencyRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
+		FA377A2D284A3DB400B7B201 /* AuthLocalDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLocalDataSource.swift; sourceTree = "<group>"; };
+		FA377A2E284A3DB400B7B201 /* AuthRemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRemoteDataSource.swift; sourceTree = "<group>"; };
+		FA377A31284A3DB400B7B201 /* AuthRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		FA377A33284A3DB400B7B201 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		FA377A35284A3DB400B7B201 /* EntityFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityFactory.swift; sourceTree = "<group>"; };
-		FA377A36284A3DB400B7B201 /* Balance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
-		FA377A37284A3DB400B7B201 /* BalanceDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceDependency.swift; sourceTree = "<group>"; };
-		FA377A38284A3DB400B7B201 /* CurrencyExchange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyExchange.swift; sourceTree = "<group>"; };
-		FA377A3B284A3DB400B7B201 /* CurrencyConverterParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyConverterParams.swift; sourceTree = "<group>"; };
-		FA377A3C284A3DB400B7B201 /* CurrencyApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyApiRequest.swift; sourceTree = "<group>"; };
-		FA377A3F284A3DB400B7B201 /* CurrencyUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyUsecase.swift; sourceTree = "<group>"; };
+		FA377A36284A3DB400B7B201 /* UserAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		FA377A3B284A3DB400B7B201 /* UserAuthParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAuthParams.swift; sourceTree = "<group>"; };
+		FA377A3C284A3DB400B7B201 /* UserApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApiRequest.swift; sourceTree = "<group>"; };
+		FA377A3F284A3DB400B7B201 /* AuthUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUsecase.swift; sourceTree = "<group>"; };
 		FA377A43284A3DB400B7B201 /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		FA377A45284A3DB400B7B201 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		FA503D26284B658100DF7C59 /* ASEditableTextNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASEditableTextNode+Rx.swift"; sourceTree = "<group>"; };
@@ -323,8 +317,8 @@
 				FA3779D0284A3DB200B7B201 /* Assets */,
 				FA3779AF284A3DB100B7B201 /* Client */,
 				FA377A1B284A3DB300B7B201 /* Components */,
-				FA377A2A284A3DB400B7B201 /* Data */,
 				FA3779D7284A3DB200B7B201 /* Domain */,
+				FA377A2A284A3DB400B7B201 /* Data */,
 				FA3779EA284A3DB300B7B201 /* Extension */,
 				FA377A40284A3DB400B7B201 /* Helper */,
 				FA3779F4284A3DB300B7B201 /* Presentation */,
@@ -510,37 +504,37 @@
 		FA3779D8284A3DB200B7B201 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				FA3779DA284A3DB200B7B201 /* Auth */,
 				FA3779D9284A3DB200B7B201 /* AbstractLocalDataSource.swift */,
-				FA3779DA284A3DB200B7B201 /* Currency */,
 				FA3779DD284A3DB200B7B201 /* AbstractionRemoteDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
 		};
-		FA3779DA284A3DB200B7B201 /* Currency */ = {
+		FA3779DA284A3DB200B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA3779DB284A3DB200B7B201 /* AbstractCurrencyLocalDataSource.swift */,
-				FA3779DC284A3DB200B7B201 /* AbstractCurrencyRemoteDataSource.swift */,
+				FA3779DB284A3DB200B7B201 /* AbstractAuthLocalDataSource.swift */,
+				FA3779DC284A3DB200B7B201 /* AbstractAuthRemoteDataSource.swift */,
 			);
-			path = Currency;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA3779DE284A3DB200B7B201 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 				FA3779DF284A3DB200B7B201 /* AbstractRepository.swift */,
-				FA3779E0284A3DB200B7B201 /* Currency */,
+				FA3779E0284A3DB200B7B201 /* Auth */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		FA3779E0284A3DB200B7B201 /* Currency */ = {
+		FA3779E0284A3DB200B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA3779E1284A3DB200B7B201 /* AbstractCurrencyRepository.swift */,
+				FA3779E1284A3DB200B7B201 /* AbstractAuthRepository.swift */,
 			);
-			path = Currency;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA3779E2284A3DB200B7B201 /* Entity */ = {
@@ -563,18 +557,18 @@
 		FA3779E6284A3DB200B7B201 /* Usecase */ = {
 			isa = PBXGroup;
 			children = (
-				FA3779E7284A3DB200B7B201 /* Currency */,
+				FA3779E7284A3DB200B7B201 /* Auth */,
 				FA3779E9284A3DB200B7B201 /* AbstractUsecase.swift */,
 			);
 			path = Usecase;
 			sourceTree = "<group>";
 		};
-		FA3779E7284A3DB200B7B201 /* Currency */ = {
+		FA3779E7284A3DB200B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA3779E8284A3DB200B7B201 /* AbstractCurrencyUsecase.swift */,
+				FA3779E8284A3DB200B7B201 /* AbstractAuthUsecase.swift */,
 			);
-			path = Currency;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA3779EA284A3DB300B7B201 /* Extension */ = {
@@ -758,87 +752,84 @@
 		FA377A2B284A3DB400B7B201 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A2C284A3DB400B7B201 /* Currency */,
+				FA377A2C284A3DB400B7B201 /* Auth */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
 		};
-		FA377A2C284A3DB400B7B201 /* Currency */ = {
+		FA377A2C284A3DB400B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A2D284A3DB400B7B201 /* CurrencyLocalDataSource.swift */,
-				FA377A2E284A3DB400B7B201 /* CurrencyRemoteDataSource.swift */,
+				FA377A2D284A3DB400B7B201 /* AuthLocalDataSource.swift */,
+				FA377A2E284A3DB400B7B201 /* AuthRemoteDataSource.swift */,
 			);
-			path = Currency;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA377A2F284A3DB400B7B201 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A30284A3DB400B7B201 /* Currency */,
+				FA377A30284A3DB400B7B201 /* Auth */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		FA377A30284A3DB400B7B201 /* Currency */ = {
+		FA377A30284A3DB400B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A31284A3DB400B7B201 /* CurrencyRepository.swift */,
+				FA377A31284A3DB400B7B201 /* AuthRepository.swift */,
 			);
-			path = Currency;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA377A32284A3DB400B7B201 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				FA377A33284A3DB400B7B201 /* Response.swift */,
-				FA377A34284A3DB400B7B201 /* MyBalance */,
+				FA377A34284A3DB400B7B201 /* Auth */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		FA377A34284A3DB400B7B201 /* MyBalance */ = {
+		FA377A34284A3DB400B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A35284A3DB400B7B201 /* EntityFactory.swift */,
-				FA377A36284A3DB400B7B201 /* Balance.swift */,
-				FA377A37284A3DB400B7B201 /* BalanceDependency.swift */,
-				FA377A38284A3DB400B7B201 /* CurrencyExchange.swift */,
+				FA377A36284A3DB400B7B201 /* UserAuth.swift */,
 			);
-			path = MyBalance;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA377A39284A3DB400B7B201 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A3A284A3DB400B7B201 /* Currency */,
+				FA377A3A284A3DB400B7B201 /* Auth */,
 			);
 			path = Request;
 			sourceTree = "<group>";
 		};
-		FA377A3A284A3DB400B7B201 /* Currency */ = {
+		FA377A3A284A3DB400B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A3B284A3DB400B7B201 /* CurrencyConverterParams.swift */,
-				FA377A3C284A3DB400B7B201 /* CurrencyApiRequest.swift */,
+				FA377A3B284A3DB400B7B201 /* UserAuthParams.swift */,
+				FA377A3C284A3DB400B7B201 /* UserApiRequest.swift */,
 			);
-			path = Currency;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA377A3D284A3DB400B7B201 /* Usecase */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A3E284A3DB400B7B201 /* Currency */,
+				FA377A3E284A3DB400B7B201 /* Auth */,
 			);
 			path = Usecase;
 			sourceTree = "<group>";
 		};
-		FA377A3E284A3DB400B7B201 /* Currency */ = {
+		FA377A3E284A3DB400B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A3F284A3DB400B7B201 /* CurrencyUsecase.swift */,
+				FA377A3F284A3DB400B7B201 /* AuthUsecase.swift */,
 			);
-			path = Currency;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA377A40284A3DB400B7B201 /* Helper */ = {
@@ -1222,7 +1213,7 @@
 				FA377A6C284A3DB500B7B201 /* UILabel+Extension.swift in Sources */,
 				FA503D3F284B658100DF7C59 /* Driver+ASSubscription.swift in Sources */,
 				FA377A9B284A3DB500B7B201 /* Coordinator.swift in Sources */,
-				FA377A90284A3DB500B7B201 /* CurrencyRemoteDataSource.swift in Sources */,
+				FA377A90284A3DB500B7B201 /* AuthRemoteDataSource.swift in Sources */,
 				FA377A8B284A3DB500B7B201 /* AdaptiveLayoutConstraint.swift in Sources */,
 				FA377A72284A3DB500B7B201 /* AbstractMyBalanceViewModel.swift in Sources */,
 				FA377A68284A3DB500B7B201 /* AbstractUsecase.swift in Sources */,
@@ -1233,7 +1224,7 @@
 				FA377A88284A3DB500B7B201 /* GenericCellComponents.swift in Sources */,
 				FA377A56284A3DB500B7B201 /* AbstractUserSessionDataClient.swift in Sources */,
 				FA377A4B284A3DB400B7B201 /* QueueManager.swift in Sources */,
-				FA377A60284A3DB500B7B201 /* AbstractCurrencyLocalDataSource.swift in Sources */,
+				FA377A60284A3DB500B7B201 /* AbstractAuthLocalDataSource.swift in Sources */,
 				FA377A8A284A3DB500B7B201 /* AdaptiveLayoutExtension.swift in Sources */,
 				FA377A63284A3DB500B7B201 /* AbstractRepository.swift in Sources */,
 				FA503D37284B658100DF7C59 /* ASTextNode2+Rx.swift in Sources */,
@@ -1246,12 +1237,12 @@
 				FA377A62284A3DB500B7B201 /* AbstractionRemoteDataSource.swift in Sources */,
 				FA377A59284A3DB500B7B201 /* KVLocalStorage.swift in Sources */,
 				FADF77552853F8C6004DFF44 /* DeepLinkScheme.swift in Sources */,
-				FA377A97284A3DB500B7B201 /* CurrencyConverterParams.swift in Sources */,
+				FA377A97284A3DB500B7B201 /* UserAuthParams.swift in Sources */,
 				FA377A70284A3DB500B7B201 /* Optional+Extensions.swift in Sources */,
 				FA377A6D284A3DB500B7B201 /* UIImage+Extension.swift in Sources */,
 				FAA86690284BDC700071D556 /* RepositoryCoordinator.swift in Sources */,
 				FA377A8C284A3DB500B7B201 /* CGFloat+Extension.swift in Sources */,
-				FA377A94284A3DB500B7B201 /* Balance.swift in Sources */,
+				FA377A94284A3DB500B7B201 /* UserAuth.swift in Sources */,
 				FA377A49284A3DB400B7B201 /* Parameterizable.swift in Sources */,
 				FADF774A2853C319004DFF44 /* AuthCredential.swift in Sources */,
 				FA377A83284A3DB500B7B201 /* AuthViewController.swift in Sources */,
@@ -1259,7 +1250,7 @@
 				FA377A5B284A3DB500B7B201 /* ServerConfig.swift in Sources */,
 				FA377A74284A3DB500B7B201 /* AuthViewModel.swift in Sources */,
 				FA377A46284A3DB400B7B201 /* AbstractURLSession.swift in Sources */,
-				FA377A99284A3DB500B7B201 /* CurrencyUsecase.swift in Sources */,
+				FA377A99284A3DB500B7B201 /* AuthUsecase.swift in Sources */,
 				FA377A9A284A3DB500B7B201 /* AuthCoordinator.swift in Sources */,
 				FA377A5F284A3DB500B7B201 /* AbstractLocalDataSource.swift in Sources */,
 				FA377A4E284A3DB400B7B201 /* DownloadDataParser.swift in Sources */,
@@ -1269,20 +1260,19 @@
 				FAD576D72852A51100E46632 /* DeepLinkHandler.swift in Sources */,
 				FA377A84284A3DB500B7B201 /* SearchCellViewModel.swift in Sources */,
 				FADF774F2853F790004DFF44 /* DeepLinkCoordinator.swift in Sources */,
-				FA377A91284A3DB500B7B201 /* CurrencyRepository.swift in Sources */,
+				FA377A91284A3DB500B7B201 /* AuthRepository.swift in Sources */,
 				FA377A85284A3DB500B7B201 /* BalanceItemCell.swift in Sources */,
 				FADF77512853F840004DFF44 /* AuthDeepLinkHandler.swift in Sources */,
-				FA377A93284A3DB500B7B201 /* EntityFactory.swift in Sources */,
-				FA377A64284A3DB500B7B201 /* AbstractCurrencyRepository.swift in Sources */,
+				FA377A64284A3DB500B7B201 /* AbstractAuthRepository.swift in Sources */,
 				FA377A8E284A3DB500B7B201 /* SceneDelegate.swift in Sources */,
-				FA377A8F284A3DB500B7B201 /* CurrencyLocalDataSource.swift in Sources */,
+				FA377A8F284A3DB500B7B201 /* AuthLocalDataSource.swift in Sources */,
 				FA377A66284A3DB500B7B201 /* AbstractDataModel.swift in Sources */,
 				FA377A47284A3DB400B7B201 /* AbstractApiClient.swift in Sources */,
 				FA377A82284A3DB500B7B201 /* BaseViewController.swift in Sources */,
 				FA377A8D284A3DB500B7B201 /* AppDelegate.swift in Sources */,
-				FA377A67284A3DB500B7B201 /* AbstractCurrencyUsecase.swift in Sources */,
+				FA377A67284A3DB500B7B201 /* AbstractAuthUsecase.swift in Sources */,
 				FA377A73284A3DB500B7B201 /* AbstractViewModel.swift in Sources */,
-				FA377A61284A3DB500B7B201 /* AbstractCurrencyRemoteDataSource.swift in Sources */,
+				FA377A61284A3DB500B7B201 /* AbstractAuthRemoteDataSource.swift in Sources */,
 				FA377A4C284A3DB400B7B201 /* ApiRequest.swift in Sources */,
 				FA503D40284B658100DF7C59 /* ASTextNode+Rx.swift in Sources */,
 				FA377A48284A3DB400B7B201 /* ApiClient.swift in Sources */,
@@ -1290,7 +1280,6 @@
 				FADF774D2853F771004DFF44 /* Abstractions.swift in Sources */,
 				FA503D3A284B658100DF7C59 /* ASButtonNode+Rx.swift in Sources */,
 				FA377A92284A3DB500B7B201 /* Response.swift in Sources */,
-				FA377A96284A3DB500B7B201 /* CurrencyExchange.swift in Sources */,
 				FA377A57284A3DB500B7B201 /* AbstractLocalStorageIntereactor.swift in Sources */,
 				FA503D38284B658100DF7C59 /* ASBinder.swift in Sources */,
 				FA377A4F284A3DB400B7B201 /* AbstractDownloader.swift in Sources */,
@@ -1298,13 +1287,12 @@
 				FA377A65284A3DB500B7B201 /* User.swift in Sources */,
 				FA377A89284A3DB500B7B201 /* CellConfiguratorFactory.swift in Sources */,
 				FA503D3C284B658100DF7C59 /* ASDisplayNode+Rx.swift in Sources */,
-				FA377A95284A3DB500B7B201 /* BalanceDependency.swift in Sources */,
 				FA377A50284A3DB400B7B201 /* DownloaderClient.swift in Sources */,
 				FA503D35284B658100DF7C59 /* ASEditableTextNode+Rx.swift in Sources */,
 				FA377A6A284A3DB500B7B201 /* UIColor+Extension.swift in Sources */,
 				FA377A71284A3DB500B7B201 /* Codable+Extension.swift in Sources */,
 				FAA86694284BDF290071D556 /* RepositoryViewController.swift in Sources */,
-				FA377A98284A3DB500B7B201 /* CurrencyApiRequest.swift in Sources */,
+				FA377A98284A3DB500B7B201 /* UserApiRequest.swift in Sources */,
 				FA377A6E284A3DB500B7B201 /* UINavigationController+Extension.swift in Sources */,
 				FA503D3B284B658100DF7C59 /* ASControlTarget.swift in Sources */,
 				FA377A51284A3DB500B7B201 /* AbstractDownloaderClient.swift in Sources */,

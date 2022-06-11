@@ -27,7 +27,7 @@ class AuthViewModel: AbstractAuthViewModel {
     let usecase: AbstractUsecase
     
     
-    public init(usecase: AbstractCurrencyUsecase) {
+    public init(usecase: AbstractAuthUsecase) {
         self.usecase = usecase
     }
     
@@ -36,22 +36,22 @@ class AuthViewModel: AbstractAuthViewModel {
         let errorResponse = BehaviorRelay<NetworkError?>(value: nil)
         
         // get token trigger
-        input.authTrigger.flatMapLatest({ [weak self] (authCode) -> Observable<CurrencyApiRequest.ItemType> in
+        input.authTrigger.flatMapLatest({ [weak self] (authCode) -> Observable<UserApiRequest.ItemType> in
             // check if  self is exists and balance is enough
             guard let weakSelf = self else {
-                return Observable.just(CurrencyApiRequest.ItemType())
+                return Observable.just(UserApiRequest.ItemType())
             }
             
             //convert currency with balance
-            return weakSelf.convert(fromAmount: "", fromCurrency: "", toCurrency: "")
+            return weakSelf.getToken(authCode: "")
                    .catch({ error in
                        errorResponse.accept(error as? NetworkError)
-                       return Observable.just(CurrencyApiRequest.ItemType())
+                       return Observable.just(UserApiRequest.ItemType())
                 })
         })
         .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
         .subscribe(onNext: { response in
-            userResponse.accept(response)
+            userResponse.accept(User(id: response.id, token: response.token, name: response.email, email: response.email))
         }, onError: { [weak self] error in
             errorResponse.accept(error as? NetworkError)
         }).disposed(by: disposeBag)
@@ -60,8 +60,8 @@ class AuthViewModel: AbstractAuthViewModel {
     }
     
     // MARK: API CALLS
-    func convert(fromAmount: String, fromCurrency: String, toCurrency: String) -> Observable<CurrencyApiRequest.ItemType> {
-        return (usecase as! AbstractCurrencyUsecase).convert(fromAmount: fromAmount, fromCurrency: fromCurrency, toCurrency: toCurrency)
+    func getToken(authCode: String) -> Observable<UserApiRequest.ItemType> {
+        return (usecase as! AbstractAuthUsecase).getToken(authCode: authCode)
     }
     
     

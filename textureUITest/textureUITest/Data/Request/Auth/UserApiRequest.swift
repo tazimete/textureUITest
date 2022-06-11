@@ -7,17 +7,17 @@
 
 import Foundation
 
-enum CurrencyApiRequest {
+enum UserApiRequest {
     case convert(params: Parameterizable)
 }
 
-extension CurrencyApiRequest: APIRequest {
+extension UserApiRequest: APIRequest {
     public var baseURL: URL {
         let url =  "\(AppConfig.shared.getServerConfig().getBaseUrl())"
         return URL(string: url)!
     }
     
-    public typealias ItemType = User
+    public typealias ItemType = UserAuth
     public typealias ResponseType = Response<ItemType>
     
     public var method: RequestType {
@@ -28,7 +28,7 @@ extension CurrencyApiRequest: APIRequest {
     
     public var path: String {
         switch self {
-        case .convert: return "/currency/commercial/exchange/\(parameters[CurrencyConverterParams.CodingKeys.fromAmount.rawValue] ?? "")-\(parameters[CurrencyConverterParams.CodingKeys.fromCurrency.rawValue] ?? "")/\(parameters[CurrencyConverterParams.CodingKeys.toCurrency.rawValue] ?? "")/latest"
+        case .convert: return ""
         }
     }
     
