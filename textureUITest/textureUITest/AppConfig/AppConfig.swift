@@ -21,27 +21,31 @@ public class AppConfig {
     }
 
     func getServerConfig() -> ServerConfig {
-        return self.builder.serverConfig
+        return builder.serverConfig
     }
 
     func getLocal() -> String {
-        return self.builder.local
+        return builder.local
     }
 
     func getTheme() -> AppTheme {
-        return self.builder.theme
+        return builder.theme
     }
 
     func getThemeType() -> ThemeType {
-        return self.builder.themeType
+        return builder.themeType
     }
 
     func getBuildType() -> BuildType {
-        return self.builder.buildType
+        return builder.buildType
     }
     
     func getDeepLinkCoordinator() -> DeeplinkCoordinator {
-        return self.builder.deepLinkCoordinator
+        return builder.deepLinkCoordinator
+    }
+    
+    func setDeepLinkCoordinator(coordinator: DeeplinkCoordinator) {
+        builder.deepLinkCoordinator = coordinator
     }
 
 

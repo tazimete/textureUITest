@@ -44,7 +44,7 @@
 		FA377A62284A3DB500B7B201 /* AbstractionRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779DD284A3DB200B7B201 /* AbstractionRemoteDataSource.swift */; };
 		FA377A63284A3DB500B7B201 /* AbstractRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779DF284A3DB200B7B201 /* AbstractRepository.swift */; };
 		FA377A64284A3DB500B7B201 /* AbstractCurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E1284A3DB200B7B201 /* AbstractCurrencyRepository.swift */; };
-		FA377A65284A3DB500B7B201 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E4284A3DB200B7B201 /* Currency.swift */; };
+		FA377A65284A3DB500B7B201 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E4284A3DB200B7B201 /* User.swift */; };
 		FA377A66284A3DB500B7B201 /* AbstractDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E5284A3DB200B7B201 /* AbstractDataModel.swift */; };
 		FA377A67284A3DB500B7B201 /* AbstractCurrencyUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E8284A3DB200B7B201 /* AbstractCurrencyUsecase.swift */; };
 		FA377A68284A3DB500B7B201 /* AbstractUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E9284A3DB200B7B201 /* AbstractUsecase.swift */; };
@@ -175,7 +175,7 @@
 		FA3779DD284A3DB200B7B201 /* AbstractionRemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractionRemoteDataSource.swift; sourceTree = "<group>"; };
 		FA3779DF284A3DB200B7B201 /* AbstractRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRepository.swift; sourceTree = "<group>"; };
 		FA3779E1284A3DB200B7B201 /* AbstractCurrencyRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractCurrencyRepository.swift; sourceTree = "<group>"; };
-		FA3779E4284A3DB200B7B201 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		FA3779E4284A3DB200B7B201 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA3779E5284A3DB200B7B201 /* AbstractDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractDataModel.swift; sourceTree = "<group>"; };
 		FA3779E8284A3DB200B7B201 /* AbstractCurrencyUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractCurrencyUsecase.swift; sourceTree = "<group>"; };
 		FA3779E9284A3DB200B7B201 /* AbstractUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractUsecase.swift; sourceTree = "<group>"; };
@@ -546,18 +546,18 @@
 		FA3779E2284A3DB200B7B201 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				FA3779E3284A3DB200B7B201 /* MyBalance */,
+				FA3779E3284A3DB200B7B201 /* Auth */,
 				FA3779E5284A3DB200B7B201 /* AbstractDataModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		FA3779E3284A3DB200B7B201 /* MyBalance */ = {
+		FA3779E3284A3DB200B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA3779E4284A3DB200B7B201 /* Currency.swift */,
+				FA3779E4284A3DB200B7B201 /* User.swift */,
 			);
-			path = MyBalance;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FA3779E6284A3DB200B7B201 /* Usecase */ = {
@@ -1295,7 +1295,7 @@
 				FA503D38284B658100DF7C59 /* ASBinder.swift in Sources */,
 				FA377A4F284A3DB400B7B201 /* AbstractDownloader.swift in Sources */,
 				FA503D36284B658100DF7C59 /* ASImageNode+Rx.swift in Sources */,
-				FA377A65284A3DB500B7B201 /* Currency.swift in Sources */,
+				FA377A65284A3DB500B7B201 /* User.swift in Sources */,
 				FA377A89284A3DB500B7B201 /* CellConfiguratorFactory.swift in Sources */,
 				FA503D3C284B658100DF7C59 /* ASDisplayNode+Rx.swift in Sources */,
 				FA377A95284A3DB500B7B201 /* BalanceDependency.swift in Sources */,

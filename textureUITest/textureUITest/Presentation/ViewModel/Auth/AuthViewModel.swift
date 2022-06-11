@@ -14,12 +14,12 @@ class AuthViewModel: AbstractAuthViewModel {
     
     // This struct will be used get event with data from viewcontroller
     public struct AuthInput {
-        let tokenTrigger: Observable<Void>
+        let authTrigger: Observable<String>
     }
     
     // This struct will be used to send event with observable data/response to viewcontroller
     public struct AuthOutput {
-        let token: BehaviorRelay<String?>
+        let user: BehaviorRelay<User?>
         let errorResponse: BehaviorRelay<NetworkError?>
     }
     
@@ -32,11 +32,11 @@ class AuthViewModel: AbstractAuthViewModel {
     }
     
     public func getAuthOutput(input: AuthInput) -> AuthOutput {
-        let tokenResponse = BehaviorRelay<String?>(value: nil)
+        let userResponse = BehaviorRelay<User?>(value: nil)
         let errorResponse = BehaviorRelay<NetworkError?>(value: nil)
         
         // get token trigger
-        input.tokenTrigger.flatMapLatest({ [weak self] (inputModel) -> Observable<CurrencyApiRequest.ItemType> in
+        input.authTrigger.flatMapLatest({ [weak self] (authCode) -> Observable<CurrencyApiRequest.ItemType> in
             // check if  self is exists and balance is enough
             guard let weakSelf = self else {
                 return Observable.just(CurrencyApiRequest.ItemType())
@@ -51,12 +51,12 @@ class AuthViewModel: AbstractAuthViewModel {
         })
         .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
         .subscribe(onNext: { response in
-            tokenResponse.accept(response.amount)
+            userResponse.accept(response)
         }, onError: { [weak self] error in
             errorResponse.accept(error as? NetworkError)
         }).disposed(by: disposeBag)
         
-        return AuthOutput.init(token: tokenResponse, errorResponse: errorResponse)
+        return AuthOutput.init(user: userResponse, errorResponse: errorResponse)
     }
     
     // MARK: API CALLS
