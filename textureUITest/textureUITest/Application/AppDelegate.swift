@@ -67,8 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .addMediaBaseUrl(mediaBaseUrl: "")
             .addBuildType(buildType: .DEVELOP)
             .build()
-
-        let deeplinkCoordinator = DeeplinkCoordinator(handlers: [AuthDeepLinkHandler(rootViewController: rootCoordinator?.navigationController.viewControllers.first as! BaseViewController)])
         
         //Singleton with builder, commit-> no return
         AppConfig.Builder()
@@ -77,7 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .setNormalTheme(theme: theme)
             .setDarkTheme(theme: theme)
             .setLocale(local: "en")
-            .setDeepLinkCoordinator(coordinator: deeplinkCoordinator)
             .commit()
     }
 

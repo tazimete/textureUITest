@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        guard let _ = (scene as? UIWindowScene) else { return }
         
         initRootViewController(scene: scene)
+        buildAppConfig()
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -59,6 +60,40 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
 //        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+
+    func buildAppConfig() -> Void {
+        let themeColors = Colors(primaryDark: .systemBlue, primaryLight: .systemOrange, secondaryDark: .black, secondaryLight: .systemBlue, textColorDark: .black, textColorLight: .white, primaryBackgroundColor: .white, secondaryBackgroundColor: .blue, disabledTextColor: .lightGray, whiteTransparentColor: .init(white: 1, alpha: 0.5))
+        
+        let themeFonts = Fonts()
+        
+        let theme = AppTheme.Builder()
+            .addColors(colors: themeColors)
+            .addFonts(fonts: themeFonts)
+            .build()
+
+        let authConfig = AuthCredential(redirectUri: URL(string: "it.iacopo.github://authentication"), authorizationUrl: URL(string: "https://github.com/login/oauth/authorize"), tokenUrl: URL(string: "https://github.com/login/oauth/access_token"), clientId: "fd2d97030f7ca8dfe654", clientSecret: "c8d121ae90c1f70a5dfdbf37c083b6fe11a4ddb1", scopes: ["repo", "user"])
+        
+        //server/api config builder
+        let serverConfig = ServerConfig.Builder()
+            .addBaseUrl(baseUrl: "http://api.evp.lt")
+            .addApiVersion(apiVersion: "3")
+            .addAuthCredential(credential: authConfig)
+            .addMediaBaseUrl(mediaBaseUrl: "")
+            .addBuildType(buildType: .DEVELOP)
+            .build()
+
+        let deeplinkCoordinator = DeeplinkCoordinator(handlers: [AuthDeepLinkHandler(rootViewController: rootCoordinator.navigationController.viewControllers.first as! BaseViewController)])
+        
+        //Singleton with builder, commit-> no return
+        AppConfig.Builder()
+            .setServerConfig(serverConfig: serverConfig)
+            .setThemeType(themeType: .NORMAL)
+            .setNormalTheme(theme: theme)
+            .setDarkTheme(theme: theme)
+            .setLocale(local: "en")
+            .setDeepLinkCoordinator(coordinator: deeplinkCoordinator)
+            .commit()
     }
     
     func initRootViewController(scene: UIScene) {
