@@ -23,9 +23,8 @@ class AuthViewModel: AbstractAuthViewModel {
         let errorResponse: BehaviorRelay<NetworkError?>
     }
     
-    let disposeBag =  DisposeBag()
+    let disposeBag = DisposeBag()
     let usecase: AbstractUsecase
-    
     
     public init(usecase: AbstractAuthUsecase) {
         self.usecase = usecase
@@ -52,12 +51,17 @@ class AuthViewModel: AbstractAuthViewModel {
                 })
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
             .subscribe(onNext: { response in
-                userResponse.accept(User(token: response.accessToken))
+                let user = User(token: response.tokenType.unwrappedValue + " " + response.accessToken.unwrappedValue)
+                userResponse.accept(user)
             }, onError: { error in
                 errorResponse.accept(error as? NetworkError)
             }).disposed(by: disposeBag)
         
         return AuthOutput.init(authResponse: userResponse, errorResponse: errorResponse)
+    }
+    
+    func storeUserData(user: User) {
+        UserSessionDataClient.shared.setAccessToken(token: user.token.unwrappedValue)
     }
     
     // MARK: API CALLS

@@ -15,7 +15,7 @@ class RepositoryCoordinator: Coordinator {
         self.navigationController = navigationController
     }
 
-    public func start() {
+    func start() {
         let repository = AuthRepository(
                 localDataSource: AuthLocalDataSource(dbClient: DatabaseClient.shared),
                 remoteDataSource: AuthRemoteDataSource(apiClient: ApiClient.shared

@@ -150,7 +150,8 @@ class AuthViewController: BaseViewController {
                 }
                 
                 AppLogger.info(data)
-                UserSessionDataClient.shared.setAccessToken(token: data.token.unwrappedValue)
+                weakSelf.handleAuthTokenResponse(user: data)
+                
         }).disposed(by: disposeBag)
     }
     
@@ -167,7 +168,11 @@ class AuthViewController: BaseViewController {
     
     func receivedAuthCallback(url: URL) {
         userAuthTokenTrigger.onNext(url)
+    }
+    
+    func handleAuthTokenResponse(user: User) {
         presentedViewController?.dismiss(animated: true)
+        coordinator?.navigateRepositoryScreen(user: user)
     }
     
     // MARK: DIALOG VIEW
