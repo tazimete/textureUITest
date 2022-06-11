@@ -136,14 +136,21 @@ class AuthViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-        AppLogger.info("conversionCount == \(UserSessionDataClient.shared.conversionCount)")
+        AppLogger.info("accessToken == \(UserSessionDataClient.shared.getAccessToken())")
         
         authViewModel = viewModel as! AuthViewModel
         let input = AuthViewModel.AuthInput(authTrigger: userAuthTokenTrigger)
         let output = authViewModel.getAuthOutput(input: input)
         
-        output.authResponse.asDriver().drive(onNext: { data in
-            AppLogger.info(data.debugDescription)
+        output.authResponse
+            .asDriver()
+            .drive(onNext: { [weak self] data in
+                guard let weakSelf = self, let data = data else {
+                    return
+                }
+                
+                AppLogger.info(data)
+                UserSessionDataClient.shared.setAccessToken(token: data.token.unwrappedValue)
         }).disposed(by: disposeBag)
     }
     

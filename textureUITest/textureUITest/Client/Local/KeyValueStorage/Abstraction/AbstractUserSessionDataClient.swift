@@ -12,7 +12,7 @@ protocol AbstractUserSessionDataClient {
     static var shared: AbstractUserSessionDataClient {get}
     var kvContainer: AbstractLocalStorageIntereactor {get}
     
-    var conversionCount: Int {get}
-    func setConversionCount(count: Int)
-    func getConversionCount() -> Int
+    var accessToken: String {get}
+    func setAccessToken(token: String)
+    func getAccessToken() -> String
 }

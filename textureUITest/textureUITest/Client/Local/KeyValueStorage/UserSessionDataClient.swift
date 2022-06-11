@@ -16,15 +16,15 @@ class UserSessionDataClient: AbstractUserSessionDataClient {
         self.kvContainer = kvContainer
     }
     
-    @KVLocalStorage(key: "conversionCount", defaultValue: 0)
-    var conversionCount: Int
+    @KVLocalStorage(key: "accessToken", defaultValue: "")
+    var accessToken: String
     
-    func setConversionCount(count: Int) {
-        conversionCount = count
+    func setAccessToken(token: String) {
+        self.accessToken = token
     }
     
-    func getConversionCount() -> Int {
-        return conversionCount
+    func getAccessToken() -> String {
+        return accessToken
     }
 }
 
