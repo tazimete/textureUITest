@@ -18,7 +18,7 @@ extension RepositoryAPIRequest: APIRequest {
     }
     
     public typealias ItemType = Repository
-    public typealias ResponseType = Response<ItemType>
+    public typealias ResponseType = Response<[ItemType]>
     
     public var method: RequestType {
         switch self {
@@ -28,7 +28,7 @@ extension RepositoryAPIRequest: APIRequest {
     
     public var path: String {
         switch self {
-        case .search: return ""
+            case .search: return "/search/repositories"
         }
     }
     

@@ -8,14 +8,17 @@
 import Foundation
 
 /* Wrapper response of  api, which has array of dynamic  content like - currency */
-public struct Response<T: Codable>: Codable {
-    public let result: T?
+struct Response<T: Codable>: Codable {
+    let totalCount: Int?
+    let items: T?
     
-    public init(result: T? = nil) {
-        self.result = result
+    init(items: T? = nil, totalCount:Int? = nil) {
+        self.totalCount = totalCount
+        self.items = items
     }
     
-    public enum CodingKeys: String, CodingKey {
-        case result = "result"
+    enum CodingKeys: String, CodingKey {
+        case items = "items"
+        case totalCount = "total_count"
     }
 }
