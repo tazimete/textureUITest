@@ -12,9 +12,15 @@ import RxCocoa
 /* This is user repository viewmodel class implementation of AbstractRepositoryViewModel. Which will be used to user repo data from its usecase*/
 class RepositoryViewModel: AbstractRepositoryViewModel {
     
+    struct RepositoryInputModel {
+        var accessToken: String
+        var query: String
+        var page: Int
+    }
+    
     // This struct will be used get event with data from viewcontroller
     struct RepositoryInput {
-        let searchRepositoryTrigger: Observable<Int>
+        let searchRepositoryTrigger: Observable<RepositoryInputModel>
     }
     
     // This struct will be used to send event with observable data/response to viewcontroller
@@ -36,22 +42,21 @@ class RepositoryViewModel: AbstractRepositoryViewModel {
         
         // get repository trigger
         input.searchRepositoryTrigger
-            .flatMapLatest({ [weak self] (pageNo) -> Observable<RepositoryAPIRequest.ResponseType?> in
-                // check if  self is exists and balance is enough
+            .flatMapLatest({ [weak self] (inputModel) -> Observable<RepositoryAPIRequest.ResponseType> in
                 guard let weakSelf = self else {
-                    return Observable.just(nil)
+                    return Observable.just(RepositoryAPIRequest.ResponseType())
                 }
                 
-                //convert currency with balance
-                return weakSelf.searchRepository(accessToken: "", query: "", page: pageNo)
+                //api call to get repository list 
+                return weakSelf.searchRepository(accessToken: inputModel.accessToken, query: inputModel.query, page: inputModel.page)
                    .catch({ error in
                        errorResponse.accept(error as? NetworkError)
-                       return Observable.just(.some(nil))
+                       return Observable.just(RepositoryAPIRequest.ResponseType())
                     })
                 })
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
             .subscribe(onNext: { response in
-                repositories.accept(response?.items)
+                repositories.accept(response.items)
             }, onError: { error in
                 errorResponse.accept(error as? NetworkError)
             }).disposed(by: disposeBag)

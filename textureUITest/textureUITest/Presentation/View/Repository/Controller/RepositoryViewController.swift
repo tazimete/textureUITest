@@ -12,18 +12,23 @@ import AsyncDisplayKit
 
 class RepositoryViewController: BaseViewController {
     var animals: [String] = ["A", "B", "C", "D", "E", "F", "G", "H"]
-    var tableNode: ASTableNode!
+    var repositoryViewModel: RepositoryViewModel!
+    let inputSubject = PublishSubject<RepositoryViewModel.RepositoryInputModel>()
+    
+    // MAR: UI Objects
+    lazy var tableNode: ASTableNode = {
+        let tableNode = ASTableNode(style: .plain)
+        tableNode.delegate = self
+        tableNode.dataSource = self
+        tableNode.reloadData()
+        
+        return tableNode
+    }()
     
     // MARK: Constructors
     init(viewModel: AuthViewModel) {
         super.init(viewModel: viewModel)
         self.viewModel = viewModel
-        let tableNode = ASTableNode(style: .plain)
-        self.tableNode = tableNode
-        
-        self.tableNode.delegate = self
-        self.tableNode.dataSource = self
-        self.tableNode.reloadData()
     }
     
     required init?(coder: NSCoder) {
