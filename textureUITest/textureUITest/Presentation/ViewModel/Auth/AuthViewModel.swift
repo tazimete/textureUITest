@@ -13,12 +13,12 @@ import RxCocoa
 class AuthViewModel: AbstractAuthViewModel {
     
     // This struct will be used get event with data from viewcontroller
-    public struct AuthInput {
+    struct AuthInput {
         let authTrigger: Observable<URL>
     }
     
     // This struct will be used to send event with observable data/response to viewcontroller
-    public struct AuthOutput {
+    struct AuthOutput {
         let authResponse: BehaviorRelay<User?>
         let errorResponse: BehaviorRelay<NetworkError?>
     }
@@ -26,11 +26,11 @@ class AuthViewModel: AbstractAuthViewModel {
     let disposeBag = DisposeBag()
     let usecase: AbstractUsecase
     
-    public init(usecase: AbstractAuthUsecase) {
+    init(usecase: AbstractAuthUsecase) {
         self.usecase = usecase
     }
     
-    public func getAuthOutput(input: AuthInput) -> AuthOutput {
+    func getAuthOutput(input: AuthInput) -> AuthOutput {
         let userResponse = BehaviorRelay<User?>(value: nil)
         let errorResponse = BehaviorRelay<NetworkError?>(value: nil)
         

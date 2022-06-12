@@ -13,12 +13,12 @@ import RxCocoa
 class RepositoryViewModel: AbstractRepositoryViewModel {
     
     // This struct will be used get event with data from viewcontroller
-    public struct RepositoryInput {
-        let fetchRepositoryTrigger: Observable<Int>
+    struct RepositoryInput {
+        let searchRepositoryTrigger: Observable<Int>
     }
     
     // This struct will be used to send event with observable data/response to viewcontroller
-    public struct RepositoryOutput {
+    struct RepositoryOutput {
         let repositories: BehaviorRelay<[RepositoryAPIRequest.ItemType]?>
         let error: BehaviorRelay<NetworkError?>
     }
@@ -26,47 +26,42 @@ class RepositoryViewModel: AbstractRepositoryViewModel {
     let usecase: AbstractUsecase
     let disposeBag = DisposeBag()
     
-    public init(usecase: AbstractRepositoryUsecase) {
+    init(usecase: AbstractRepositoryUsecase) {
         self.usecase = usecase
     }
     
-    public func getAuthOutput(input: RepositoryInput) -> RepositoryOutput {
+    func getRepositoryOutput(input: RepositoryInput) -> RepositoryOutput {
         let repositories = BehaviorRelay<[RepositoryAPIRequest.ItemType]?>(value: nil)
-        let error = BehaviorRelay<NetworkError?>(value: nil)
+        let errorResponse = BehaviorRelay<NetworkError?>(value: nil)
         
         // get repository trigger
-        input.fetchRepositoryTrigger
-            .flatMapLatest({ [weak self] (authUrl) -> Observable<UserApiRequest.ItemType> in
+        input.searchRepositoryTrigger
+            .flatMapLatest({ [weak self] (pageNo) -> Observable<RepositoryAPIRequest.ResponseType?> in
                 // check if  self is exists and balance is enough
                 guard let weakSelf = self else {
-                    return Observable.just(UserApiRequest.ItemType())
+                    return Observable.just(nil)
                 }
                 
                 //convert currency with balance
-                return weakSelf.getToken(url: authUrl)
+                return weakSelf.searchRepository(accessToken: "", query: "", page: pageNo)
                    .catch({ error in
                        errorResponse.accept(error as? NetworkError)
-                       return Observable.just(UserApiRequest.ItemType())
+                       return Observable.just(.some(nil))
                     })
                 })
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
             .subscribe(onNext: { response in
-                let user = User(token: response.tokenType.unwrappedValue + " " + response.accessToken.unwrappedValue)
-                userResponse.accept(user)
+                repositories.accept(response?.items)
             }, onError: { error in
                 errorResponse.accept(error as? NetworkError)
             }).disposed(by: disposeBag)
         
-        return AuthOutput.init(authResponse: userResponse, errorResponse: errorResponse)
-    }
-    
-    func storeUserData(user: User) {
-        UserSessionDataClient.shared.setAccessToken(token: user.token.unwrappedValue)
+        return RepositoryOutput.init(repositories: repositories, error: errorResponse)
     }
     
     // MARK: API CALLS
-    func getToken(url: URL) -> Observable<UserApiRequest.ItemType> {
-        return (usecase as! AbstractAuthUsecase).getToken(url: url)
+    func searchRepository(accessToken: String, query: String, page: Int) -> Observable<RepositoryAPIRequest.ResponseType> {
+        (usecase as! AbstractRepositoryUsecase).search(accessToken: accessToken, query: query, page: page)
     }
 }
 
