@@ -1,5 +1,5 @@
 //
-//  Repository.swift
+//  GithubRepository.swift
 //  textureUITest
 //
 //  Created by AGM Tazim on 6/12/22.
@@ -7,8 +7,9 @@
 
 import Foundation
 
-/* Repository entity of Data layer */
-struct Repository: Codable, Equatable {
+
+/* GithubRepository entity of Data layer */
+struct GithubRepository: Codable, Equatable {
     let id: String?
     let name: String?
     let description: String?
@@ -25,14 +26,14 @@ struct Repository: Codable, Equatable {
         case description = "description"
     }
     
-    static func ==(lhs: Repository, rhs: Repository) -> Bool {
+    static func ==(lhs: GithubRepository, rhs: GithubRepository) -> Bool {
         return lhs.id.unwrappedValue == rhs.id.unwrappedValue && lhs.name.unwrappedValue == rhs.name.unwrappedValue
     }
 }
 
 
-extension Optional where Wrapped == Repository {
-    var unwrappedValue: Repository {
-        return self ?? Repository()
+extension Optional where Wrapped == GithubRepository {
+    var unwrappedValue: GithubRepository {
+        return self ?? GithubRepository()
     }
 }

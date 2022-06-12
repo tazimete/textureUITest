@@ -12,27 +12,27 @@ enum RepositoryAPIRequest {
 }
 
 extension RepositoryAPIRequest: APIRequest {
-    public var baseURL: URL {
+    var baseURL: URL {
         let url =  AppConfig.shared.getServerConfig().getBaseUrl()
         return URL(string: url)!
     }
     
-    public typealias ItemType = Repository
-    public typealias ResponseType = Response<[ItemType]>
+    typealias ItemType = Repository
+    typealias ResponseType = Response<[ItemType]>
     
-    public var method: RequestType {
+    var method: RequestType {
         switch self {
             case .search: return .GET
         }
     }
     
-    public var path: String {
+    var path: String {
         switch self {
             case .search: return "/search/repositories"
         }
     }
     
-    public var parameters: [String: Any]{
+    var parameters: [String: Any]{
         var parameter: [String: Any] = [:]
         
         switch self {
@@ -43,7 +43,7 @@ extension RepositoryAPIRequest: APIRequest {
         return parameter
     }
     
-    public var headers: [String: Any] {
+    var headers: [String: Any] {
         var headers: [String: Any] = [:]
         
         switch self {

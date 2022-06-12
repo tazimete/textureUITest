@@ -10,11 +10,11 @@ import Foundation
 struct RepositoryParams: Parameterizable {
     let query: String?
     let page: Int?
-    let perPage: String?
+    let perPage: Int?
     let sort: String?
     let order: String?
     
-    public init(query: String? = nil, page: Int? = nil, perPage: String? = nil, sort: String? = nil, order: String? = nil) {
+    public init(query: String? = nil, page: Int? = nil, perPage: Int? = nil, sort: String? = nil, order: String? = nil) {
         self.query = query
         self.page = page
         self.perPage = perPage

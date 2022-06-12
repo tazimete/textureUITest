@@ -100,6 +100,13 @@
 		FA5134BE2855E94D0018B8D3 /* RepositoryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134BD2855E94D0018B8D3 /* RepositoryParams.swift */; };
 		FA5134C12855EC490018B8D3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134C02855EC490018B8D3 /* Repository.swift */; };
 		FA5134C32855ED640018B8D3 /* RepositoryHeaderParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134C22855ED640018B8D3 /* RepositoryHeaderParams.swift */; };
+		FA5134C62855F4300018B8D3 /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134C52855F4300018B8D3 /* GithubRepository.swift */; };
+		FA5134C92855F60B0018B8D3 /* AbstractRepositoryLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134C82855F60B0018B8D3 /* AbstractRepositoryLocalDataSource.swift */; };
+		FA5134CB2855F6240018B8D3 /* AbstractRepositoryRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134CA2855F6230018B8D3 /* AbstractRepositoryRemoteDataSource.swift */; };
+		FA5134CE2855F8230018B8D3 /* AbstractGithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134CD2855F8230018B8D3 /* AbstractGithubRepository.swift */; };
+		FA5134D1285632470018B8D3 /* AbstractRepositoryUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134D0285632470018B8D3 /* AbstractRepositoryUsecase.swift */; };
+		FA5134D4285634AC0018B8D3 /* RepositoryRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134D3285634AC0018B8D3 /* RepositoryRemoteDataSource.swift */; };
+		FA5134D6285634C40018B8D3 /* RepositoryLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134D5285634C40018B8D3 /* RepositoryLocalDataSource.swift */; };
 		FAA86690284BDC700071D556 /* RepositoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */; };
 		FAA86694284BDF290071D556 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86693284BDF290071D556 /* RepositoryViewController.swift */; };
 		FAA86698284C13D10071D556 /* CardCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86697284C13D10071D556 /* CardCellNode.swift */; };
@@ -232,6 +239,13 @@
 		FA5134BD2855E94D0018B8D3 /* RepositoryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryParams.swift; sourceTree = "<group>"; };
 		FA5134C02855EC490018B8D3 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		FA5134C22855ED640018B8D3 /* RepositoryHeaderParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryHeaderParams.swift; sourceTree = "<group>"; };
+		FA5134C52855F4300018B8D3 /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
+		FA5134C82855F60B0018B8D3 /* AbstractRepositoryLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRepositoryLocalDataSource.swift; sourceTree = "<group>"; };
+		FA5134CA2855F6230018B8D3 /* AbstractRepositoryRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRepositoryRemoteDataSource.swift; sourceTree = "<group>"; };
+		FA5134CD2855F8230018B8D3 /* AbstractGithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractGithubRepository.swift; sourceTree = "<group>"; };
+		FA5134D0285632470018B8D3 /* AbstractRepositoryUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRepositoryUsecase.swift; sourceTree = "<group>"; };
+		FA5134D3285634AC0018B8D3 /* RepositoryRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRemoteDataSource.swift; sourceTree = "<group>"; };
+		FA5134D5285634C40018B8D3 /* RepositoryLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryLocalDataSource.swift; sourceTree = "<group>"; };
 		FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCoordinator.swift; sourceTree = "<group>"; };
 		FAA86693284BDF290071D556 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		FAA86697284C13D10071D556 /* CardCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellNode.swift; sourceTree = "<group>"; };
@@ -512,6 +526,7 @@
 		FA3779D8284A3DB200B7B201 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				FA5134C72855F5DA0018B8D3 /* Repository */,
 				FA3779DA284A3DB200B7B201 /* Auth */,
 				FA3779D9284A3DB200B7B201 /* AbstractLocalDataSource.swift */,
 				FA3779DD284A3DB200B7B201 /* AbstractionRemoteDataSource.swift */,
@@ -531,8 +546,9 @@
 		FA3779DE284A3DB200B7B201 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				FA3779DF284A3DB200B7B201 /* AbstractRepository.swift */,
 				FA3779E0284A3DB200B7B201 /* Auth */,
+				FA5134CC2855F7FF0018B8D3 /* Repository */,
+				FA3779DF284A3DB200B7B201 /* AbstractRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -548,8 +564,9 @@
 		FA3779E2284A3DB200B7B201 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				FA3779E3284A3DB200B7B201 /* Auth */,
 				FA3779E5284A3DB200B7B201 /* AbstractDataModel.swift */,
+				FA3779E3284A3DB200B7B201 /* Auth */,
+				FA5134C42855F4080018B8D3 /* Repository */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -565,6 +582,7 @@
 		FA3779E6284A3DB200B7B201 /* Usecase */ = {
 			isa = PBXGroup;
 			children = (
+				FA5134CF2856321B0018B8D3 /* Repository */,
 				FA3779E7284A3DB200B7B201 /* Auth */,
 				FA3779E9284A3DB200B7B201 /* AbstractUsecase.swift */,
 			);
@@ -760,6 +778,7 @@
 		FA377A2B284A3DB400B7B201 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				FA5134D22856348F0018B8D3 /* Repository */,
 				FA377A2C284A3DB400B7B201 /* Auth */,
 			);
 			path = DataSource;
@@ -768,8 +787,8 @@
 		FA377A2C284A3DB400B7B201 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A2D284A3DB400B7B201 /* AuthLocalDataSource.swift */,
 				FA377A2E284A3DB400B7B201 /* AuthRemoteDataSource.swift */,
+				FA377A2D284A3DB400B7B201 /* AuthLocalDataSource.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -793,9 +812,9 @@
 		FA377A32284A3DB400B7B201 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				FA377A33284A3DB400B7B201 /* Response.swift */,
 				FA377A34284A3DB400B7B201 /* Auth */,
 				FA5134BF2855EC360018B8D3 /* Repository */,
-				FA377A33284A3DB400B7B201 /* Response.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -916,6 +935,48 @@
 			isa = PBXGroup;
 			children = (
 				FA5134C02855EC490018B8D3 /* Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FA5134C42855F4080018B8D3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FA5134C52855F4300018B8D3 /* GithubRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FA5134C72855F5DA0018B8D3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FA5134C82855F60B0018B8D3 /* AbstractRepositoryLocalDataSource.swift */,
+				FA5134CA2855F6230018B8D3 /* AbstractRepositoryRemoteDataSource.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FA5134CC2855F7FF0018B8D3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FA5134CD2855F8230018B8D3 /* AbstractGithubRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FA5134CF2856321B0018B8D3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FA5134D0285632470018B8D3 /* AbstractRepositoryUsecase.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FA5134D22856348F0018B8D3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FA5134D3285634AC0018B8D3 /* RepositoryRemoteDataSource.swift */,
+				FA5134D5285634C40018B8D3 /* RepositoryLocalDataSource.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1243,11 +1304,13 @@
 				FA377A9B284A3DB500B7B201 /* Coordinator.swift in Sources */,
 				FA377A90284A3DB500B7B201 /* AuthRemoteDataSource.swift in Sources */,
 				FA377A8B284A3DB500B7B201 /* AdaptiveLayoutConstraint.swift in Sources */,
+				FA5134D1285632470018B8D3 /* AbstractRepositoryUsecase.swift in Sources */,
 				FA377A72284A3DB500B7B201 /* AbstractMyBalanceViewModel.swift in Sources */,
 				FA377A68284A3DB500B7B201 /* AbstractUsecase.swift in Sources */,
 				FA377A4D284A3DB400B7B201 /* Downloader.swift in Sources */,
 				FA503D41284B658100DF7C59 /* ASControlNode+Rx.swift in Sources */,
 				FA377A55284A3DB500B7B201 /* KVLocalSorageIntereactor.swift in Sources */,
+				FA5134C62855F4300018B8D3 /* GithubRepository.swift in Sources */,
 				FA377A58284A3DB500B7B201 /* UserSessionDataClient.swift in Sources */,
 				FA377A88284A3DB500B7B201 /* GenericCellComponents.swift in Sources */,
 				FA377A56284A3DB500B7B201 /* AbstractUserSessionDataClient.swift in Sources */,
@@ -1260,6 +1323,7 @@
 				FA503D3E284B658100DF7C59 /* ASNetworkImageNode+Rx.swift in Sources */,
 				FA377A5D284A3DB500B7B201 /* ConfigComponents.swift in Sources */,
 				FA377A52284A3DB500B7B201 /* ImageDownloader.swift in Sources */,
+				FA5134C92855F60B0018B8D3 /* AbstractRepositoryLocalDataSource.swift in Sources */,
 				FA377A6F284A3DB500B7B201 /* UIViewController+Extension.swift in Sources */,
 				FA377A86284A3DB500B7B201 /* AppLogger.swift in Sources */,
 				FA377A62284A3DB500B7B201 /* AbstractionRemoteDataSource.swift in Sources */,
@@ -1277,6 +1341,7 @@
 				FA377A69284A3DB500B7B201 /* UIImageView+Extension.swift in Sources */,
 				FA377A5B284A3DB500B7B201 /* ServerConfig.swift in Sources */,
 				FA377A74284A3DB500B7B201 /* AuthViewModel.swift in Sources */,
+				FA5134D6285634C40018B8D3 /* RepositoryLocalDataSource.swift in Sources */,
 				FA377A46284A3DB400B7B201 /* AbstractURLSession.swift in Sources */,
 				FA377A99284A3DB500B7B201 /* AuthUsecase.swift in Sources */,
 				FA5134BE2855E94D0018B8D3 /* RepositoryParams.swift in Sources */,
@@ -1299,6 +1364,7 @@
 				FA377A66284A3DB500B7B201 /* AbstractDataModel.swift in Sources */,
 				FA377A47284A3DB400B7B201 /* AbstractApiClient.swift in Sources */,
 				FA377A82284A3DB500B7B201 /* BaseViewController.swift in Sources */,
+				FA5134D4285634AC0018B8D3 /* RepositoryRemoteDataSource.swift in Sources */,
 				FA377A8D284A3DB500B7B201 /* AppDelegate.swift in Sources */,
 				FA377A67284A3DB500B7B201 /* AbstractAuthUsecase.swift in Sources */,
 				FA377A73284A3DB500B7B201 /* AbstractViewModel.swift in Sources */,
@@ -1306,12 +1372,14 @@
 				FA377A4C284A3DB400B7B201 /* ApiRequest.swift in Sources */,
 				FA503D40284B658100DF7C59 /* ASTextNode+Rx.swift in Sources */,
 				FA377A48284A3DB400B7B201 /* ApiClient.swift in Sources */,
+				FA5134CE2855F8230018B8D3 /* AbstractGithubRepository.swift in Sources */,
 				FA377A5C284A3DB500B7B201 /* AppTheme.swift in Sources */,
 				FADF774D2853F771004DFF44 /* Abstractions.swift in Sources */,
 				FA503D3A284B658100DF7C59 /* ASButtonNode+Rx.swift in Sources */,
 				FA377A92284A3DB500B7B201 /* Response.swift in Sources */,
 				FA377A57284A3DB500B7B201 /* AbstractLocalStorageIntereactor.swift in Sources */,
 				FA503D38284B658100DF7C59 /* ASBinder.swift in Sources */,
+				FA5134CB2855F6240018B8D3 /* AbstractRepositoryRemoteDataSource.swift in Sources */,
 				FA377A4F284A3DB400B7B201 /* AbstractDownloader.swift in Sources */,
 				FA503D36284B658100DF7C59 /* ASImageNode+Rx.swift in Sources */,
 				FA377A65284A3DB500B7B201 /* User.swift in Sources */,
