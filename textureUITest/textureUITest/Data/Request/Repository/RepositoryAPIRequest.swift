@@ -28,7 +28,7 @@ extension RepositoryAPIRequest: APIRequest {
     
     var path: String {
         switch self {
-            case .search: return "/search/repositories"
+            case .search: return "/search/users"
         }
     }
     

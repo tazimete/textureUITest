@@ -56,7 +56,8 @@ class RepositoryViewModel: AbstractRepositoryViewModel {
                 })
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
             .subscribe(onNext: { response in
-                repositories.accept(response.items)
+                let values = (repositories.value ?? []) + (response.items ?? [])
+                repositories.accept(values)
             }, onError: { error in
                 errorResponse.accept(error as? NetworkError)
             }).disposed(by: disposeBag)

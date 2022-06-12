@@ -23,6 +23,7 @@ class RepositoryViewController: BaseViewController {
         tableNode.delegate = self
         tableNode.dataSource = self
         tableNode.reloadData()
+        tableNode.view.leadingScreensForBatching = 1.0;
         
         return tableNode
     }()
@@ -104,7 +105,7 @@ class RepositoryViewController: BaseViewController {
 extension RepositoryViewController: ASTableDelegate {
   func tableView(_ tableView: ASTableView, willBeginBatchFetchWith context: ASBatchContext) {
     nextPageWithCompletion { (results) in
-      self.insertNewRows(results)
+//      self.insertNewRows(results)
       context.completeBatchFetching(true)
     }
   }
@@ -144,10 +145,12 @@ extension RepositoryViewController: ASTableDataSource {
 extension RepositoryViewController {
   func nextPageWithCompletion(_ block: @escaping (_ results: [Repository]) -> ()) {
 //    let moreAnimals = Array(self.repositoryList[0 ..< 5])
-//
-//    DispatchQueue.main.async {
-//      block(moreAnimals)
-//    }
+      
+      inputSubject.onNext(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "te", page: 2))
+      
+      DispatchQueue.main.async {
+        block([])
+      }
   }
 
   func insertNewRows(_ newAnimals: [Repository]) {
@@ -166,4 +169,6 @@ extension RepositoryViewController {
       tableView.insertRows(at: indexPaths, with: .none)
     }
   }
+    
+    
 }
