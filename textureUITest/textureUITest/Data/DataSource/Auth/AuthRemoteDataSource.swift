@@ -18,6 +18,6 @@ class AuthRemoteDataSource: AbstractAuthRemoteDataSource {
     func getToken(authCode: String) -> Observable<UserApiRequest.ItemType> {
         let authConfig = AppConfig.shared.getServerConfig().getAuthCredential()
         
-        return apiClient.send(apiRequest: UserApiRequest.convert(params: UserAuthParams(clientId: authConfig.clientId, clientSecret: authConfig.clientSecret, authCode: authCode, redirectUrl: authConfig.redirectUri?.absoluteString, state: "")), type: UserApiRequest.ItemType.self)
+        return apiClient.send(apiRequest: UserApiRequest.getToken(params: UserAuthParams(clientId: authConfig.clientId, clientSecret: authConfig.clientSecret, authCode: authCode, redirectUrl: authConfig.redirectUri?.absoluteString, state: "")), type: UserApiRequest.ItemType.self)
     }
 }

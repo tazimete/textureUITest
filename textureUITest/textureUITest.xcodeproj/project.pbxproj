@@ -96,6 +96,10 @@
 		FA503D3F284B658100DF7C59 /* Driver+ASSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D30284B658100DF7C59 /* Driver+ASSubscription.swift */; };
 		FA503D40284B658100DF7C59 /* ASTextNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D31284B658100DF7C59 /* ASTextNode+Rx.swift */; };
 		FA503D41284B658100DF7C59 /* ASControlNode+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA503D32284B658100DF7C59 /* ASControlNode+Rx.swift */; };
+		FA5134BC2855E8CF0018B8D3 /* RepositoryAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134BB2855E8CF0018B8D3 /* RepositoryAPIRequest.swift */; };
+		FA5134BE2855E94D0018B8D3 /* RepositoryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134BD2855E94D0018B8D3 /* RepositoryParams.swift */; };
+		FA5134C12855EC490018B8D3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134C02855EC490018B8D3 /* Repository.swift */; };
+		FA5134C32855ED640018B8D3 /* RepositoryHeaderParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134C22855ED640018B8D3 /* RepositoryHeaderParams.swift */; };
 		FAA86690284BDC700071D556 /* RepositoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */; };
 		FAA86694284BDF290071D556 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86693284BDF290071D556 /* RepositoryViewController.swift */; };
 		FAA86698284C13D10071D556 /* CardCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86697284C13D10071D556 /* CardCellNode.swift */; };
@@ -224,6 +228,10 @@
 		FA503D30284B658100DF7C59 /* Driver+ASSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Driver+ASSubscription.swift"; sourceTree = "<group>"; };
 		FA503D31284B658100DF7C59 /* ASTextNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASTextNode+Rx.swift"; sourceTree = "<group>"; };
 		FA503D32284B658100DF7C59 /* ASControlNode+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASControlNode+Rx.swift"; sourceTree = "<group>"; };
+		FA5134BB2855E8CF0018B8D3 /* RepositoryAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryAPIRequest.swift; sourceTree = "<group>"; };
+		FA5134BD2855E94D0018B8D3 /* RepositoryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryParams.swift; sourceTree = "<group>"; };
+		FA5134C02855EC490018B8D3 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		FA5134C22855ED640018B8D3 /* RepositoryHeaderParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryHeaderParams.swift; sourceTree = "<group>"; };
 		FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCoordinator.swift; sourceTree = "<group>"; };
 		FAA86693284BDF290071D556 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		FAA86697284C13D10071D556 /* CardCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellNode.swift; sourceTree = "<group>"; };
@@ -785,8 +793,9 @@
 		FA377A32284A3DB400B7B201 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A33284A3DB400B7B201 /* Response.swift */,
 				FA377A34284A3DB400B7B201 /* Auth */,
+				FA5134BF2855EC360018B8D3 /* Repository */,
+				FA377A33284A3DB400B7B201 /* Response.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -803,6 +812,7 @@
 			isa = PBXGroup;
 			children = (
 				FA377A3A284A3DB400B7B201 /* Auth */,
+				FA5134BA2855E8B10018B8D3 /* Repository */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -890,6 +900,24 @@
 				FA503D32284B658100DF7C59 /* ASControlNode+Rx.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		FA5134BA2855E8B10018B8D3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FA5134BD2855E94D0018B8D3 /* RepositoryParams.swift */,
+				FA5134C22855ED640018B8D3 /* RepositoryHeaderParams.swift */,
+				FA5134BB2855E8CF0018B8D3 /* RepositoryAPIRequest.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FA5134BF2855EC360018B8D3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FA5134C02855EC490018B8D3 /* Repository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		FAA8668E284BDBD30071D556 /* Repository */ = {
@@ -1251,6 +1279,7 @@
 				FA377A74284A3DB500B7B201 /* AuthViewModel.swift in Sources */,
 				FA377A46284A3DB400B7B201 /* AbstractURLSession.swift in Sources */,
 				FA377A99284A3DB500B7B201 /* AuthUsecase.swift in Sources */,
+				FA5134BE2855E94D0018B8D3 /* RepositoryParams.swift in Sources */,
 				FA377A9A284A3DB500B7B201 /* AuthCoordinator.swift in Sources */,
 				FA377A5F284A3DB500B7B201 /* AbstractLocalDataSource.swift in Sources */,
 				FA377A4E284A3DB400B7B201 /* DownloadDataParser.swift in Sources */,
@@ -1262,6 +1291,7 @@
 				FADF774F2853F790004DFF44 /* DeepLinkCoordinator.swift in Sources */,
 				FA377A91284A3DB500B7B201 /* AuthRepository.swift in Sources */,
 				FA377A85284A3DB500B7B201 /* BalanceItemCell.swift in Sources */,
+				FA5134C12855EC490018B8D3 /* Repository.swift in Sources */,
 				FADF77512853F840004DFF44 /* AuthDeepLinkHandler.swift in Sources */,
 				FA377A64284A3DB500B7B201 /* AbstractAuthRepository.swift in Sources */,
 				FA377A8E284A3DB500B7B201 /* SceneDelegate.swift in Sources */,
@@ -1286,8 +1316,10 @@
 				FA503D36284B658100DF7C59 /* ASImageNode+Rx.swift in Sources */,
 				FA377A65284A3DB500B7B201 /* User.swift in Sources */,
 				FA377A89284A3DB500B7B201 /* CellConfiguratorFactory.swift in Sources */,
+				FA5134C32855ED640018B8D3 /* RepositoryHeaderParams.swift in Sources */,
 				FA503D3C284B658100DF7C59 /* ASDisplayNode+Rx.swift in Sources */,
 				FA377A50284A3DB400B7B201 /* DownloaderClient.swift in Sources */,
+				FA5134BC2855E8CF0018B8D3 /* RepositoryAPIRequest.swift in Sources */,
 				FA503D35284B658100DF7C59 /* ASEditableTextNode+Rx.swift in Sources */,
 				FA377A6A284A3DB500B7B201 /* UIColor+Extension.swift in Sources */,
 				FA377A71284A3DB500B7B201 /* Codable+Extension.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  Network.swift
+//  UserApiRequest.swift
 //  currency-converter
 //
 //  Created by AGM Tazim on 03/05/22.
@@ -8,13 +8,12 @@
 import Foundation
 
 enum UserApiRequest {
-    case convert(params: Parameterizable)
+    case getToken(params: Parameterizable)
 }
 
 extension UserApiRequest: APIRequest {
     public var baseURL: URL {
-        let url =  (AppConfig.shared.getServerConfig().getAuthCredential().tokenUrl?.absoluteString).unwrappedValue
-        return URL(string: url)!
+        return (AppConfig.shared.getServerConfig().getAuthCredential().tokenUrl)!
     }
     
     public typealias ItemType = UserAuth
@@ -22,13 +21,13 @@ extension UserApiRequest: APIRequest {
     
     public var method: RequestType {
         switch self {
-            case .convert: return .GET
+            case .getToken: return .GET
         }
     }
     
     public var path: String {
         switch self {
-        case .convert: return ""
+        case .getToken: return ""
         }
     }
     
@@ -36,15 +35,15 @@ extension UserApiRequest: APIRequest {
         var parameter: [String: Any] = [:]
         
         switch self {
-            case .convert (let params):
+            case .getToken (let params):
                 parameter = params.asRequestParam
         }
         
         return parameter
     }
     
-    public var headers: [String: String] {
-        return [String: String]()
+    public var headers: [String: Any] {
+        return [String: Any]()
     }
 }
 

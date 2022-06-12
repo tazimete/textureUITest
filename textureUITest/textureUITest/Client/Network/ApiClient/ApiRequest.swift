@@ -17,7 +17,7 @@ public protocol APIRequest {
     var method: RequestType { get }
     var path: String { get }
     var parameters: [String: Any] { get }
-    var headers: [String: String] {get}
+    var headers: [String: Any] {get}
 }
 
 extension APIRequest {
