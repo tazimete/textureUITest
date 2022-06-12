@@ -9,11 +9,11 @@ import Foundation
 
 /* Repository entity of Data layer */
 struct Repository: Codable, Equatable {
-    let id: String?
+    let id: Int?
     let name: String?
     let description: String?
     
-    init(id: String? = nil, name: String? = nil, description: String? = nil) {
+    init(id: Int? = nil, name: String? = nil, description: String? = nil) {
         self.id = id
         self.name = name
         self.description = description

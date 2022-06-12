@@ -8,7 +8,7 @@
 import Foundation
 
 enum RepositoryAPIRequest {
-    case search(params: Parameterizable)
+    case search(params: Parameterizable, headers: Parameterizable)
 }
 
 extension RepositoryAPIRequest: APIRequest {
@@ -36,7 +36,7 @@ extension RepositoryAPIRequest: APIRequest {
         var parameter: [String: Any] = [:]
         
         switch self {
-            case .search (let params):
+            case .search (let params, _):
                 parameter = params.asRequestParam
         }
         
@@ -47,7 +47,7 @@ extension RepositoryAPIRequest: APIRequest {
         var headers: [String: Any] = [:]
         
         switch self {
-            case .search (let hParams):
+            case .search (_, let hParams):
             headers = hParams.asRequestParam
         }
         

@@ -9,9 +9,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 import AsyncDisplayKit
+import RxDataSources_Texture
 
 class RepositoryViewController: BaseViewController {
-    var animals: [String] = ["A", "B", "C", "D", "E", "F", "G", "H"]
+    weak var coordinator: RepositoryCoordinator?
+    var repositoryList: [Repository] = [Repository]()
     var repositoryViewModel: RepositoryViewModel!
     let inputSubject = PublishSubject<RepositoryViewModel.RepositoryInputModel>()
     
@@ -26,7 +28,7 @@ class RepositoryViewController: BaseViewController {
     }()
     
     // MARK: Constructors
-    init(viewModel: AuthViewModel) {
+    init(viewModel: RepositoryViewModel) {
         super.init(viewModel: viewModel)
         self.viewModel = viewModel
     }
@@ -50,7 +52,7 @@ class RepositoryViewController: BaseViewController {
     override func initNavigationBar() {
         super.initNavigationBar()
         
-        self.navigationItem.title = "Authentication"
+        self.navigationItem.title = "Search Repository"
     }
     
     override func addSubviews() {
@@ -67,7 +69,32 @@ class RepositoryViewController: BaseViewController {
     }
     
     override func bindViewModel() {
+        repositoryViewModel = viewModel as! RepositoryViewModel
+        let input = RepositoryViewModel.RepositoryInput(searchRepositoryTrigger: inputSubject)
+        let output = repositoryViewModel.getRepositoryOutput(input: input)
         
+        let dataSource = RxASTableSectionedReloadDataSource<SectionModel<Repository?, Int>>(
+            configureCellBlock: { (_, _, _, num) in
+                return {
+                    let cell = ASTextCellNode()
+                    cell.text = "\(num)"
+                    return cell
+                }
+        })
+        
+        output.repositories
+            .asDriver()
+            .drive(onNext: { [weak self] data in
+                guard let weakSelf = self, let data = data else {
+                    return
+                }
+                
+                weakSelf.repositoryList.append(contentsOf: data)
+                weakSelf.tableNode.reloadData()
+            })
+            .disposed(by: disposeBag)
+        
+        inputSubject.onNext(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "test", page: 1))
     }
 }
 
@@ -97,14 +124,14 @@ extension RepositoryViewController: ASTableDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
-  
+
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return animals.count
+    return repositoryList.count
   }
-  
+
   func tableView(_ tableView: ASTableView, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
-    let animal = animals[(indexPath as NSIndexPath).row]
-    
+    let animal = repositoryList[(indexPath as NSIndexPath).row]
+
     return {
       let node = CardCellNode(animalInfo: animal)
       return node
@@ -115,26 +142,26 @@ extension RepositoryViewController: ASTableDataSource {
 // MARK: - Helpers
 
 extension RepositoryViewController {
-  func nextPageWithCompletion(_ block: @escaping (_ results: [String]) -> ()) {
-    let moreAnimals = Array(self.animals[0 ..< 5])
-    
-    DispatchQueue.main.async {
-      block(moreAnimals)
-    }
+  func nextPageWithCompletion(_ block: @escaping (_ results: [Repository]) -> ()) {
+//    let moreAnimals = Array(self.repositoryList[0 ..< 5])
+//
+//    DispatchQueue.main.async {
+//      block(moreAnimals)
+//    }
   }
-  
-  func insertNewRows(_ newAnimals: [String]) {
+
+  func insertNewRows(_ newAnimals: [Repository]) {
     let section = 0
     var indexPaths = [IndexPath]()
-    
-    let newTotalNumberOfPhotos = animals.count + newAnimals.count
-    
-    for row in animals.count ..< newTotalNumberOfPhotos {
+
+    let newTotalNumberOfPhotos = repositoryList.count + newAnimals.count
+
+    for row in repositoryList.count ..< newTotalNumberOfPhotos {
       let path = IndexPath(row: row, section: section)
       indexPaths.append(path)
     }
-    
-    animals.append(contentsOf: newAnimals)
+
+      repositoryList.append(contentsOf: newAnimals)
     if let tableView = tableNode as? ASTableView {
       tableView.insertRows(at: indexPaths, with: .none)
     }

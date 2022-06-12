@@ -50,8 +50,10 @@ class AuthViewModel: AbstractAuthViewModel {
                     })
                 })
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
-            .subscribe(onNext: { response in
-                let user = User(token: response.tokenType.unwrappedValue + " " + response.accessToken.unwrappedValue)
+            .subscribe(onNext: { [weak self] response in
+                let user = User(token: response.accessToken.unwrappedValue)
+                
+                self?.storeUserData(user: user)
                 userResponse.accept(user)
             }, onError: { error in
                 errorResponse.accept(error as? NetworkError)

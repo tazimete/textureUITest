@@ -9,7 +9,7 @@ import UIKit
 import AsyncDisplayKit
 
 class CardCellNode: ASCellNode {
-  let animalInfo: String
+  let animalInfo: Repository
   
   fileprivate let backgroundImageNode: ASImageNode
   fileprivate let animalImageNode: ASNetworkImageNode
@@ -19,7 +19,7 @@ class CardCellNode: ASCellNode {
   
 //  fileprivate let gradientNode: GradientNode
   
-  init(animalInfo: String) {
+  init(animalInfo: Repository) {
     self.animalInfo = animalInfo
     
     backgroundImageNode = ASImageNode()
@@ -44,13 +44,13 @@ class CardCellNode: ASCellNode {
     animalImageNode.shouldRenderProgressImages = true
     
     //Animal Name
-      animalNameTextNode.attributedText = NSAttributedString(string: animalInfo)
+      animalNameTextNode.attributedText = NSAttributedString(string: animalInfo.description.unwrappedValue)
     animalNameTextNode.placeholderEnabled = true
     animalNameTextNode.placeholderFadeDuration = 0.15
     animalNameTextNode.placeholderColor = UIColor(white: 0.777, alpha: 1.0)
     
     //Animal Description
-      animalDescriptionTextNode.attributedText = NSAttributedString(string: animalInfo)
+      animalDescriptionTextNode.attributedText = NSAttributedString(string: animalInfo.description.unwrappedValue)
     animalDescriptionTextNode.truncationAttributedText = NSAttributedString(string: "…")
     animalDescriptionTextNode.backgroundColor = UIColor.clear
     animalDescriptionTextNode.placeholderEnabled = true
