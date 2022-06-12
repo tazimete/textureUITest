@@ -16,7 +16,7 @@ class RepositoryUsecase: AbstractRepositoryUsecase {
         self.repository = repository
     }
     
-    func search(accessToken: String, page: Int) -> Observable<RepositoryAPIRequest.ResponseType> {
-        (repository as! AbstractUserRepoRepository).searchRemote(accessToken: accessToken, page: page)
+    func search(accessToken: String, query: String, page: Int) -> Observable<RepositoryAPIRequest.ResponseType> {
+        (repository as! AbstractUserRepoRepository).searchRemote(accessToken: accessToken, query: query, page: page)
     }
 }

@@ -18,11 +18,11 @@ class UserRepoRepository: AbstractUserRepoRepository {
         self.remoteDataSource = remoteDataSource
     }
  
-    func searchRemote(accessToken: String, page: Int) -> Observable<RepositoryAPIRequest.ResponseType> {
-        return (remoteDataSource as! AbstractRepositoryRemoteDataSource).search(accessToken: accessToken, page: page)
+    func searchRemote(accessToken: String, query: String, page: Int) -> Observable<RepositoryAPIRequest.ResponseType> {
+        return (remoteDataSource as! AbstractRepositoryRemoteDataSource).search(accessToken: accessToken, query: query, page: page)
     }
     
-    func searchLocal(accessToken: String, page: Int) -> Observable<[RepositoryAPIRequest.ItemType]> {
-        return (localDataSource as! AbstractRepositoryLocalDataSource).search(accessToken: accessToken, page: page)
+    func searchLocal(accessToken: String, query: String, page: Int) -> Observable<[RepositoryAPIRequest.ItemType]> {
+        return (localDataSource as! AbstractRepositoryLocalDataSource).search(accessToken: accessToken, query: query, page: page)
     }
 }

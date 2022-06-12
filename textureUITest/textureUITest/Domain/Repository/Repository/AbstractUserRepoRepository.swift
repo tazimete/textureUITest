@@ -10,6 +10,6 @@ import RxSwift
 
 /* This is user repo repository abstraction extented from AbstractRepository. Which will be used to get user repository related data from api client/server response*/
 protocol AbstractUserRepoRepository: AbstractRepository {
-    func searchRemote(accessToken: String, page: Int) -> Observable<RepositoryAPIRequest.ResponseType>
-    func searchLocal(accessToken: String, page: Int) -> Observable<[RepositoryAPIRequest.ItemType]>
+    func searchRemote(accessToken: String, query: String, page: Int) -> Observable<RepositoryAPIRequest.ResponseType>
+    func searchLocal(accessToken: String, query: String, page: Int) -> Observable<[RepositoryAPIRequest.ItemType]>
 }

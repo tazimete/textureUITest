@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxRelay
 
-/* This is AbstractMyBalanceViewModel abstraction extented from AbstractViewModel. Which will be used to get balance related data by its usecases*/
+/* This is AbstractAUthViewModel abstraction extented from AbstractViewModel. Which will be used to get user auth related data by its usecases*/
 protocol AbstractAuthViewModel: AbstractViewModel {
     associatedtype AuthInput
     associatedtype AuthOutput

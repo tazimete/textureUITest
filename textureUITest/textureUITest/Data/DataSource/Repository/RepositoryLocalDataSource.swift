@@ -16,7 +16,7 @@ class RepositoryLocalDataSource: AbstractRepositoryLocalDataSource {
         self.dbClient = dbClient
     }
     
-    func search(accessToken: String, page: Int) -> Observable<[RepositoryAPIRequest.ItemType]> {
+    func search(accessToken: String, query: String, page: Int) -> Observable<[RepositoryAPIRequest.ItemType]> {
         return dbClient.readAll(type: RepositoryAPIRequest.ItemType.self)
     }
 }

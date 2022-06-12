@@ -10,5 +10,5 @@ import RxSwift
 
 /* This is repository usecase abstraction extented from AbstractUsecase. Which will be used to get user repository related data from repository/github repository*/
 protocol AbstractRepositoryUsecase: AbstractUsecase {
-    func search(accessToken: String, page: Int) -> Observable<RepositoryAPIRequest.ResponseType>
+    func search(accessToken: String, query: String, page: Int) -> Observable<RepositoryAPIRequest.ResponseType>
 }

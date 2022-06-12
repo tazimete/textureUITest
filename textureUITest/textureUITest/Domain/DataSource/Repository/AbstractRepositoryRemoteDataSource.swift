@@ -10,5 +10,5 @@ import RxSwift
 
 /* This is repository remote data source abstraction extented from AbstractRemoteDataSource. Which will be used to get user repository related data from repository api*/
 protocol AbstractRepositoryRemoteDataSource: AbstractRemoteDataSource {
-    func search(accessToken: String, page: Int) -> Observable<RepositoryAPIRequest.ResponseType>
+    func search(accessToken: String, query: String, page: Int) -> Observable<RepositoryAPIRequest.ResponseType>
 }

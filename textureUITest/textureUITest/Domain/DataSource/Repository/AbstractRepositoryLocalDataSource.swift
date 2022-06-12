@@ -13,5 +13,5 @@ import RxSwift
 
 /* This is repository local data source abstraction extented from AbstractLocalDataSource. Which will be used to get user repository related data from repository database*/
 protocol AbstractRepositoryLocalDataSource: AbstractLocalDataSource {
-    func search(accessToken: String, page: Int) -> Observable<[RepositoryAPIRequest.ItemType]>
+    func search(accessToken: String, query: String, page: Int) -> Observable<[RepositoryAPIRequest.ItemType]>
 }
