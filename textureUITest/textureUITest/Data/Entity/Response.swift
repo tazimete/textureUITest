@@ -7,7 +7,7 @@
 
 import Foundation
 
-/* Wrapper response of  api, which has array of dynamic  content like - currency */
+/* Wrapper response of  api, which has array of dynamic  content like - repository */
 struct Response<T: Codable>: Codable {
     let totalCount: Int?
     let items: T?

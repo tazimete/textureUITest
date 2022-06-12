@@ -8,30 +8,30 @@
 import Foundation
 
 struct RepositoryParams: Parameterizable {
-    let clientId: String?
-    let clientSecret: String?
-    let authCode: String?
-    let redirectUrl: String?
-    let state: String?
+    let query: String?
+    let page: Int?
+    let perPage: String?
+    let sort: String?
+    let order: String?
     
-    public init(clientId: String? = nil, clientSecret: String? = nil, authCode: String? = nil, redirectUrl: String? = nil, state: String? = nil) {
-        self.clientId = clientId
-        self.clientSecret = clientSecret
-        self.authCode = authCode
-        self.redirectUrl = redirectUrl
-        self.state = state
+    public init(query: String? = nil, page: Int? = nil, perPage: String? = nil, sort: String? = nil, order: String? = nil) {
+        self.query = query
+        self.page = page
+        self.perPage = perPage
+        self.sort = sort
+        self.order = order
     }
     
     private enum CodingKeys: String, CodingKey {
-        case clientId = "client_id"
-        case clientSecret = "client_secret"
-        case redirectUrl = "redirect_uri"
-        case authCode = "code"
-        case state
+        case query = "q"
+        case page = "page"
+        case perPage = "per_page"
+        case sort = "sort"
+        case order = "order"
     }
 
     public var asRequestParam: [String: Any] {
-        let param: [String: Any] = [CodingKeys.clientId.rawValue: clientId.unwrappedValue, CodingKeys.clientSecret.rawValue: clientSecret.unwrappedValue, CodingKeys.authCode.rawValue: authCode.unwrappedValue, CodingKeys.redirectUrl.rawValue: redirectUrl.unwrappedValue, CodingKeys.state.rawValue: state.unwrappedValue]
+        let param: [String: Any] = [CodingKeys.query.rawValue: query.unwrappedValue, CodingKeys.page.rawValue: page.unwrappedValue, CodingKeys.perPage.rawValue: perPage.unwrappedValue, CodingKeys.sort.rawValue: sort.unwrappedValue, CodingKeys.order.rawValue: order.unwrappedValue]
         return param.compactMapValues { $0 }
     }
 }

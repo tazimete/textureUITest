@@ -16,10 +16,6 @@ struct RepositoryHeaderParams: Parameterizable {
     
     private enum CodingKeys: String, CodingKey {
         case authorization = "Authorization"
-        case clientSecret = "client_secret"
-        case redirectUrl = "redirect_uri"
-        case authCode = "code"
-        case state
     }
 
     public var asRequestParam: [String: Any] {
