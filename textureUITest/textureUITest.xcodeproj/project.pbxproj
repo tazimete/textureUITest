@@ -111,6 +111,7 @@
 		FA5134DC28563E9C0018B8D3 /* RepositoryUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134DB28563E9C0018B8D3 /* RepositoryUsecase.swift */; };
 		FA5134DF285655C50018B8D3 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134DE285655C50018B8D3 /* RepositoryViewModel.swift */; };
 		FA5134E2285656020018B8D3 /* AbstractRepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134E1285656020018B8D3 /* AbstractRepositoryViewModel.swift */; };
+		FA5134E42856BCB60018B8D3 /* SectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134E32856BCB60018B8D3 /* SectionItem.swift */; };
 		FAA86690284BDC700071D556 /* RepositoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */; };
 		FAA86694284BDF290071D556 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86693284BDF290071D556 /* RepositoryViewController.swift */; };
 		FAA86698284C13D10071D556 /* CardCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86697284C13D10071D556 /* CardCellNode.swift */; };
@@ -254,6 +255,7 @@
 		FA5134DB28563E9C0018B8D3 /* RepositoryUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryUsecase.swift; sourceTree = "<group>"; };
 		FA5134DE285655C50018B8D3 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
 		FA5134E1285656020018B8D3 /* AbstractRepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRepositoryViewModel.swift; sourceTree = "<group>"; };
+		FA5134E32856BCB60018B8D3 /* SectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItem.swift; sourceTree = "<group>"; };
 		FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCoordinator.swift; sourceTree = "<group>"; };
 		FAA86693284BDF290071D556 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		FAA86697284C13D10071D556 /* CardCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellNode.swift; sourceTree = "<group>"; };
@@ -955,6 +957,7 @@
 			isa = PBXGroup;
 			children = (
 				FA5134C52855F4300018B8D3 /* GithubRepository.swift */,
+				FA5134E32856BCB60018B8D3 /* SectionItem.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1374,6 +1377,7 @@
 				FA377A62284A3DB500B7B201 /* AbstractionRemoteDataSource.swift in Sources */,
 				FA377A59284A3DB500B7B201 /* KVLocalStorage.swift in Sources */,
 				FADF77552853F8C6004DFF44 /* DeepLinkScheme.swift in Sources */,
+				FA5134E42856BCB60018B8D3 /* SectionItem.swift in Sources */,
 				FA377A97284A3DB500B7B201 /* UserAuthParams.swift in Sources */,
 				FA377A70284A3DB500B7B201 /* Optional+Extensions.swift in Sources */,
 				FA377A6D284A3DB500B7B201 /* UIImage+Extension.swift in Sources */,

@@ -28,6 +28,8 @@ class RepositoryViewController: BaseViewController {
         return tableNode
     }()
     
+    var batchContext: ASBatchContext?
+    
     // MARK: Constructors
     init(viewModel: RepositoryViewModel) {
         super.init(viewModel: viewModel)
@@ -74,7 +76,24 @@ class RepositoryViewController: BaseViewController {
         let input = RepositoryViewModel.RepositoryInput(searchRepositoryTrigger: inputSubject)
         let output = repositoryViewModel.getRepositoryOutput(input: input)
         
-        let dataSource = RxASTableSectionedReloadDataSource<SectionModel<Repository?, Int>>(
+        output.repositories
+            .asDriver()
+            .drive(onNext: { [weak self] data in
+                guard let weakSelf = self, let data = data else {
+                    return
+                }
+
+//                weakSelf.repositoryList.append(contentsOf: data)
+                weakSelf.insertNewRows(data)
+//                weakSelf.tableNode.reloadData()
+            })
+            .disposed(by: disposeBag)
+        
+        inputSubject.onNext(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "test", page: 1))
+        
+        
+        // RxDataSourceTexture
+        let dataSource = RxASTableSectionedReloadDataSource<MainSection>(
             configureCellBlock: { (_, _, _, num) in
                 return {
                     let cell = ASTextCellNode()
@@ -83,19 +102,24 @@ class RepositoryViewController: BaseViewController {
                 }
         })
         
-        output.repositories
-            .asDriver()
-            .drive(onNext: { [weak self] data in
-                guard let weakSelf = self, let data = data else {
-                    return
-                }
-                
-                weakSelf.repositoryList.append(contentsOf: data)
-                weakSelf.tableNode.reloadData()
-            })
-            .disposed(by: disposeBag)
-        
-        inputSubject.onNext(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "test", page: 1))
+//        self.tableNode.rx
+//              .setDelegate(self)
+//              .disposed(by: disposeBag)
+//
+//        output.repositories
+//              .do(onNext: { [weak self] _ in
+//                self?.batchContext?.completeBatchFetching(true)
+//              })
+//              .bind(to: tableNode.rx.items(dataSource: dataSource))
+//              .disposed(by: disposeBag)
+//
+//            self.tableNode.rx.willBeginBatchFetch
+//              .asObservable()
+//              .do(onNext: { [weak self] context in
+//                self?.batchContext = context
+//              }).map { _ in return Observable.just(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "test", page: 1))}
+//              .bind(to: input.searchRepositoryTrigger)
+//              .disposed(by: disposeBag)
     }
 }
 
@@ -165,9 +189,7 @@ extension RepositoryViewController {
     }
 
       repositoryList.append(contentsOf: newAnimals)
-    if let tableView = tableNode as? ASTableView {
-      tableView.insertRows(at: indexPaths, with: .none)
-    }
+      tableNode.insertRows(at: indexPaths, with: .none)
   }
     
     
