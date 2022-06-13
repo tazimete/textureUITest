@@ -9,13 +9,13 @@ import UIKit
 import AsyncDisplayKit
 
 class CardCellNode: ASCellNode {
-  let animalInfo: Repository
+    let animalInfo: Repository
   
-  fileprivate let backgroundImageNode: ASImageNode
-  fileprivate let animalImageNode: ASNetworkImageNode
+    let backgroundImageNode: ASImageNode
+    let animalImageNode: ASNetworkImageNode
   
-  fileprivate let animalNameTextNode: ASTextNode
-  fileprivate let animalDescriptionTextNode: ASTextNode
+    let animalNameTextNode: ASTextNode
+    let animalDescriptionTextNode: ASTextNode
   
 //  fileprivate let gradientNode: GradientNode
   
@@ -101,7 +101,7 @@ class CardCellNode: ASCellNode {
     
     let backgroundLayoutSpec = ASBackgroundLayoutSpec(child: verticalStackSpec, background: backgroundImageNode)
     
-    return backgroundLayoutSpec
+    return relativeSpec
   }
 }
 
