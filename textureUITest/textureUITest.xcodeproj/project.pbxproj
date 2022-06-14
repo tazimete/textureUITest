@@ -114,7 +114,7 @@
 		FA5134E42856BCB60018B8D3 /* SectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134E32856BCB60018B8D3 /* SectionItem.swift */; };
 		FAA86690284BDC700071D556 /* RepositoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */; };
 		FAA86694284BDF290071D556 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86693284BDF290071D556 /* RepositoryViewController.swift */; };
-		FAA86698284C13D10071D556 /* CardCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86697284C13D10071D556 /* CardCellNode.swift */; };
+		FAA86698284C13D10071D556 /* UserCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86697284C13D10071D556 /* UserCellNode.swift */; };
 		FAD576D72852A51100E46632 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD576D62852A51100E46632 /* DeepLinkHandler.swift */; };
 		FADF774A2853C319004DFF44 /* AuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF77492853C318004DFF44 /* AuthCredential.swift */; };
 		FADF774D2853F771004DFF44 /* Abstractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF774C2853F771004DFF44 /* Abstractions.swift */; };
@@ -258,7 +258,7 @@
 		FA5134E32856BCB60018B8D3 /* SectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItem.swift; sourceTree = "<group>"; };
 		FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCoordinator.swift; sourceTree = "<group>"; };
 		FAA86693284BDF290071D556 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
-		FAA86697284C13D10071D556 /* CardCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellNode.swift; sourceTree = "<group>"; };
+		FAA86697284C13D10071D556 /* UserCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellNode.swift; sourceTree = "<group>"; };
 		FAD576D62852A51100E46632 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		FADF77492853C318004DFF44 /* AuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredential.swift; sourceTree = "<group>"; };
 		FADF774C2853F771004DFF44 /* Abstractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abstractions.swift; sourceTree = "<group>"; };
@@ -1065,7 +1065,7 @@
 		FAA86696284BDF4C0071D556 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				FAA86697284C13D10071D556 /* CardCellNode.swift */,
+				FAA86697284C13D10071D556 /* UserCellNode.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1345,7 +1345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA377A5E284A3DB500B7B201 /* AppConfig.swift in Sources */,
-				FAA86698284C13D10071D556 /* CardCellNode.swift in Sources */,
+				FAA86698284C13D10071D556 /* UserCellNode.swift in Sources */,
 				FA377A6C284A3DB500B7B201 /* UILabel+Extension.swift in Sources */,
 				FA503D3F284B658100DF7C59 /* Driver+ASSubscription.swift in Sources */,
 				FA377A9B284A3DB500B7B201 /* Coordinator.swift in Sources */,

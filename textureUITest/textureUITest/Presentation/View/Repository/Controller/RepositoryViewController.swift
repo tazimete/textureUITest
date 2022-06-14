@@ -155,10 +155,10 @@ extension RepositoryViewController: ASTableDataSource {
   }
 
   func tableView(_ tableView: ASTableView, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
-    let animal = repositoryList[(indexPath as NSIndexPath).row]
+    let item = repositoryList[(indexPath as NSIndexPath).row]
 
     return {
-      let node = CardCellNode(animalInfo: animal)
+      let node = UserCellNode(item: item)
       return node
     }
   }
@@ -168,8 +168,6 @@ extension RepositoryViewController: ASTableDataSource {
 
 extension RepositoryViewController {
   func nextPageWithCompletion(_ block: @escaping (_ results: [Repository]) -> ()) {
-//    let moreAnimals = Array(self.repositoryList[0 ..< 5])
-      
       inputSubject.onNext(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "te", page: 2))
       
       DispatchQueue.main.async {
