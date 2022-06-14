@@ -11,6 +11,7 @@ import RxCocoa
 import AsyncDisplayKit
 import SafariServices
 
+// BaseViewController is ASDKViewController<ASDisplayNode> 
 class AuthViewController: BaseViewController {
     weak var coordinator: AuthCoordinator?
     var authViewModel: AuthViewModel!

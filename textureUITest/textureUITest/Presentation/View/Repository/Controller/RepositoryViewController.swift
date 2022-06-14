@@ -11,6 +11,7 @@ import RxCocoa
 import AsyncDisplayKit
 import RxDataSources_Texture
 
+// BaseViewController is ASDKViewController<ASDisplayNode> 
 class RepositoryViewController: BaseViewController {
     weak var coordinator: RepositoryCoordinator?
     var repositoryList: [Repository] = [Repository]()
@@ -177,7 +178,7 @@ extension RepositoryViewController: ASTableDataSource {
 
 extension RepositoryViewController {
     func nextPageWithCompletion() {
-        inputSubject.onNext(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "te", page: repositoryViewModel.pageNo))
+        triggerEventForRepositories(query: "test")
     }
     
     func insertNewRows(_ newAnimals: [Repository]) {
