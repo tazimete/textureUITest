@@ -7,6 +7,7 @@
 
 import UIKit
 import AsyncDisplayKit
+import CoreMedia
 
 class UserCellNode: ASCellNode {
     let item: Repository
@@ -30,7 +31,7 @@ class UserCellNode: ASCellNode {
     
     let descriptionNode: ASTextNode = {
         let node = ASTextNode()
-        node.style.preferredLayoutSize = ASLayoutSizeMake(ASDimensionMake(.auto, 0), ASDimensionMake("70%"))
+        node.style.preferredLayoutSize = ASLayoutSizeMake(ASDimensionMake("50%"), ASDimensionMake("70%"))
         node.truncationAttributedText = NSAttributedString(string: "…")
         node.truncationMode = .byTruncatingTail
         node.style.spacingAfter = 10
@@ -39,6 +40,8 @@ class UserCellNode: ASCellNode {
         node.placeholderFadeDuration = 0.15
         node.placeholderColor = UIColor(white: 0.777, alpha: 1.0)
         node.maximumNumberOfLines = 3
+        node.isLayerBacked = true
+        node.isOpaque = false
         return node
     }()
     
@@ -56,14 +59,20 @@ class UserCellNode: ASCellNode {
         
         //set data
         avatarNode.url = URL(string: item.description ?? "")
-        nameNode.attributedText = NSAttributedString(string: item.name ?? "")
-        descriptionNode.attributedText = NSAttributedString(string: item.description.unwrappedValue)
+        nameNode.attributedText = NSAttributedString(string: item.name ?? "", attributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .medium)
+        ])
+        descriptionNode.attributedText = NSAttributedString(string: item.description.unwrappedValue, attributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .regular),
+            NSAttributedString.Key.paragraphStyle: NSTextAlignment.justified
+        ])
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let ratio: CGFloat = constrainedSize.min.height/constrainedSize.max.width;
         
-        avatarNode.style.preferredSize = CGSize(width: constrainedSize.min.height, height: constrainedSize.min.height)
+        avatarNode.style.preferredSize = CGSize(width: constrainedSize.min.height-20, height: constrainedSize.min.height-20)
+        avatarNode.cornerRadius = (constrainedSize.min.height-20)/2
         let imageRatioSpec = ASRatioLayoutSpec(ratio: ratio, child: avatarNode)
         
         let nameRelativeSpec = ASRelativeLayoutSpec(
@@ -85,17 +94,18 @@ class UserCellNode: ASCellNode {
             child: descriptionNode)
         
         let imageInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), child: imageRelativeSpec)
-        let nameInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16), child: nameRelativeSpec)
-        
-        let descriptionTextInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16), child: descriptionRelativeSpec)
+        let nameInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0), child: nameRelativeSpec)
+        let descriptionTextInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 5, left: 0, bottom: 10, right: 0), child: descriptionNode)
         
         let verticalStackSpec = ASStackLayoutSpec()
         verticalStackSpec.direction = .vertical
         verticalStackSpec.children = [nameInsetSpec, descriptionTextInsetSpec]
         
+        let vserticalStackInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 16), child: verticalStackSpec)
+        
         let horizontalStackSpec = ASStackLayoutSpec()
         horizontalStackSpec.direction = .horizontal
-        horizontalStackSpec.children = [imageInsetSpec, verticalStackSpec]
+        horizontalStackSpec.children = [imageInsetSpec, vserticalStackInsetSpec]
         
         return horizontalStackSpec
     }

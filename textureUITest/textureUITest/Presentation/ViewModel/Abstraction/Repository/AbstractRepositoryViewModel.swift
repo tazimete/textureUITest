@@ -15,6 +15,8 @@ protocol AbstractRepositoryViewModel: AbstractViewModel {
     associatedtype RepositoryOutput
     
     var disposeBag: DisposeBag {get}
+    var pageNo: Int {get set}
+    var totalDataCount: Int? {set get}
     
     // Transform the auth input to output observable
     func getRepositoryOutput(input: RepositoryInput) -> RepositoryOutput

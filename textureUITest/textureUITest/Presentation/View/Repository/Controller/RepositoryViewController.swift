@@ -43,7 +43,7 @@ class RepositoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     // MARK: Overrriden MethodS
     override func initView() {
         super.initView()
@@ -63,12 +63,12 @@ class RepositoryViewController: BaseViewController {
     }
     
     override func viewWillLayoutSubviews() {
-      super.viewWillLayoutSubviews()
+        super.viewWillLayoutSubviews()
         tableNode.frame = view.frame
     }
     
     override func addActionsToSubviews() {
-
+        
     }
     
     override func bindViewModel() {
@@ -82,14 +82,14 @@ class RepositoryViewController: BaseViewController {
                 guard let weakSelf = self, let data = data else {
                     return
                 }
-
-//                weakSelf.repositoryList.append(contentsOf: data)
+                
+                //                weakSelf.repositoryList.append(contentsOf: data)
                 weakSelf.insertNewRows(data)
-//                weakSelf.tableNode.reloadData()
+                //                weakSelf.tableNode.reloadData()
             })
             .disposed(by: disposeBag)
         
-        inputSubject.onNext(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "test", page: 1))
+       triggerEventForRepositories(query: "test")
         
         
         // RxDataSourceTexture
@@ -100,26 +100,30 @@ class RepositoryViewController: BaseViewController {
                     cell.text = "\(num)"
                     return cell
                 }
-        })
+            })
         
-//        self.tableNode.rx
-//              .setDelegate(self)
-//              .disposed(by: disposeBag)
-//
-//        output.repositories
-//              .do(onNext: { [weak self] _ in
-//                self?.batchContext?.completeBatchFetching(true)
-//              })
-//              .bind(to: tableNode.rx.items(dataSource: dataSource))
-//              .disposed(by: disposeBag)
-//
-//            self.tableNode.rx.willBeginBatchFetch
-//              .asObservable()
-//              .do(onNext: { [weak self] context in
-//                self?.batchContext = context
-//              }).map { _ in return Observable.just(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "test", page: 1))}
-//              .bind(to: input.searchRepositoryTrigger)
-//              .disposed(by: disposeBag)
+        //        self.tableNode.rx
+        //              .setDelegate(self)
+        //              .disposed(by: disposeBag)
+        //
+        //        output.repositories
+        //              .do(onNext: { [weak self] _ in
+        //                self?.batchContext?.completeBatchFetching(true)
+        //              })
+        //              .bind(to: tableNode.rx.items(dataSource: dataSource))
+        //              .disposed(by: disposeBag)
+        //
+        //            self.tableNode.rx.willBeginBatchFetch
+        //              .asObservable()
+        //              .do(onNext: { [weak self] context in
+        //                self?.batchContext = context
+        //              }).map { _ in return Observable.just(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "test", page: 1))}
+        //              .bind(to: input.searchRepositoryTrigger)
+        //              .disposed(by: disposeBag)
+    }
+    
+    func triggerEventForRepositories(query: String) {
+        inputSubject.onNext(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: query, page: repositoryViewModel.pageNo))
     }
 }
 
@@ -127,68 +131,67 @@ class RepositoryViewController: BaseViewController {
 // MARK: - ASTableDelegate
 
 extension RepositoryViewController: ASTableDelegate {
-  func tableView(_ tableView: ASTableView, willBeginBatchFetchWith context: ASBatchContext) {
-    nextPageWithCompletion { (results) in
-//      self.insertNewRows(results)
-      context.completeBatchFetching(true)
+    func tableView(_ tableView: ASTableView, willBeginBatchFetchWith context: ASBatchContext) {
+        nextPageWithCompletion()
+        context.completeBatchFetching(true)
     }
-  }
-  
-  func shouldBatchFetch(for tableView: ASTableView) -> Bool {
-    return true
-  }
-  
-  func tableView(_ tableView: ASTableView, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
-    return ASSizeRangeMake(CGSize(width: UIScreen.main.bounds.size.width, height: (UIScreen.main.bounds.size.height/8)), CGSize(width: UIScreen.main.bounds.size.width, height: .greatestFiniteMagnitude))
-  }
+    
+    func shouldBatchFetch(for tableView: ASTableView) -> Bool {
+        guard let totalDataCount = repositoryViewModel.totalDataCount else {
+            return true
+        }
+        
+        if (totalDataCount % repositoryList.count) == 0 {
+            return false
+        }
+        return true
+    }
+    
+    func tableView(_ tableView: ASTableView, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
+        return ASSizeRangeMake(CGSize(width: UIScreen.main.bounds.size.width-20, height: (UIScreen.main.bounds.size.height/10)), CGSize(width: UIScreen.main.bounds.size.width-20, height: .greatestFiniteMagnitude))
+    }
 }
 
 // MARK: - ASTableDataSource
 
 extension RepositoryViewController: ASTableDataSource {
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-  }
-
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return repositoryList.count
-  }
-
-  func tableView(_ tableView: ASTableView, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
-    let item = repositoryList[(indexPath as NSIndexPath).row]
-
-    return {
-      let node = UserCellNode(item: item)
-      return node
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-  }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return repositoryList.count
+    }
+    
+    func tableView(_ tableView: ASTableView, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
+        let item = repositoryList[(indexPath as NSIndexPath).row]
+        
+        return {
+            let node = UserCellNode(item: item)
+            return node
+        }
+    }
 }
 
 // MARK: - Helpers
 
 extension RepositoryViewController {
-  func nextPageWithCompletion(_ block: @escaping (_ results: [Repository]) -> ()) {
-      inputSubject.onNext(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "te", page: 2))
-      
-      DispatchQueue.main.async {
-        block([])
-      }
-  }
-
-  func insertNewRows(_ newAnimals: [Repository]) {
-    let section = 0
-    var indexPaths = [IndexPath]()
-
-    let newTotalNumberOfPhotos = repositoryList.count + newAnimals.count
-
-    for row in repositoryList.count ..< newTotalNumberOfPhotos {
-      let path = IndexPath(row: row, section: section)
-      indexPaths.append(path)
+    func nextPageWithCompletion() {
+        inputSubject.onNext(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "te", page: repositoryViewModel.pageNo))
     }
-
-      repositoryList.append(contentsOf: newAnimals)
-      tableNode.insertRows(at: indexPaths, with: .none)
-  }
     
-    
+    func insertNewRows(_ newAnimals: [Repository]) {
+        let section = 0
+        var indexPaths = [IndexPath]()
+        
+        let newTotalNumberOfPhotos = repositoryList.count + newAnimals.count
+        
+        for row in repositoryList.count ..< newTotalNumberOfPhotos {
+            let path = IndexPath(row: row, section: section)
+            indexPaths.append(path)
+        }
+        
+        repositoryList.append(contentsOf: newAnimals)
+        tableNode.insertRows(at: indexPaths, with: .none)
+    }
 }

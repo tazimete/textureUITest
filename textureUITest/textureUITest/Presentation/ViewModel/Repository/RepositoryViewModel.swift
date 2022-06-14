@@ -31,6 +31,8 @@ class RepositoryViewModel: AbstractRepositoryViewModel {
     
     let usecase: AbstractUsecase
     let disposeBag = DisposeBag()
+    var pageNo: Int = 1
+    var totalDataCount: Int?
     
     init(usecase: AbstractRepositoryUsecase) {
         self.usecase = usecase
@@ -55,9 +57,11 @@ class RepositoryViewModel: AbstractRepositoryViewModel {
                     })
                 })
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
-            .subscribe(onNext: { response in
+            .subscribe(onNext: { [weak self] response in
                 let values = (repositories.value ?? []) + (response.items ?? [])
                 repositories.accept(values)
+                self?.totalDataCount = response.totalCount
+                self?.pageNo = self?.totalDataCount == nil ? 0 : (self?.pageNo).unwrappedValue+1 
             }, onError: { error in
                 errorResponse.accept(error as? NetworkError)
             }).disposed(by: disposeBag)
