@@ -21,8 +21,8 @@ struct Repository: Codable, Equatable {
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
-        case name = "name"
-        case description = "description"
+        case name = "login"
+        case description = "avatar_url"
     }
     
     static func ==(lhs: Repository, rhs: Repository) -> Bool {

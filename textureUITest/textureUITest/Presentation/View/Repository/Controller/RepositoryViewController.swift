@@ -139,7 +139,7 @@ extension RepositoryViewController: ASTableDelegate {
   }
   
   func tableView(_ tableView: ASTableView, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
-    return ASSizeRangeMake(CGSize(width: UIScreen.main.bounds.size.width, height: (UIScreen.main.bounds.size.height/4)), CGSize(width: UIScreen.main.bounds.size.width, height: .greatestFiniteMagnitude))
+    return ASSizeRangeMake(CGSize(width: UIScreen.main.bounds.size.width, height: (UIScreen.main.bounds.size.height/6)), CGSize(width: UIScreen.main.bounds.size.width, height: .greatestFiniteMagnitude))
   }
 }
 
