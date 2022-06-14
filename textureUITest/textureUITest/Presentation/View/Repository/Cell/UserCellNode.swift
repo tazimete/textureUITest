@@ -30,7 +30,10 @@ class UserCellNode: ASCellNode {
     
     let descriptionNode: ASTextNode = {
         let node = ASTextNode()
+        node.style.preferredLayoutSize = ASLayoutSizeMake(ASDimensionMake(.auto, 0), ASDimensionMake("70%"))
         node.truncationAttributedText = NSAttributedString(string: "…")
+        node.truncationMode = .byTruncatingTail
+        node.style.spacingAfter = 10
         node.backgroundColor = UIColor.clear
         node.placeholderEnabled = true
         node.placeholderFadeDuration = 0.15
@@ -42,9 +45,9 @@ class UserCellNode: ASCellNode {
     
     init(item: Repository) {
         self.item = item
+        
         super.init()
         
-        backgroundColor = UIColor.lightGray
         clipsToBounds = true
         
         addSubnode(avatarNode)
@@ -64,7 +67,7 @@ class UserCellNode: ASCellNode {
         let imageRatioSpec = ASRatioLayoutSpec(ratio: ratio, child: avatarNode)
         
         let nameRelativeSpec = ASRelativeLayoutSpec(
-            horizontalPosition: .init(rawValue: 10)!,
+            horizontalPosition: .init(rawValue: 0)!,
             verticalPosition: .end,
             sizingOption: .init(rawValue: 0),
             child: nameNode)
@@ -75,10 +78,16 @@ class UserCellNode: ASCellNode {
             sizingOption: .init(rawValue: 0),
             child: imageRatioSpec)
         
+        let descriptionRelativeSpec = ASRelativeLayoutSpec(
+            horizontalPosition: .init(rawValue: 0)!,
+            verticalPosition: .end,
+            sizingOption: .init(rawValue: 0),
+            child: descriptionNode)
+        
         let imageInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), child: imageRelativeSpec)
         let nameInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16), child: nameRelativeSpec)
         
-        let descriptionTextInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16), child: descriptionNode)
+        let descriptionTextInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16), child: descriptionRelativeSpec)
         
         let verticalStackSpec = ASStackLayoutSpec()
         verticalStackSpec.direction = .vertical
