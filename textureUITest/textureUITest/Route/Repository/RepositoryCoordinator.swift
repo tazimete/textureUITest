@@ -34,4 +34,10 @@ class RepositoryCoordinator: Coordinator {
         childCoordinators.append(coordinator)
         coordinator.start()
     }
+    
+    func backFromChild() {
+        if childCoordinators.count > 0 {
+            childCoordinators.removeLast()
+        }
+    }
 }

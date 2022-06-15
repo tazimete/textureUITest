@@ -13,7 +13,7 @@ import RxDataSources_Texture
 
 // BaseViewController is ASDKViewController<ASDisplayNode> 
 class RepositoryViewController: BaseViewController {
-    weak var coordinator: RepositoryCoordinator?
+    var coordinator: RepositoryCoordinator?
     var repositoryList: [Repository] = [Repository]()
     var repositoryViewModel: RepositoryViewModel!
     let inputSubject = PublishSubject<RepositoryViewModel.RepositoryInputModel>()
@@ -43,6 +43,10 @@ class RepositoryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        coordinator?.backFromChild()
     }
     
     // MARK: Overrriden MethodS
@@ -150,6 +154,10 @@ extension RepositoryViewController: ASTableDelegate {
     
     func tableView(_ tableView: ASTableView, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
         return ASSizeRangeMake(CGSize(width: UIScreen.main.bounds.size.width-20, height: (UIScreen.main.bounds.size.height/8)), CGSize(width: UIScreen.main.bounds.size.width-20, height: .greatestFiniteMagnitude))
+    }
+    
+    func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.navigateToDetails()
     }
 }
 

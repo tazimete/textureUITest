@@ -13,7 +13,7 @@ import SafariServices
 
 // BaseViewController is ASDKViewController<ASDisplayNode>
 class RepositoryDetailsViewController: BaseViewController {
-    weak var coordinator: AuthCoordinator?
+    weak var coordinator: RepositoryDetailsCoordinator?
     var authViewModel: AuthViewModel!
     let userAuthTokenTrigger = PublishSubject<URL>()
     
@@ -82,7 +82,7 @@ class RepositoryDetailsViewController: BaseViewController {
     }()
     
     // MARK: Constructors
-    init(viewModel: AuthViewModel) {
+    init(viewModel: RepositoryViewModel) {
         super.init(viewModel: viewModel)
         self.viewModel = viewModel
     }
@@ -94,7 +94,7 @@ class RepositoryDetailsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     // MARK: Overrriden MethodS
     override func initView() {
         super.initView()
@@ -129,51 +129,11 @@ class RepositoryDetailsViewController: BaseViewController {
     }
     
     override func addActionsToSubviews() {
-        // did tap submit button
-        loginButton.rx.tap.bind { [weak self] in
-            self?.authenticateUser()
-//            self?.coordinator?.navigateRepositoryScreen()
-        }.disposed(by: disposeBag)
+        
     }
     
     override func bindViewModel() {
-        AppLogger.info("accessToken == \(UserSessionDataClient.shared.getAccessToken())")
         
-        authViewModel = viewModel as! AuthViewModel
-        let input = AuthViewModel.AuthInput(authTrigger: userAuthTokenTrigger)
-        let output = authViewModel.getAuthOutput(input: input)
-        
-        output.authResponse
-            .asDriver()
-            .drive(onNext: { [weak self] data in
-                guard let weakSelf = self, let data = data else {
-                    return
-                }
-                
-                AppLogger.info(data)
-                weakSelf.handleAuthTokenResponse(user: data)
-                
-        }).disposed(by: disposeBag)
-    }
-    
-    //MARK: Authentication Process
-    func authenticateUser() {
-        guard let url = URL(string: "https://github.com/login/oauth/authorize?state=state&redirect_uri=it.iacopo.github://authentication&scope=repo%20user&client_id=fd2d97030f7ca8dfe654") else {
-            return
-        }
-        
-        let safariVC = SFSafariViewController(url: url)
-        safariVC.modalPresentationStyle = .fullScreen
-        present(safariVC, animated: true, completion: nil)
-    }
-    
-    func receivedAuthCallback(url: URL) {
-        userAuthTokenTrigger.onNext(url)
-    }
-    
-    func handleAuthTokenResponse(user: User) {
-        presentedViewController?.dismiss(animated: true)
-        coordinator?.navigateRepositoryScreen(user: user)
     }
 }
 

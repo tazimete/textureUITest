@@ -24,7 +24,7 @@ class RepositoryDetailsCoordinator: Coordinator {
         
         let usecase = RepositoryUsecase(repository: repository)
         let viewModel = RepositoryViewModel(usecase: usecase)
-        let vc = RepositoryViewController(viewModel: viewModel)
+        let vc = RepositoryDetailsViewController(viewModel: viewModel)
         vc.coordinator = self
         
         self.navigationController.pushViewController(vc, animated: true)
