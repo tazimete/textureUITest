@@ -31,7 +31,6 @@ class UserCellNode: ASCellNode {
     
     let descriptionNode: ASTextNode = {
         let node = ASTextNode()
-        node.style.preferredLayoutSize = ASLayoutSizeMake(ASDimensionMake("50%"), ASDimensionMake("70%"))
         node.truncationAttributedText = NSAttributedString(string: "…")
         node.truncationMode = .byTruncatingTail
         node.style.spacingAfter = 10
@@ -39,7 +38,7 @@ class UserCellNode: ASCellNode {
         node.placeholderEnabled = true
         node.placeholderFadeDuration = 0.15
         node.placeholderColor = UIColor(white: 0.777, alpha: 1.0)
-        node.maximumNumberOfLines = 3
+        node.maximumNumberOfLines = 0
         node.isLayerBacked = true
         node.isOpaque = false
         return node

@@ -132,7 +132,6 @@ class AuthViewController: BaseViewController {
         // did tap submit button
         loginButton.rx.tap.bind { [weak self] in
             self?.authenticateUser()
-//            self?.coordinator?.navigateRepositoryScreen()
         }.disposed(by: disposeBag)
     }
     
