@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RepositoryParams: Parameterizable {
+struct UserSearchRequestParams: Parameterizable {
     let query: String?
     let page: Int?
     let perPage: Int?

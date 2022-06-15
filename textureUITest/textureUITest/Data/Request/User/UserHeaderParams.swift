@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RepositoryHeaderParams: Parameterizable {
+struct UserHeaderParams: Parameterizable {
     let accept = "application/vnd.github.v3+json"
     let authorization: String
     
