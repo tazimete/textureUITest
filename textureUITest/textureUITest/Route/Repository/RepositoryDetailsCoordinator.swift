@@ -1,13 +1,13 @@
 //
-//  RepositoryCoordinator.swift
+//  RepositoryDetailsCoordinator.swift
 //  textureUITest
 //
-//  Created by AGM Tazim on 6/5/22.
+//  Created by AGM Tazim on 6/15/22.
 //
 
 import UIKit
 
-class RepositoryCoordinator: Coordinator {
+class RepositoryDetailsCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
@@ -25,13 +25,8 @@ class RepositoryCoordinator: Coordinator {
         let usecase = RepositoryUsecase(repository: repository)
         let viewModel = RepositoryViewModel(usecase: usecase)
         let vc = RepositoryViewController(viewModel: viewModel)
-        vc.coordinator = self 
-        self.navigationController.viewControllers = [vc]
-    }
-    
-    func navigateToDetails() {
-        let coordinator = RepositoryDetailsCoordinator(navigationController: navigationController)
-        childCoordinators.append(coordinator)
-        coordinator.start()
+        vc.coordinator = self
+        
+        self.navigationController.pushViewController(vc, animated: true)
     }
 }

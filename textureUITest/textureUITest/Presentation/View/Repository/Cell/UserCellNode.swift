@@ -94,12 +94,12 @@ class UserCellNode: ASCellNode {
             child: descriptionNode)
         
         let imageInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), child: imageRelativeSpec)
-        let nameInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0), child: nameRelativeSpec)
-        let descriptionTextInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 5, left: 0, bottom: 10, right: 0), child: descriptionNode)
+        let nameInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 0, bottom: 5, right: 0), child: nameRelativeSpec)
+        let descriptionInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 5, left: 0, bottom: 10, right: 0), child: descriptionRelativeSpec)
         
         let verticalStackSpec = ASStackLayoutSpec()
         verticalStackSpec.direction = .vertical
-        verticalStackSpec.children = [nameInsetSpec, descriptionTextInsetSpec]
+        verticalStackSpec.children = [nameInsetSpec, descriptionInsetSpec]
         
         let vserticalStackInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 16), child: verticalStackSpec)
         

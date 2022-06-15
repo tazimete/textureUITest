@@ -115,6 +115,8 @@
 		FAA86690284BDC700071D556 /* RepositoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */; };
 		FAA86694284BDF290071D556 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86693284BDF290071D556 /* RepositoryViewController.swift */; };
 		FAA86698284C13D10071D556 /* UserCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA86697284C13D10071D556 /* UserCellNode.swift */; };
+		FAB3D79928597261005435E3 /* RepositoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3D79828597261005435E3 /* RepositoryDetailsViewController.swift */; };
+		FAB3D79B28597388005435E3 /* RepositoryDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3D79A28597388005435E3 /* RepositoryDetailsCoordinator.swift */; };
 		FAD576D72852A51100E46632 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD576D62852A51100E46632 /* DeepLinkHandler.swift */; };
 		FADF774A2853C319004DFF44 /* AuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF77492853C318004DFF44 /* AuthCredential.swift */; };
 		FADF774D2853F771004DFF44 /* Abstractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF774C2853F771004DFF44 /* Abstractions.swift */; };
@@ -259,6 +261,8 @@
 		FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCoordinator.swift; sourceTree = "<group>"; };
 		FAA86693284BDF290071D556 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		FAA86697284C13D10071D556 /* UserCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellNode.swift; sourceTree = "<group>"; };
+		FAB3D79828597261005435E3 /* RepositoryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewController.swift; sourceTree = "<group>"; };
+		FAB3D79A28597388005435E3 /* RepositoryDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsCoordinator.swift; sourceTree = "<group>"; };
 		FAD576D62852A51100E46632 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		FADF77492853C318004DFF44 /* AuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredential.swift; sourceTree = "<group>"; };
 		FADF774C2853F771004DFF44 /* Abstractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abstractions.swift; sourceTree = "<group>"; };
@@ -1032,6 +1036,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA8668F284BDC700071D556 /* RepositoryCoordinator.swift */,
+				FAB3D79A28597388005435E3 /* RepositoryDetailsCoordinator.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1058,6 +1063,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA86693284BDF290071D556 /* RepositoryViewController.swift */,
+				FAB3D79828597261005435E3 /* RepositoryDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1412,6 +1418,7 @@
 				FA377A8E284A3DB500B7B201 /* SceneDelegate.swift in Sources */,
 				FA377A8F284A3DB500B7B201 /* AuthLocalDataSource.swift in Sources */,
 				FA377A66284A3DB500B7B201 /* AbstractDataModel.swift in Sources */,
+				FAB3D79B28597388005435E3 /* RepositoryDetailsCoordinator.swift in Sources */,
 				FA377A47284A3DB400B7B201 /* AbstractApiClient.swift in Sources */,
 				FA5134E2285656020018B8D3 /* AbstractRepositoryViewModel.swift in Sources */,
 				FA377A82284A3DB500B7B201 /* BaseViewController.swift in Sources */,
@@ -1431,6 +1438,7 @@
 				FA377A92284A3DB500B7B201 /* Response.swift in Sources */,
 				FA377A57284A3DB500B7B201 /* AbstractLocalStorageIntereactor.swift in Sources */,
 				FA503D38284B658100DF7C59 /* ASBinder.swift in Sources */,
+				FAB3D79928597261005435E3 /* RepositoryDetailsViewController.swift in Sources */,
 				FA5134CB2855F6240018B8D3 /* AbstractRepositoryRemoteDataSource.swift in Sources */,
 				FA377A4F284A3DB400B7B201 /* AbstractDownloader.swift in Sources */,
 				FA503D36284B658100DF7C59 /* ASImageNode+Rx.swift in Sources */,
