@@ -16,6 +16,7 @@ class SearchViewController: BaseViewController {
     var userList: [User] = [User]()
     var userViewModel: UserViewModel!
     let inputSubject = PublishSubject<UserViewModel.UserSearchInputModel>()
+    var query = ""
     
     // MAR: UI Objects
     lazy var tableNode: ASTableNode = {
@@ -100,6 +101,12 @@ class SearchViewController: BaseViewController {
         showSearchDialog()
     }
     
+    func clearAndRelaoad() {
+        userViewModel.isNewSearch = true
+        userList.removeAll()
+        tableNode.reloadData()
+    }
+    
     private func showSearchDialog() {
         let alertController = UIAlertController(title: "Search User", message: "Enter user name", preferredStyle: UIAlertController.Style.alert)
         
@@ -111,7 +118,9 @@ class SearchViewController: BaseViewController {
             let username = (alertController.textFields?[0])?.text?.uppercased() ?? ""
             
             if !username.isEmpty {
+                self?.query = username
                 self?.triggerEventForsearchUser(query: username)
+                self?.clearAndRelaoad()
             }
         })
         
@@ -130,13 +139,14 @@ class SearchViewController: BaseViewController {
 
 extension SearchViewController: ASTableDelegate {
     func tableView(_ tableView: ASTableView, willBeginBatchFetchWith context: ASBatchContext) {
-        nextPageWithCompletion()
+        userViewModel.isNewSearch = false 
+        triggerEventForsearchUser(query: query)
         context.completeBatchFetching(true)
     }
     
     func shouldBatchFetch(for tableView: ASTableView) -> Bool {
         guard let totalDataCount = userViewModel.totalDataCount else {
-            return true
+            return false
         }
         
         if totalDataCount > userList.count {
@@ -146,7 +156,7 @@ extension SearchViewController: ASTableDelegate {
     }
     
     func tableView(_ tableView: ASTableView, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
-        return ASSizeRangeMake(CGSize(width: UIScreen.main.bounds.size.width-20, height: (UIScreen.main.bounds.size.height/8)), CGSize(width: UIScreen.main.bounds.size.width-20, height: .greatestFiniteMagnitude))
+        return ASSizeRangeMake(CGSize(width: UIScreen.main.bounds.size.width-20, height: 120), CGSize(width: UIScreen.main.bounds.size.width-20, height: .greatestFiniteMagnitude))
     }
     
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
@@ -178,10 +188,6 @@ extension SearchViewController: ASTableDataSource {
 // MARK: - Helpers
 
 extension SearchViewController {
-    func nextPageWithCompletion() {
-        triggerEventForsearchUser(query: "test")
-    }
-    
     func insertNewRows(_ newUSers: [User]) {
         let section = 0
         var indexPaths = [IndexPath]()

@@ -50,6 +50,7 @@ class UserViewModel: AbstractUserViewModel {
     let disposeBag = DisposeBag()
     var pageNo: Int = 1
     var totalDataCount: Int?
+    var isNewSearch = true
     
     init(usecase: AbstractUserUsecase) {
         self.usecase = usecase
@@ -75,7 +76,17 @@ class UserViewModel: AbstractUserViewModel {
                 })
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
             .subscribe(onNext: { [weak self] response in
-                let values = (users.value ?? []) + (response.data ?? [])
+                guard let weakSelf = self else {
+                    return
+                }
+                
+                var values = (response.data ?? [])
+                
+                // check if search is new (remove previous data)
+                if !weakSelf.isNewSearch {
+                    values += users.value ?? [] 
+                }
+                
                 users.accept(values)
                 self?.totalDataCount = response.totalCount
                 self?.pageNo = self?.totalDataCount == nil ? 0 : (self?.pageNo).unwrappedValue+1 
