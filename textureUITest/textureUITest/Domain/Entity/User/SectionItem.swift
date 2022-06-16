@@ -35,7 +35,7 @@ extension MainSection: AnimatableSectionModelType {
 }
 
 enum MainSectionItem {
-  case repo(User)
+  case repo(UserData)
 }
 
 extension MainSectionItem: IdentifiableType {

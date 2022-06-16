@@ -9,14 +9,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 import AsyncDisplayKit
-import RxDataSources_Texture
 
 // BaseViewController is ASDKViewController<ASDisplayNode> 
 class SearchViewController: BaseViewController {
     var coordinator: SearchCoordinator?
     var userList: [User] = [User]()
     var userViewModel: UserViewModel!
-    let inputSubject = PublishSubject<UserViewModel.UserInputModel>()
+    let inputSubject = PublishSubject<UserViewModel.UserSearchInputModel>()
     
     // MAR: UI Objects
     lazy var tableNode: ASTableNode = {
@@ -78,8 +77,8 @@ class SearchViewController: BaseViewController {
     
     override func bindViewModel() {
         userViewModel = viewModel as! UserViewModel
-        let input = UserViewModel.UserInput(searchUSerTrigger: inputSubject)
-        let output = userViewModel.getUserOutput(input: input)
+        let input = UserViewModel.UserSearchInput(searchUserTrigger: inputSubject)
+        let output = userViewModel.getUserSearchOutput(input: input)
         
         output.users
             .asDriver()
@@ -88,47 +87,15 @@ class SearchViewController: BaseViewController {
                     return
                 }
                 
-                //                weakSelf.repositoryList.append(contentsOf: data)
                 weakSelf.insertNewRows(data)
-                //                weakSelf.tableNode.reloadData()
             })
             .disposed(by: disposeBag)
         
        triggerEventForsearchUser(query: "test")
-        
-        
-        // RxDataSourceTexture
-        let dataSource = RxASTableSectionedReloadDataSource<MainSection>(
-            configureCellBlock: { (_, _, _, num) in
-                return {
-                    let cell = ASTextCellNode()
-                    cell.text = "\(num)"
-                    return cell
-                }
-            })
-        
-        //        self.tableNode.rx
-        //              .setDelegate(self)
-        //              .disposed(by: disposeBag)
-        //
-        //        output.repositories
-        //              .do(onNext: { [weak self] _ in
-        //                self?.batchContext?.completeBatchFetching(true)
-        //              })
-        //              .bind(to: tableNode.rx.items(dataSource: dataSource))
-        //              .disposed(by: disposeBag)
-        //
-        //            self.tableNode.rx.willBeginBatchFetch
-        //              .asObservable()
-        //              .do(onNext: { [weak self] context in
-        //                self?.batchContext = context
-        //              }).map { _ in return Observable.just(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: "test", page: 1))}
-        //              .bind(to: input.searchRepositoryTrigger)
-        //              .disposed(by: disposeBag)
     }
     
     func triggerEventForsearchUser(query: String) {
-        inputSubject.onNext(UserViewModel.UserInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: query, page: userViewModel.pageNo))
+        inputSubject.onNext(UserViewModel.UserSearchInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: query, page: userViewModel.pageNo))
     }
 }
 
@@ -157,7 +124,7 @@ extension SearchViewController: ASTableDelegate {
     }
     
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.navigateToDetails()
+        coordinator?.navigateToUserDetails(user: userList[indexPath.row].asDomain)
     }
 }
 

@@ -11,15 +11,21 @@ import RxRelay
 
 /* This is AbstractUserViewModel abstraction extented from AbstractViewModel. Which will be used to user data by its usecases*/
 protocol AbstractUserViewModel: AbstractViewModel {
-    associatedtype UserInput
-    associatedtype UserOutput
+    associatedtype UserSearchInputModel
+    associatedtype UserSearchInput
+    associatedtype UserSearchOutput
+    
+    associatedtype UserDetailsInputModel 
+    associatedtype UserDetailsInput
+    associatedtype UserDetailsOutput
     
     var disposeBag: DisposeBag {get}
     var pageNo: Int {get set}
     var totalDataCount: Int? {set get}
     
     // Transform the auth input to output observable
-    func getUserOutput(input: UserInput) -> UserOutput
+    func getUserSearchOutput(input: UserSearchInput) -> UserSearchOutput
+    func getUserDeatilsOutput(input: UserDetailsInput) -> UserDetailsOutput
     
     func searchUsers(accessToken: String, query: String, page: Int) -> Observable<UserAPIRequest.ResponseType>
     func getUserDetails(accessToken: String, name: String, id: Int) -> Observable<UserAPIRequest.ResponseTypeDetails>

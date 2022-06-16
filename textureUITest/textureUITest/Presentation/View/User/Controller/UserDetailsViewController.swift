@@ -14,8 +14,9 @@ import SafariServices
 // BaseViewController is ASDKViewController<ASDisplayNode>
 class UserDetailsViewController: BaseViewController {
     weak var coordinator: UserDetailsCoordinator?
-    var authViewModel: AuthViewModel!
-    let userAuthTokenTrigger = PublishSubject<URL>()
+    var userViewModel: UserViewModel!
+    var user: UserData!
+    let userDetailsTrigger = PublishSubject<UserViewModel.UserDetailsInputModel>()
     
     let avatarNode: ASNetworkImageNode = {
         let node = ASNetworkImageNode()
@@ -91,9 +92,7 @@ class UserDetailsViewController: BaseViewController {
         super.viewDidLoad()
     }
     
-    
-    
-    // MARK: Overrriden MethodS
+    // MARK: Overrriden Methods
     override func initView() {
         super.initView()
         //setup view
@@ -133,12 +132,19 @@ class UserDetailsViewController: BaseViewController {
         
     }
     
-    override func addActionsToSubviews() {
-        
-    }
-    
     override func bindViewModel() {
+        userViewModel = viewModel as! UserViewModel
         
+        let input = UserViewModel.UserDetailsInput(userDetailsTrigger: userDetailsTrigger)
+        let output = userViewModel.getUserDeatilsOutput(input: input)
+        
+        output.user
+            .asDriver()
+            .drive(onNext: { [weak self] user in
+                AppLogger.info(user)
+            }).disposed(by: disposeBag)
+        
+        userDetailsTrigger.onNext(UserViewModel.UserDetailsInputModel(myAccessToken: UserSessionDataClient.shared.getAccessToken(), name: user.name.unwrappedValue, id: user.id.unwrappedValue))
     }
 }
 

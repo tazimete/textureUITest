@@ -10,15 +10,15 @@ import Foundation
 /* Wrapper response of  api, which has array of dynamic  content like - repository */
 struct Response<T: Codable>: Codable {
     let totalCount: Int?
-    let items: T?
+    let data: T?
     
-    init(items: T? = nil, totalCount:Int? = nil) {
+    init(data: T? = nil, totalCount:Int? = nil) {
         self.totalCount = totalCount
-        self.items = items
+        self.data = data
     }
     
     enum CodingKeys: String, CodingKey {
-        case items = "items"
+        case data = "items"
         case totalCount = "total_count"
     }
 }

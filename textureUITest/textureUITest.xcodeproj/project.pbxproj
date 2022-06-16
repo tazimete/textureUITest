@@ -101,7 +101,7 @@
 		FA5134BE2855E94D0018B8D3 /* UserSearchRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134BD2855E94D0018B8D3 /* UserSearchRequestParams.swift */; };
 		FA5134C12855EC490018B8D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134C02855EC490018B8D3 /* User.swift */; };
 		FA5134C32855ED640018B8D3 /* UserHeaderParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134C22855ED640018B8D3 /* UserHeaderParams.swift */; };
-		FA5134C62855F4300018B8D3 /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134C52855F4300018B8D3 /* GithubRepository.swift */; };
+		FA5134C62855F4300018B8D3 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134C52855F4300018B8D3 /* UserData.swift */; };
 		FA5134C92855F60B0018B8D3 /* AbstractUserLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134C82855F60B0018B8D3 /* AbstractUserLocalDataSource.swift */; };
 		FA5134CB2855F6240018B8D3 /* AbstractUserRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134CA2855F6230018B8D3 /* AbstractUserRemoteDataSource.swift */; };
 		FA5134CE2855F8230018B8D3 /* AbstractUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5134CD2855F8230018B8D3 /* AbstractUserRepository.swift */; };
@@ -248,7 +248,7 @@
 		FA5134BD2855E94D0018B8D3 /* UserSearchRequestParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchRequestParams.swift; sourceTree = "<group>"; };
 		FA5134C02855EC490018B8D3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA5134C22855ED640018B8D3 /* UserHeaderParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderParams.swift; sourceTree = "<group>"; };
-		FA5134C52855F4300018B8D3 /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
+		FA5134C52855F4300018B8D3 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FA5134C82855F60B0018B8D3 /* AbstractUserLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractUserLocalDataSource.swift; sourceTree = "<group>"; };
 		FA5134CA2855F6230018B8D3 /* AbstractUserRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractUserRemoteDataSource.swift; sourceTree = "<group>"; };
 		FA5134CD2855F8230018B8D3 /* AbstractUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractUserRepository.swift; sourceTree = "<group>"; };
@@ -963,7 +963,7 @@
 		FA5134C42855F4080018B8D3 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				FA5134C52855F4300018B8D3 /* GithubRepository.swift */,
+				FA5134C52855F4300018B8D3 /* UserData.swift */,
 				FA5134E32856BCB60018B8D3 /* SectionItem.swift */,
 			);
 			path = User;
@@ -1366,7 +1366,7 @@
 				FA377A4D284A3DB400B7B201 /* Downloader.swift in Sources */,
 				FA503D41284B658100DF7C59 /* ASControlNode+Rx.swift in Sources */,
 				FA377A55284A3DB500B7B201 /* KVLocalSorageIntereactor.swift in Sources */,
-				FA5134C62855F4300018B8D3 /* GithubRepository.swift in Sources */,
+				FA5134C62855F4300018B8D3 /* UserData.swift in Sources */,
 				FA377A58284A3DB500B7B201 /* UserSessionDataClient.swift in Sources */,
 				FA5134D928563CB10018B8D3 /* UserRepository.swift in Sources */,
 				FA377A88284A3DB500B7B201 /* GenericCellComponents.swift in Sources */,

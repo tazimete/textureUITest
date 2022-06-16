@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  GithubRepository.swift
 //  textureUITest
 //
 //  Created by AGM Tazim on 6/12/22.
@@ -7,8 +7,9 @@
 
 import Foundation
 
+
 /* User entity of Data layer */
-struct User: Codable, Equatable {
+struct UserData: Codable, Equatable {
     let id: Int?
     let name: String?
     let email: String?
@@ -34,18 +35,14 @@ struct User: Codable, Equatable {
         case type = "type"
     }
     
-    static func ==(lhs: User, rhs: User) -> Bool {
+    static func ==(lhs: UserData, rhs: UserData) -> Bool {
         return lhs.id.unwrappedValue == rhs.id.unwrappedValue && lhs.name.unwrappedValue == rhs.name.unwrappedValue
-    }
-    
-    var asDomain: UserData {
-        return UserData(id: id, name: name, email: email, description: description, avatarUrl: avatarUrl, type: type)
     }
 }
 
 
-extension Optional where Wrapped == User {
-    var unwrappedValue: User {
-        return self ?? User()
+extension Optional where Wrapped == UserData {
+    var unwrappedValue: UserData {
+        return self ?? UserData()
     }
 }

@@ -29,8 +29,9 @@ class SearchCoordinator: Coordinator {
         self.navigationController.viewControllers = [vc]
     }
     
-    func navigateToDetails() {
+    func navigateToUserDetails(user: UserData) {
         let coordinator = UserDetailsCoordinator(navigationController: navigationController)
+        coordinator.user = user 
         childCoordinators.append(coordinator)
         coordinator.start()
     }

@@ -172,7 +172,7 @@ class AuthViewController: BaseViewController {
     
     func handleAuthTokenResponse(credential: UserCredential) {
         presentedViewController?.dismiss(animated: true)
-        coordinator?.navigateRepositoryScreen(credential: credential)
+        coordinator?.navigatSearchScreen(credential: credential)
     }
     
     // MARK: DIALOG VIEW

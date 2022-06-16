@@ -30,7 +30,7 @@ class AuthCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func navigateRepositoryScreen(credential: UserCredential) {
+    func navigatSearchScreen(credential: UserCredential) {
         let repositoryCoordinator = SearchCoordinator(navigationController: navigationController)
         repositoryCoordinator.start()
     }
