@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RepositoryCoordinator: Coordinator {
+class SearchCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
@@ -16,21 +16,21 @@ class RepositoryCoordinator: Coordinator {
     }
 
     func start() {
-        let repository = UserRepoRepository(
-                localDataSource: RepositoryLocalDataSource(dbClient: DatabaseClient.shared),
-                remoteDataSource: RepositoryRemoteDataSource(apiClient: ApiClient.shared
+        let repository = UserRepository(
+                localDataSource: UserLocalDataSource(dbClient: DatabaseClient.shared),
+                remoteDataSource: UserRemoteDataSource(apiClient: ApiClient.shared
             )
         )
         
-        let usecase = RepositoryUsecase(repository: repository)
-        let viewModel = RepositoryViewModel(usecase: usecase)
-        let vc = RepositoryViewController(viewModel: viewModel)
+        let usecase = UserUsecase(repository: repository)
+        let viewModel = UserViewModel(usecase: usecase)
+        let vc = SearchViewController(viewModel: viewModel)
         vc.coordinator = self 
         self.navigationController.viewControllers = [vc]
     }
     
     func navigateToDetails() {
-        let coordinator = RepositoryDetailsCoordinator(navigationController: navigationController)
+        let coordinator = UserDetailsCoordinator(navigationController: navigationController)
         childCoordinators.append(coordinator)
         coordinator.start()
     }

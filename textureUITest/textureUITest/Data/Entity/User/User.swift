@@ -11,21 +11,27 @@ import Foundation
 struct User: Codable, Equatable {
     let id: Int?
     let name: String?
+    let email: String?
     let description: String?
     let avatarUrl: String?
+    let type: String?
     
-    init(id: Int? = nil, name: String? = nil, description: String? = nil, avatarUrl: String? = nil) {
+    init(id: Int? = nil, name: String? = nil, email:String? = nil,  description: String? = nil, avatarUrl: String? = nil, type: String? = nil) {
         self.id = id
         self.name = name
+        self.email = email
         self.description = description
         self.avatarUrl = avatarUrl
+        self.type = type
     }
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "login"
-        case description = "description"
+        case email = "email"
+        case description = "bio"
         case avatarUrl = "avatar_url"
+        case type = "type"
     }
     
     static func ==(lhs: User, rhs: User) -> Bool {

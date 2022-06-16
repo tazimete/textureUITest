@@ -10,7 +10,7 @@ import AsyncDisplayKit
 import CoreMedia
 
 class UserCellNode: ASCellNode {
-    let item: Repository
+    let item: User
     
     let avatarNode: ASNetworkImageNode = {
         let node = ASNetworkImageNode()
@@ -45,7 +45,7 @@ class UserCellNode: ASCellNode {
     }()
     
     
-    init(item: Repository) {
+    init(item: User) {
         self.item = item
         
         super.init()
@@ -57,11 +57,11 @@ class UserCellNode: ASCellNode {
         addSubnode(descriptionNode)
         
         //set data
-        avatarNode.url = URL(string: item.description ?? "")
+        avatarNode.url = URL(string: item.avatarUrl ?? "")
         nameNode.attributedText = NSAttributedString(string: item.name ?? "", attributes: [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .medium)
         ])
-        descriptionNode.attributedText = NSAttributedString(string: item.description.unwrappedValue, attributes: [
+        descriptionNode.attributedText = NSAttributedString(string: item.type.unwrappedValue, attributes: [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .regular),
             NSAttributedString.Key.paragraphStyle: NSTextAlignment.justified
         ])

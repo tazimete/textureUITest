@@ -19,7 +19,7 @@ class AuthViewModel: AbstractAuthViewModel {
     
     // This struct will be used to send event with observable data/response to viewcontroller
     struct AuthOutput {
-        let authResponse: BehaviorRelay<User?>
+        let authResponse: BehaviorRelay<UserCredential?>
         let errorResponse: BehaviorRelay<NetworkError?>
     }
     
@@ -31,7 +31,7 @@ class AuthViewModel: AbstractAuthViewModel {
     }
     
     func getAuthOutput(input: AuthInput) -> AuthOutput {
-        let userResponse = BehaviorRelay<User?>(value: nil)
+        let userResponse = BehaviorRelay<UserCredential?>(value: nil)
         let errorResponse = BehaviorRelay<NetworkError?>(value: nil)
         
         // get token trigger
@@ -51,7 +51,7 @@ class AuthViewModel: AbstractAuthViewModel {
                 })
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
             .subscribe(onNext: { [weak self] response in
-                let user = User(token: response.accessToken.unwrappedValue)
+                let user = UserCredential(token: response.accessToken.unwrappedValue)
                 
                 self?.storeUserData(user: user)
                 userResponse.accept(user)
@@ -62,7 +62,7 @@ class AuthViewModel: AbstractAuthViewModel {
         return AuthOutput.init(authResponse: userResponse, errorResponse: errorResponse)
     }
     
-    func storeUserData(user: User) {
+    func storeUserData(user: UserCredential) {
         UserSessionDataClient.shared.setAccessToken(token: user.token.unwrappedValue)
     }
     

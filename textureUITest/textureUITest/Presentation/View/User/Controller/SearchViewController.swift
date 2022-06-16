@@ -12,11 +12,11 @@ import AsyncDisplayKit
 import RxDataSources_Texture
 
 // BaseViewController is ASDKViewController<ASDisplayNode> 
-class RepositoryViewController: BaseViewController {
-    var coordinator: RepositoryCoordinator?
-    var repositoryList: [Repository] = [Repository]()
-    var repositoryViewModel: RepositoryViewModel!
-    let inputSubject = PublishSubject<RepositoryViewModel.RepositoryInputModel>()
+class SearchViewController: BaseViewController {
+    var coordinator: SearchCoordinator?
+    var userList: [User] = [User]()
+    var userViewModel: UserViewModel!
+    let inputSubject = PublishSubject<UserViewModel.UserInputModel>()
     
     // MAR: UI Objects
     lazy var tableNode: ASTableNode = {
@@ -32,7 +32,7 @@ class RepositoryViewController: BaseViewController {
     var batchContext: ASBatchContext?
     
     // MARK: Constructors
-    init(viewModel: RepositoryViewModel) {
+    init(viewModel: UserViewModel) {
         super.init(viewModel: viewModel)
         self.viewModel = viewModel
     }
@@ -60,7 +60,7 @@ class RepositoryViewController: BaseViewController {
     override func initNavigationBar() {
         super.initNavigationBar()
         
-        self.navigationItem.title = "Search Repository"
+        self.navigationItem.title = "Search User"
     }
     
     override func addSubviews() {
@@ -77,11 +77,11 @@ class RepositoryViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-        repositoryViewModel = viewModel as! RepositoryViewModel
-        let input = RepositoryViewModel.RepositoryInput(searchRepositoryTrigger: inputSubject)
-        let output = repositoryViewModel.getRepositoryOutput(input: input)
+        userViewModel = viewModel as! UserViewModel
+        let input = UserViewModel.UserInput(searchUSerTrigger: inputSubject)
+        let output = userViewModel.getUserOutput(input: input)
         
-        output.repositories
+        output.users
             .asDriver()
             .drive(onNext: { [weak self] data in
                 guard let weakSelf = self, let data = data else {
@@ -94,7 +94,7 @@ class RepositoryViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-       triggerEventForRepositories(query: "test")
+       triggerEventForsearchUser(query: "test")
         
         
         // RxDataSourceTexture
@@ -127,26 +127,26 @@ class RepositoryViewController: BaseViewController {
         //              .disposed(by: disposeBag)
     }
     
-    func triggerEventForRepositories(query: String) {
-        inputSubject.onNext(RepositoryViewModel.RepositoryInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: query, page: repositoryViewModel.pageNo))
+    func triggerEventForsearchUser(query: String) {
+        inputSubject.onNext(UserViewModel.UserInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: query, page: userViewModel.pageNo))
     }
 }
 
 
 // MARK: - ASTableDelegate
 
-extension RepositoryViewController: ASTableDelegate {
+extension SearchViewController: ASTableDelegate {
     func tableView(_ tableView: ASTableView, willBeginBatchFetchWith context: ASBatchContext) {
         nextPageWithCompletion()
         context.completeBatchFetching(true)
     }
     
     func shouldBatchFetch(for tableView: ASTableView) -> Bool {
-        guard let totalDataCount = repositoryViewModel.totalDataCount else {
+        guard let totalDataCount = userViewModel.totalDataCount else {
             return true
         }
         
-        if (totalDataCount % repositoryList.count) == 0 {
+        if (totalDataCount % userList.count) == 0 {
             return false
         }
         return true
@@ -163,17 +163,17 @@ extension RepositoryViewController: ASTableDelegate {
 
 // MARK: - ASTableDataSource
 
-extension RepositoryViewController: ASTableDataSource {
+extension SearchViewController: ASTableDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositoryList.count
+        return userList.count
     }
     
     func tableView(_ tableView: ASTableView, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
-        let item = repositoryList[(indexPath as NSIndexPath).row]
+        let item = userList[(indexPath as NSIndexPath).row]
         
         return {
             let node = UserCellNode(item: item)
@@ -184,23 +184,23 @@ extension RepositoryViewController: ASTableDataSource {
 
 // MARK: - Helpers
 
-extension RepositoryViewController {
+extension SearchViewController {
     func nextPageWithCompletion() {
-        triggerEventForRepositories(query: "test")
+        triggerEventForsearchUser(query: "test")
     }
     
-    func insertNewRows(_ newAnimals: [Repository]) {
+    func insertNewRows(_ newUSers: [User]) {
         let section = 0
         var indexPaths = [IndexPath]()
         
-        let newTotalNumberOfPhotos = repositoryList.count + newAnimals.count
+        let newTotalUsers = userList.count + newUSers.count
         
-        for row in repositoryList.count ..< newTotalNumberOfPhotos {
+        for row in userList.count ..< newTotalUsers {
             let path = IndexPath(row: row, section: section)
             indexPaths.append(path)
         }
         
-        repositoryList.append(contentsOf: newAnimals)
+        userList.append(contentsOf: newUSers)
         tableNode.insertRows(at: indexPaths, with: .none)
     }
 }

@@ -150,7 +150,7 @@ class AuthViewController: BaseViewController {
                 }
                 
                 AppLogger.info(data)
-                weakSelf.handleAuthTokenResponse(user: data)
+                weakSelf.handleAuthTokenResponse(credential: data)
                 
         }).disposed(by: disposeBag)
     }
@@ -170,9 +170,9 @@ class AuthViewController: BaseViewController {
         userAuthTokenTrigger.onNext(url)
     }
     
-    func handleAuthTokenResponse(user: User) {
+    func handleAuthTokenResponse(credential: UserCredential) {
         presentedViewController?.dismiss(animated: true)
-        coordinator?.navigateRepositoryScreen(user: user)
+        coordinator?.navigateRepositoryScreen(credential: credential)
     }
     
     // MARK: DIALOG VIEW

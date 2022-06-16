@@ -18,7 +18,7 @@ extension UserAPIRequest: APIRequest {
         return URL(string: url)!
     }
     
-    typealias ItemType = Repository
+    typealias ItemType = User
     typealias ResponseType = Response<[ItemType]>
     typealias ResponseTypeDetails = Response<ItemType>
     

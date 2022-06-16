@@ -12,8 +12,8 @@ import AsyncDisplayKit
 import SafariServices
 
 // BaseViewController is ASDKViewController<ASDisplayNode>
-class RepositoryDetailsViewController: BaseViewController {
-    weak var coordinator: RepositoryDetailsCoordinator?
+class UserDetailsViewController: BaseViewController {
+    weak var coordinator: UserDetailsCoordinator?
     var authViewModel: AuthViewModel!
     let userAuthTokenTrigger = PublishSubject<URL>()
     
@@ -78,7 +78,7 @@ class RepositoryDetailsViewController: BaseViewController {
     }()
     
     // MARK: Constructors
-    init(viewModel: RepositoryViewModel) {
+    init(viewModel: UserViewModel) {
         super.init(viewModel: viewModel)
         self.viewModel = viewModel
     }

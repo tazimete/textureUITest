@@ -8,8 +8,8 @@
 import Foundation
 
 
-/* Currency entity of api response */
-struct User: Codable, Equatable {
+/* UserCredential entity of presentation layer */
+struct UserCredential: Codable, Equatable {
     public let id: String?
     public let token: String?
     public let name: String?
@@ -29,14 +29,14 @@ struct User: Codable, Equatable {
         case email = "email"
     }
     
-    static func ==(lhs: User, rhs: User) -> Bool {
+    static func ==(lhs: UserCredential, rhs: UserCredential) -> Bool {
         return lhs.id.unwrappedValue == rhs.id.unwrappedValue && lhs.email.unwrappedValue == rhs.email.unwrappedValue
     }
 }
 
 
-extension Optional where Wrapped == User {
-    var unwrappedValue: User {
-        return self ?? User()
+extension Optional where Wrapped == UserCredential {
+    var unwrappedValue: UserCredential {
+        return self ?? UserCredential()
     }
 }
