@@ -24,6 +24,7 @@ class AuthCoordinator: Coordinator {
         
         let usecase = AuthUsecase(repository: repository)
         let viewModel = AuthViewModel(usecase: usecase)
+        
         let vc = AuthViewController(viewModel: viewModel)
         vc.coordinator = self 
         

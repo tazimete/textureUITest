@@ -15,4 +15,8 @@ protocol AbstractUserSessionDataClient {
     var accessToken: String {get}
     func setAccessToken(token: String)
     func getAccessToken() -> String
+    
+    var isAuthenticated: Bool {get}
+    func setAuthenticated(authenticated: Bool)
+    func getIsAuthenticated() -> Bool
 }

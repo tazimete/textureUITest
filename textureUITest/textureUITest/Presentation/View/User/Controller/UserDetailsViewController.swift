@@ -119,7 +119,6 @@ class UserDetailsViewController: BaseViewController {
         let x = (10 as CGFloat).adaptiveWidth()
         let avatarHeight = (view.frame.width/2 as CGFloat).adaptiveWidth()
         let fieldDiff = (10 as CGFloat).adaptiveWidth()
-        
         let textHeight = (20 as CGFloat).adaptiveHeight()
         
         avatarNode.frame = CGRect(x: x, y: self.topBarHeight+10, width: view.frame.width-(2*x), height: avatarHeight)

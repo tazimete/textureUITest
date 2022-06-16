@@ -26,5 +26,16 @@ class UserSessionDataClient: AbstractUserSessionDataClient {
     func getAccessToken() -> String {
         return accessToken
     }
+    
+    @KVLocalStorage(key: "isAuthenticated", defaultValue: false)
+    var isAuthenticated: Bool
+    
+    func setAuthenticated(authenticated: Bool) {
+        self.isAuthenticated = authenticated
+    }
+    
+    func getIsAuthenticated() -> Bool {
+        return isAuthenticated
+    }
 }
 

@@ -75,7 +75,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         rootCoordinator = AuthCoordinator(navigationController: navigationController)
         
         // tell the coordinator show its controller
-        rootCoordinator.start()
+        if !UserSessionDataClient.shared.isAuthenticated {
+            rootCoordinator.start()
+        }else {
+            rootCoordinator.navigatSearchScreen(credential: UserCredential(token: UserSessionDataClient.shared.getAccessToken()))
+        }
         
         _window.makeKeyAndVisible()
     }

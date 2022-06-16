@@ -64,6 +64,7 @@ class AuthViewModel: AbstractAuthViewModel {
     
     func storeUserData(user: UserCredential) {
         UserSessionDataClient.shared.setAccessToken(token: user.token.unwrappedValue)
+        UserSessionDataClient.shared.setAuthenticated(authenticated: true)
     }
     
     // MARK: API CALLS
