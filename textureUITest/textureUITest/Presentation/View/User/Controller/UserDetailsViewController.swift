@@ -151,20 +151,31 @@ class UserDetailsViewController: BaseViewController {
     }
     
     func bindData(user: User) {
+        let paragraphStyleName = NSMutableParagraphStyle()
+        paragraphStyleName.alignment = .center
+        
+        let paragraphStyleFollwings = NSMutableParagraphStyle()
+        paragraphStyleFollwings.alignment = .right
+        
         let attriuteName = [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .medium)
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .medium),
+            NSAttributedString.Key.paragraphStyle: paragraphStyleName
+        ]
+        
+        let attriuteFollwings = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium),
+            NSAttributedString.Key.paragraphStyle: paragraphStyleFollwings
         ]
         
         let attriuteCommon = [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .regular),
-            NSAttributedString.Key.paragraphStyle: NSTextAlignment.justified
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular)
         ] as [NSAttributedString.Key : Any]
         
         avatarNode.url = URL(string: user.avatarUrl ?? "")
         nameNode.attributedText = NSAttributedString(string: user.name ?? "", attributes: attriuteName)
         emailNode.attributedText = NSAttributedString(string: user.email.unwrappedValue, attributes: attriuteCommon)
         followerNode.attributedText = NSAttributedString(string: "Followers : \(user.followers.unwrappedValue)", attributes: attriuteCommon)
-        followingNode.attributedText = NSAttributedString(string: "Followings : \(user.following.unwrappedValue)", attributes: attriuteCommon)
+        followingNode.attributedText = NSAttributedString(string: "Followings : \(user.following.unwrappedValue)", attributes: attriuteFollwings)
         descriptionNode.attributedText = NSAttributedString(string: user.description.unwrappedValue, attributes: attriuteCommon)
     }
 }

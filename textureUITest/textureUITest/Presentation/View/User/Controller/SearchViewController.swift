@@ -29,7 +29,19 @@ class SearchViewController: BaseViewController {
         return tableNode
     }()
     
-    var batchContext: ASBatchContext?
+    let noDataNode: ASTextNode = {
+        let node = ASTextNode()
+        
+        let paragraphStyleName = NSMutableParagraphStyle()
+        paragraphStyleName.alignment = .center
+        
+        node.attributedText = NSAttributedString(string: "No Data Available, Plz Search", attributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .medium),
+            NSAttributedString.Key.paragraphStyle: paragraphStyleName
+        ])
+        
+        return node
+    }()
     
     // MARK: Constructors
     init(viewModel: UserViewModel) {
@@ -69,11 +81,13 @@ class SearchViewController: BaseViewController {
     
     override func addSubviews() {
         view.addSubnode(tableNode)
+        tableNode.addSubnode(noDataNode)
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         tableNode.frame = view.frame
+        noDataNode.frame = CGRect(origin: CGPoint(x: 0, y: tableNode.frame.midY-15), size: CGSize(width: tableNode.frame.width, height: 30))
     }
     
     override func bindViewModel() {
@@ -201,5 +215,17 @@ extension SearchViewController {
         
         userList.append(contentsOf: newUSers)
         tableNode.insertRows(at: indexPaths, with: .none)
+        
+        showHideNoDataNode()
+    }
+    
+    func showHideNoDataNode () {
+        var isHidden = false
+        
+        if userList.count > 0 {
+            isHidden = true
+        }
+        
+        noDataNode.isHidden = isHidden
     }
 }
