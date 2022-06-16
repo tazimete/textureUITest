@@ -46,7 +46,6 @@
 		FA377A63284A3DB500B7B201 /* AbstractRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779DF284A3DB200B7B201 /* AbstractRepository.swift */; };
 		FA377A64284A3DB500B7B201 /* AbstractAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E1284A3DB200B7B201 /* AbstractAuthRepository.swift */; };
 		FA377A65284A3DB500B7B201 /* UserCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E4284A3DB200B7B201 /* UserCredential.swift */; };
-		FA377A66284A3DB500B7B201 /* AbstractDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E5284A3DB200B7B201 /* AbstractDataModel.swift */; };
 		FA377A67284A3DB500B7B201 /* AbstractAuthUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E8284A3DB200B7B201 /* AbstractAuthUsecase.swift */; };
 		FA377A68284A3DB500B7B201 /* AbstractUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779E9284A3DB200B7B201 /* AbstractUsecase.swift */; };
 		FA377A69284A3DB500B7B201 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3779EB284A3DB300B7B201 /* UIImageView+Extension.swift */; };
@@ -65,11 +64,7 @@
 		FA377A81284A3DB500B7B201 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA377A0F284A3DB300B7B201 /* Main.storyboard */; };
 		FA377A82284A3DB500B7B201 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A12284A3DB300B7B201 /* BaseViewController.swift */; };
 		FA377A83284A3DB500B7B201 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A14284A3DB300B7B201 /* AuthViewController.swift */; };
-		FA377A84284A3DB500B7B201 /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A17284A3DB300B7B201 /* SearchCellViewModel.swift */; };
-		FA377A85284A3DB500B7B201 /* BalanceItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A19284A3DB300B7B201 /* BalanceItemCell.swift */; };
 		FA377A86284A3DB500B7B201 /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A1D284A3DB300B7B201 /* AppLogger.swift */; };
-		FA377A88284A3DB500B7B201 /* GenericCellComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A21284A3DB300B7B201 /* GenericCellComponents.swift */; };
-		FA377A89284A3DB500B7B201 /* CellConfiguratorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A22284A3DB400B7B201 /* CellConfiguratorFactory.swift */; };
 		FA377A8A284A3DB500B7B201 /* AdaptiveLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A24284A3DB400B7B201 /* AdaptiveLayoutExtension.swift */; };
 		FA377A8B284A3DB500B7B201 /* AdaptiveLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A25284A3DB400B7B201 /* AdaptiveLayoutConstraint.swift */; };
 		FA377A8C284A3DB500B7B201 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA377A26284A3DB400B7B201 /* CGFloat+Extension.swift */; };
@@ -193,7 +188,6 @@
 		FA3779DF284A3DB200B7B201 /* AbstractRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRepository.swift; sourceTree = "<group>"; };
 		FA3779E1284A3DB200B7B201 /* AbstractAuthRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAuthRepository.swift; sourceTree = "<group>"; };
 		FA3779E4284A3DB200B7B201 /* UserCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCredential.swift; sourceTree = "<group>"; };
-		FA3779E5284A3DB200B7B201 /* AbstractDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractDataModel.swift; sourceTree = "<group>"; };
 		FA3779E8284A3DB200B7B201 /* AbstractAuthUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAuthUsecase.swift; sourceTree = "<group>"; };
 		FA3779E9284A3DB200B7B201 /* AbstractUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractUsecase.swift; sourceTree = "<group>"; };
 		FA3779EB284A3DB300B7B201 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -212,11 +206,7 @@
 		FA377A0F284A3DB300B7B201 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA377A12284A3DB300B7B201 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FA377A14284A3DB300B7B201 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		FA377A17284A3DB300B7B201 /* SearchCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
-		FA377A19284A3DB300B7B201 /* BalanceItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceItemCell.swift; sourceTree = "<group>"; };
 		FA377A1D284A3DB300B7B201 /* AppLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
-		FA377A21284A3DB300B7B201 /* GenericCellComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCellComponents.swift; sourceTree = "<group>"; };
-		FA377A22284A3DB400B7B201 /* CellConfiguratorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfiguratorFactory.swift; sourceTree = "<group>"; };
 		FA377A24284A3DB400B7B201 /* AdaptiveLayoutExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutExtension.swift; sourceTree = "<group>"; };
 		FA377A25284A3DB400B7B201 /* AdaptiveLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutConstraint.swift; sourceTree = "<group>"; };
 		FA377A26284A3DB400B7B201 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
@@ -580,7 +570,6 @@
 		FA3779E2284A3DB200B7B201 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				FA3779E5284A3DB200B7B201 /* AbstractDataModel.swift */,
 				FA3779E3284A3DB200B7B201 /* Auth */,
 				FA5134C42855F4080018B8D3 /* User */,
 			);
@@ -710,36 +699,10 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		FA377A15284A3DB300B7B201 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				FA377A16284A3DB300B7B201 /* ViewModel */,
-				FA377A18284A3DB300B7B201 /* Repository */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		FA377A16284A3DB300B7B201 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				FA377A17284A3DB300B7B201 /* SearchCellViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		FA377A18284A3DB300B7B201 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				FA377A19284A3DB300B7B201 /* BalanceItemCell.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
 		FA377A1B284A3DB300B7B201 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				FA377A1C284A3DB300B7B201 /* Logger */,
-				FA377A20284A3DB300B7B201 /* GenericCell */,
 				FA377A23284A3DB400B7B201 /* AdaptiveLayout */,
 			);
 			path = Components;
@@ -751,15 +714,6 @@
 				FA377A1D284A3DB300B7B201 /* AppLogger.swift */,
 			);
 			path = Logger;
-			sourceTree = "<group>";
-		};
-		FA377A20284A3DB300B7B201 /* GenericCell */ = {
-			isa = PBXGroup;
-			children = (
-				FA377A21284A3DB300B7B201 /* GenericCellComponents.swift */,
-				FA377A22284A3DB400B7B201 /* CellConfiguratorFactory.swift */,
-			);
-			path = GenericCell;
 			sourceTree = "<group>";
 		};
 		FA377A23284A3DB400B7B201 /* AdaptiveLayout */ = {
@@ -1047,7 +1001,6 @@
 		FAA86691284BDD3B0071D556 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FA377A15284A3DB300B7B201 /* Cell */,
 				FA377A13284A3DB300B7B201 /* Controller */,
 			);
 			path = Auth;
@@ -1369,7 +1322,6 @@
 				FA5134C62855F4300018B8D3 /* UserData.swift in Sources */,
 				FA377A58284A3DB500B7B201 /* UserSessionDataClient.swift in Sources */,
 				FA5134D928563CB10018B8D3 /* UserRepository.swift in Sources */,
-				FA377A88284A3DB500B7B201 /* GenericCellComponents.swift in Sources */,
 				FA377A56284A3DB500B7B201 /* AbstractUserSessionDataClient.swift in Sources */,
 				FA377A4B284A3DB400B7B201 /* QueueManager.swift in Sources */,
 				FA377A60284A3DB500B7B201 /* AbstractAuthLocalDataSource.swift in Sources */,
@@ -1411,17 +1363,14 @@
 				FA377A6B284A3DB500B7B201 /* UIView+Extensions.swift in Sources */,
 				FA377A4A284A3DB400B7B201 /* NetworkOperation.swift in Sources */,
 				FAD576D72852A51100E46632 /* DeepLinkHandler.swift in Sources */,
-				FA377A84284A3DB500B7B201 /* SearchCellViewModel.swift in Sources */,
 				FADF774F2853F790004DFF44 /* DeepLinkCoordinator.swift in Sources */,
 				FA377A91284A3DB500B7B201 /* AuthRepository.swift in Sources */,
 				FA5134DC28563E9C0018B8D3 /* UserUsecase.swift in Sources */,
-				FA377A85284A3DB500B7B201 /* BalanceItemCell.swift in Sources */,
 				FA5134C12855EC490018B8D3 /* User.swift in Sources */,
 				FADF77512853F840004DFF44 /* AuthDeepLinkHandler.swift in Sources */,
 				FA377A64284A3DB500B7B201 /* AbstractAuthRepository.swift in Sources */,
 				FA377A8E284A3DB500B7B201 /* SceneDelegate.swift in Sources */,
 				FA377A8F284A3DB500B7B201 /* AuthLocalDataSource.swift in Sources */,
-				FA377A66284A3DB500B7B201 /* AbstractDataModel.swift in Sources */,
 				FAB3D79B28597388005435E3 /* UserDetailsCoordinator.swift in Sources */,
 				FA377A47284A3DB400B7B201 /* AbstractApiClient.swift in Sources */,
 				FA5134E2285656020018B8D3 /* AbstractUserViewModel.swift in Sources */,
@@ -1447,7 +1396,6 @@
 				FA377A4F284A3DB400B7B201 /* AbstractDownloader.swift in Sources */,
 				FA503D36284B658100DF7C59 /* ASImageNode+Rx.swift in Sources */,
 				FA377A65284A3DB500B7B201 /* UserCredential.swift in Sources */,
-				FA377A89284A3DB500B7B201 /* CellConfiguratorFactory.swift in Sources */,
 				FA5134C32855ED640018B8D3 /* UserHeaderParams.swift in Sources */,
 				FA503D3C284B658100DF7C59 /* ASDisplayNode+Rx.swift in Sources */,
 				FA377A50284A3DB400B7B201 /* DownloaderClient.swift in Sources */,

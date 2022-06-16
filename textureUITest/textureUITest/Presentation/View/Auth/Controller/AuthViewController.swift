@@ -17,52 +17,12 @@ class AuthViewController: BaseViewController {
     var authViewModel: AuthViewModel!
     let userAuthTokenTrigger = PublishSubject<URL>()
     
-    let emailField: ASEditableTextNode = {
-        let node = ASEditableTextNode()
-        node.attributedPlaceholderText = NSAttributedString(string: "Email", attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor.gray,
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular)
-            ]
-        )
-        node.textContainerInset = UIEdgeInsets(
-            top: (15 as CGFloat).adaptiveWidth(),
-            left: (10 as CGFloat).adaptiveWidth(),
-            bottom: (15 as CGFloat).adaptiveWidth(),
-            right: (10 as CGFloat).adaptiveWidth()
-        )
-        node.typingAttributes = [NSAttributedString.Key.strokeColor.rawValue: UIColor.black]
-        node.borderWidth = 1
-        node.borderColor = UIColor.gray.cgColor
-        node.textView.font = UIFont.systemFont(ofSize: 16)
-        node.keyboardType = .emailAddress
-        node.maximumLinesToDisplay = 1
-        node.cornerRadius = 10
-        node.textView.applyAdaptiveLayout()
-        return node
-    }()
-    
-    let passwordField: ASEditableTextNode = {
-        let node = ASEditableTextNode()
-        node.attributedPlaceholderText = NSAttributedString(string: "Password", attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor.gray,
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular)
-            ]
-        )
-        node.textContainerInset = UIEdgeInsets(
-            top: (15 as CGFloat).adaptiveWidth(),
-            left: (10 as CGFloat).adaptiveWidth(),
-            bottom: (15 as CGFloat).adaptiveWidth(),
-            right: (10 as CGFloat).adaptiveWidth()
-        )
-        node.typingAttributes = [NSAttributedString.Key.strokeColor.rawValue: UIColor.black]
-        node.borderWidth = 1
-        node.borderColor = UIColor.gray.cgColor
-        node.textView.font = UIFont.systemFont(ofSize: 16)
-        node.keyboardType = .default
-        node.maximumLinesToDisplay = 1
-        node.isSecureTextEntry = true
-        node.cornerRadius = 10
-        node.textView.applyAdaptiveLayout()
+    let logoNode: ASImageNode = {
+        let node = ASImageNode()
+        node.clipsToBounds = true
+        node.placeholderFadeDuration = 0.15
+        node.contentMode = .center
+        node.image = UIImage(named: "auth")
         return node
     }()
     
@@ -110,8 +70,7 @@ class AuthViewController: BaseViewController {
     }
     
     override func addSubviews() {
-        view.addSubnode(emailField)
-        view.addSubnode(passwordField)
+        view.addSubnode(logoNode)
         view.addSubnode(loginButton)
     }
     
@@ -119,13 +78,13 @@ class AuthViewController: BaseViewController {
       super.viewWillLayoutSubviews()
       
         let x = (10 as CGFloat).adaptiveWidth()
-        let y = (view.frame.height/3 as CGFloat).adaptiveWidth()
+        let y = (view.frame.height/4 as CGFloat).adaptiveWidth()
         let height = (50 as CGFloat).adaptiveWidth()
-        let fieldDiff = (15 as CGFloat).adaptiveWidth()
+        let fieldDiff = (60 as CGFloat).adaptiveWidth()
         
-        emailField.frame = CGRect(x: x, y: y, width: view.frame.width-(2*x), height: height)
-        passwordField.frame = CGRect(x: x, y: emailField.frame.maxY + fieldDiff, width: emailField.frame.width, height: height)
-        loginButton.frame = CGRect(x: x, y: passwordField.frame.maxY + fieldDiff, width: passwordField.frame.width, height: height)
+        logoNode.frame = CGRect(x: x, y: y, width: height*3, height: height*3)
+        logoNode.view.center.x = view.center.x
+        loginButton.frame = CGRect(x: x, y: logoNode.frame.maxY + fieldDiff, width: view.frame.width-(2*x), height: height)
     }
     
     override func addActionsToSubviews() {

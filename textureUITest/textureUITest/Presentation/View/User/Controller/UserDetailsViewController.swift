@@ -122,7 +122,7 @@ class UserDetailsViewController: BaseViewController {
         
         let textHeight = (20 as CGFloat).adaptiveHeight()
         
-        avatarNode.frame = CGRect(x: x, y: self.topBarHeight+15, width: view.frame.width-(2*x), height: avatarHeight)
+        avatarNode.frame = CGRect(x: x, y: self.topBarHeight+10, width: view.frame.width-(2*x), height: avatarHeight)
         followerNode.frame = CGRect(x: x, y: avatarNode.frame.maxY + fieldDiff, width: avatarNode.frame.width/2, height: textHeight)
         followingNode.frame = CGRect(x: followerNode.frame.maxX, y: avatarNode.frame.maxY + fieldDiff, width: followerNode.frame.width, height: textHeight)
         nameNode.frame = CGRect(x: x, y: followingNode.frame.maxY + fieldDiff, width: avatarNode.frame.width, height: textHeight)
