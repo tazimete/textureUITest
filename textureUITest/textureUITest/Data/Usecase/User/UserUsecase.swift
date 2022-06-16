@@ -20,7 +20,7 @@ class UserUsecase: AbstractUserUsecase {
         return (repository as! AbstractUserRepository).searchRemote(accessToken: accessToken, query: query, page: page)
     }
     
-    func getUserDetails(accessToken: String, name: String, id: Int) -> Observable<UserAPIRequest.ResponseTypeDetails> {
+    func getUserDetails(accessToken: String, name: String, id: Int) -> Observable<UserAPIRequest.ItemType> {
         return (repository as! AbstractUserRepository).getUserRemote(accessToken: accessToken, name: name, id: id)
     }
 }

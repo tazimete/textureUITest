@@ -15,7 +15,7 @@ struct UserHeaderParams: Parameterizable {
         self.authorization = authorization
     }
     
-    private enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case accept = "Accept"
         case authorization = "Authorization"
     }

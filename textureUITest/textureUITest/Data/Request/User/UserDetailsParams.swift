@@ -16,7 +16,7 @@ struct UserDetailsParams: Parameterizable {
         self.name = name
     }
     
-    private enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"
     }

@@ -22,7 +22,7 @@ struct UserSearchRequestParams: Parameterizable {
         self.order = order
     }
     
-    private enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case query = "q"
         case page = "page"
         case perPage = "per_page"

@@ -26,7 +26,7 @@ class UserRepository: AbstractUserRepository {
         return (localDataSource as! AbstractUserLocalDataSource).search(accessToken: accessToken, query: query, page: page)
     }
     
-    func getUserRemote(accessToken: String, name: String, id: Int) -> Observable<UserAPIRequest.ResponseTypeDetails> {
+    func getUserRemote(accessToken: String, name: String, id: Int) -> Observable<UserAPIRequest.ItemType> {
         return (remoteDataSource as! AbstractUserRemoteDataSource).getUser(accessToken: accessToken, name: name, id: id)
     }
     

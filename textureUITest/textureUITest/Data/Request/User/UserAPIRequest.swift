@@ -32,7 +32,7 @@ extension UserAPIRequest: APIRequest {
     var path: String {
         switch self {
             case .search: return "/search/users"
-            case .getUserDetails: return "/search/users"
+            case .getUserDetails: return "/users/\(parameters[UserDetailsParams.CodingKeys.name.rawValue] ?? "")"
         }
     }
     

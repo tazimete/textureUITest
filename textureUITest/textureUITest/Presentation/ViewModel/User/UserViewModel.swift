@@ -92,21 +92,21 @@ class UserViewModel: AbstractUserViewModel {
         
         // details user trigger
         input.userDetailsTrigger
-            .flatMapLatest({ [weak self] (inputModel) -> Observable<UserAPIRequest.ResponseTypeDetails> in
+            .flatMapLatest({ [weak self] (inputModel) -> Observable<UserAPIRequest.ItemType> in
                 guard let weakSelf = self else {
-                    return Observable.just(UserAPIRequest.ResponseTypeDetails())
+                    return Observable.just(UserAPIRequest.ItemType())
                 }
                 
                 //api call to search user list
                 return weakSelf.getUserDetails(accessToken: inputModel.myAccessToken, name: inputModel.name, id: inputModel.id)
                    .catch({ error in
                        errorResponse.accept(error as? NetworkError)
-                       return Observable.just(UserAPIRequest.ResponseTypeDetails())
+                       return Observable.just(UserAPIRequest.ItemType())
                     })
                 })
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
             .subscribe(onNext: { [weak self] response in
-                user.accept(response.data)
+                user.accept(response)
             }, onError: { error in
                 errorResponse.accept(error as? NetworkError)
             }).disposed(by: disposeBag)
@@ -119,7 +119,7 @@ class UserViewModel: AbstractUserViewModel {
         (usecase as! AbstractUserUsecase).search(accessToken: accessToken, query: query, page: page)
     }
     
-    func getUserDetails(accessToken: String, name: String, id: Int) -> Observable<UserAPIRequest.ResponseTypeDetails> {
+    func getUserDetails(accessToken: String, name: String, id: Int) -> Observable<UserAPIRequest.ItemType> {
         (usecase as! AbstractUserUsecase).getUserDetails(accessToken: accessToken, name: name, id: id)
     }
 }

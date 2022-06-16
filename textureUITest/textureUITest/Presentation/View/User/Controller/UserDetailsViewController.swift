@@ -33,7 +33,19 @@ class UserDetailsViewController: BaseViewController {
         node.placeholderFadeDuration = 0.15
         node.placeholderColor = UIColor(white: 0.777, alpha: 1.0)
         node.attributedText = NSAttributedString(string: "nameNode... ", attributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .medium)
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .medium),
+            NSAttributedString.Key.paragraphStyle: NSTextAlignment.center
+        ])
+        return node
+    }()
+    
+    let emailNode: ASTextNode = {
+        let node = ASTextNode()
+        node.placeholderEnabled = true
+        node.placeholderFadeDuration = 0.15
+        node.placeholderColor = UIColor(white: 0.777, alpha: 1.0)
+        node.attributedText = NSAttributedString(string: "emailNode... ", attributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)
         ])
         return node
     }()
@@ -109,6 +121,7 @@ class UserDetailsViewController: BaseViewController {
     override func addSubviews() {
         view.addSubnode(avatarNode)
         view.addSubnode(nameNode)
+        view.addSubnode(emailNode)
         view.addSubnode(descriptionNode)
         view.addSubnode(followerNode)
         view.addSubnode(followingNode)
@@ -123,13 +136,13 @@ class UserDetailsViewController: BaseViewController {
         
         let textHeight = (20 as CGFloat).adaptiveHeight()
         
-        avatarNode.frame = CGRect(x: x, y: 0, width: view.frame.width-(2*x), height: avatarHeight)
+        avatarNode.frame = CGRect(x: x, y: self.topBarHeight+10, width: view.frame.width-(2*x), height: avatarHeight)
         followerNode.frame = CGRect(x: x, y: avatarNode.frame.maxY + fieldDiff, width: avatarNode.frame.width/2, height: textHeight)
         followingNode.frame = CGRect(x: followerNode.frame.maxX, y: avatarNode.frame.maxY + fieldDiff, width: followerNode.frame.width, height: textHeight)
         nameNode.frame = CGRect(x: x, y: followingNode.frame.maxY + fieldDiff, width: avatarNode.frame.width, height: textHeight)
+        emailNode.frame = CGRect(x: x, y: nameNode.frame.maxY + fieldDiff, width: nameNode.frame.width, height: textHeight)
         nameNode.view.center.x = view.center.x
-        descriptionNode.frame = CGRect(x: x, y: nameNode.frame.maxY + fieldDiff, width: nameNode.frame.width, height: 3*textHeight)
-        
+        descriptionNode.frame = CGRect(x: x, y: emailNode.frame.maxY + fieldDiff, width: nameNode.frame.width, height: view.frame.height - nameNode.frame.maxY)
     }
     
     override func bindViewModel() {
@@ -141,10 +154,33 @@ class UserDetailsViewController: BaseViewController {
         output.user
             .asDriver()
             .drive(onNext: { [weak self] user in
+                guard let weakSelf = self, let user = user else {
+                    return
+                }
+                
                 AppLogger.info(user)
+                weakSelf.bindData(user: user)
             }).disposed(by: disposeBag)
         
         userDetailsTrigger.onNext(UserViewModel.UserDetailsInputModel(myAccessToken: UserSessionDataClient.shared.getAccessToken(), name: user.name.unwrappedValue, id: user.id.unwrappedValue))
+    }
+    
+    func bindData(user: User) {
+        let attriuteName = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .medium)
+        ]
+        
+        let attriuteCommon = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .regular),
+            NSAttributedString.Key.paragraphStyle: NSTextAlignment.justified
+        ] as [NSAttributedString.Key : Any]
+        
+        avatarNode.url = URL(string: user.avatarUrl ?? "")
+        nameNode.attributedText = NSAttributedString(string: user.name ?? "", attributes: attriuteName)
+        emailNode.attributedText = NSAttributedString(string: user.email.unwrappedValue, attributes: attriuteCommon)
+        followerNode.attributedText = NSAttributedString(string: user.type.unwrappedValue, attributes: attriuteCommon)
+        followingNode.attributedText = NSAttributedString(string: user.type.unwrappedValue, attributes: attriuteCommon)
+        descriptionNode.attributedText = NSAttributedString(string: user.description.unwrappedValue, attributes: attriuteCommon)
     }
 }
 

@@ -19,7 +19,7 @@ class UserRemoteDataSource: AbstractUserRemoteDataSource {
         return apiClient.send(apiRequest: UserAPIRequest.search(params: UserSearchRequestParams(query: query, page: page, perPage: 10, sort: "followers", order: "asc"), headers: UserHeaderParams(authorization: accessToken)), type: UserAPIRequest.ResponseType.self)
     }
     
-    func getUser(accessToken: String, name: String, id: Int) -> Observable<UserAPIRequest.ResponseTypeDetails> {
-        return apiClient.send(apiRequest: UserAPIRequest.getUserDetails(params: UserDetailsParams(id: id, name: name), headers: UserHeaderParams(authorization: accessToken)), type: UserAPIRequest.ResponseTypeDetails.self)
+    func getUser(accessToken: String, name: String, id: Int) -> Observable<UserAPIRequest.ItemType> {
+        return apiClient.send(apiRequest: UserAPIRequest.getUserDetails(params: UserDetailsParams(id: id, name: name), headers: UserHeaderParams(authorization: accessToken)), type: UserAPIRequest.ItemType.self)
     }
 }

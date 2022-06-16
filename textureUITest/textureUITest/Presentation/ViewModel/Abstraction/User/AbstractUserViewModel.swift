@@ -28,5 +28,5 @@ protocol AbstractUserViewModel: AbstractViewModel {
     func getUserDeatilsOutput(input: UserDetailsInput) -> UserDetailsOutput
     
     func searchUsers(accessToken: String, query: String, page: Int) -> Observable<UserAPIRequest.ResponseType>
-    func getUserDetails(accessToken: String, name: String, id: Int) -> Observable<UserAPIRequest.ResponseTypeDetails>
+    func getUserDetails(accessToken: String, name: String, id: Int) -> Observable<UserAPIRequest.ItemType>
 }
