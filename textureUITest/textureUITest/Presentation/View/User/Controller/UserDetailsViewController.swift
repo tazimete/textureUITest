@@ -101,7 +101,7 @@ class UserDetailsViewController: BaseViewController {
     override func initNavigationBar() {
         super.initNavigationBar()
         
-        self.navigationItem.title = "User Deatils"
+        self.navigationItem.title = "User Details"
     }
     
     override func addSubviews() {
