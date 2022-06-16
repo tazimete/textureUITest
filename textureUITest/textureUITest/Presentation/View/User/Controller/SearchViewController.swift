@@ -60,6 +60,10 @@ class SearchViewController: BaseViewController {
         super.initNavigationBar()
         
         self.navigationItem.title = "Search User"
+        
+        let btnAction = UIBarButtonItem(title: "SEARCH", style: .done, target: self, action: #selector(didTapSearchButton))
+        btnAction.tintColor = appColors.textColorLight
+        self.navigationItem.rightBarButtonItem = btnAction
     }
     
     override func addSubviews() {
@@ -86,12 +90,38 @@ class SearchViewController: BaseViewController {
                 weakSelf.insertNewRows(data)
             })
             .disposed(by: disposeBag)
-        
-       triggerEventForsearchUser(query: "test")
     }
     
     func triggerEventForsearchUser(query: String) {
         inputSubject.onNext(UserViewModel.UserSearchInputModel(accessToken: UserSessionDataClient.shared.getAccessToken(), query: query, page: userViewModel.pageNo))
+    }
+    
+    @objc func didTapSearchButton(sender : AnyObject){
+        showSearchDialog()
+    }
+    
+    private func showSearchDialog() {
+        let alertController = UIAlertController(title: "Search User", message: "Enter user name", preferredStyle: UIAlertController.Style.alert)
+        
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Username"
+        }
+        
+        let saveAction = UIAlertAction(title: "Search", style: UIAlertAction.Style.default, handler: { [weak self] alert -> Void in
+            let username = (alertController.textFields?[0])?.text?.uppercased() ?? ""
+            
+            if !username.isEmpty {
+                self?.triggerEventForsearchUser(query: username)
+            }
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {
+            (action : UIAlertAction!) -> Void in })
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
