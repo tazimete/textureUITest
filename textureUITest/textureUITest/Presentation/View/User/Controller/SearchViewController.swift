@@ -71,10 +71,6 @@ class SearchViewController: BaseViewController {
         tableNode.frame = view.frame
     }
     
-    override func addActionsToSubviews() {
-        
-    }
-    
     override func bindViewModel() {
         userViewModel = viewModel as! UserViewModel
         let input = UserViewModel.UserSearchInput(searchUserTrigger: inputSubject)
@@ -113,10 +109,10 @@ extension SearchViewController: ASTableDelegate {
             return true
         }
         
-        if (totalDataCount % userList.count) == 0 {
-            return false
+        if totalDataCount > userList.count {
+            return true
         }
-        return true
+        return false
     }
     
     func tableView(_ tableView: ASTableView, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {

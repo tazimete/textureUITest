@@ -32,10 +32,7 @@ class UserDetailsViewController: BaseViewController {
         node.placeholderEnabled = true
         node.placeholderFadeDuration = 0.15
         node.placeholderColor = UIColor(white: 0.777, alpha: 1.0)
-        node.attributedText = NSAttributedString(string: "nameNode... ", attributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .medium),
-            NSAttributedString.Key.paragraphStyle: NSTextAlignment.center
-        ])
+        node.style.alignSelf = ASStackLayoutAlignSelf.center
         return node
     }()
     
@@ -44,9 +41,6 @@ class UserDetailsViewController: BaseViewController {
         node.placeholderEnabled = true
         node.placeholderFadeDuration = 0.15
         node.placeholderColor = UIColor(white: 0.777, alpha: 1.0)
-        node.attributedText = NSAttributedString(string: "emailNode... ", attributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)
-        ])
         return node
     }()
     
@@ -62,9 +56,6 @@ class UserDetailsViewController: BaseViewController {
         node.maximumNumberOfLines = 0
         node.isLayerBacked = true
         node.isOpaque = false
-        node.attributedText = NSAttributedString(string: "descriptionNode .. descriptionNode .. descriptionNode .. descriptionNode .. descriptionNode .. descriptionNode . descriptionNode .. descriptionNode descriptionNode .. descriptionNode .. descriptionNode .. descriptionNode .. descriptionNode .. descriptionNode . descriptionNode .. descriptionNode", attributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)
-        ])
         return node
     }()
     
@@ -73,9 +64,6 @@ class UserDetailsViewController: BaseViewController {
         node.placeholderEnabled = true
         node.placeholderFadeDuration = 0.15
         node.placeholderColor = UIColor(white: 0.777, alpha: 1.0)
-        node.attributedText = NSAttributedString(string: "Followers: ", attributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)
-        ])
         return node
     }()
     
@@ -84,9 +72,7 @@ class UserDetailsViewController: BaseViewController {
         node.placeholderEnabled = true
         node.placeholderFadeDuration = 0.15
         node.placeholderColor = UIColor(white: 0.777, alpha: 1.0)
-        node.attributedText = NSAttributedString(string: "Following: ", attributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)
-        ])
+        node.style.alignSelf = ASStackLayoutAlignSelf.center
         return node
     }()
     
@@ -115,7 +101,7 @@ class UserDetailsViewController: BaseViewController {
     override func initNavigationBar() {
         super.initNavigationBar()
         
-        self.navigationItem.title = "Authentication"
+        self.navigationItem.title = "User Deatils"
     }
     
     override func addSubviews() {
@@ -131,12 +117,12 @@ class UserDetailsViewController: BaseViewController {
       super.viewWillLayoutSubviews()
         
         let x = (10 as CGFloat).adaptiveWidth()
-        let avatarHeight = (120 as CGFloat).adaptiveWidth()
+        let avatarHeight = (view.frame.width/2 as CGFloat).adaptiveWidth()
         let fieldDiff = (10 as CGFloat).adaptiveWidth()
         
         let textHeight = (20 as CGFloat).adaptiveHeight()
         
-        avatarNode.frame = CGRect(x: x, y: self.topBarHeight+10, width: view.frame.width-(2*x), height: avatarHeight)
+        avatarNode.frame = CGRect(x: x, y: self.topBarHeight+15, width: view.frame.width-(2*x), height: avatarHeight)
         followerNode.frame = CGRect(x: x, y: avatarNode.frame.maxY + fieldDiff, width: avatarNode.frame.width/2, height: textHeight)
         followingNode.frame = CGRect(x: followerNode.frame.maxX, y: avatarNode.frame.maxY + fieldDiff, width: followerNode.frame.width, height: textHeight)
         nameNode.frame = CGRect(x: x, y: followingNode.frame.maxY + fieldDiff, width: avatarNode.frame.width, height: textHeight)
@@ -178,8 +164,8 @@ class UserDetailsViewController: BaseViewController {
         avatarNode.url = URL(string: user.avatarUrl ?? "")
         nameNode.attributedText = NSAttributedString(string: user.name ?? "", attributes: attriuteName)
         emailNode.attributedText = NSAttributedString(string: user.email.unwrappedValue, attributes: attriuteCommon)
-        followerNode.attributedText = NSAttributedString(string: user.type.unwrappedValue, attributes: attriuteCommon)
-        followingNode.attributedText = NSAttributedString(string: user.type.unwrappedValue, attributes: attriuteCommon)
+        followerNode.attributedText = NSAttributedString(string: "Followers : \(user.followers.unwrappedValue)", attributes: attriuteCommon)
+        followingNode.attributedText = NSAttributedString(string: "Followings : \(user.following.unwrappedValue)", attributes: attriuteCommon)
         descriptionNode.attributedText = NSAttributedString(string: user.description.unwrappedValue, attributes: attriuteCommon)
     }
 }

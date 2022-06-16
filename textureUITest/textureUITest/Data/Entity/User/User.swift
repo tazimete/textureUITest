@@ -15,14 +15,18 @@ struct User: Codable, Equatable {
     let description: String?
     let avatarUrl: String?
     let type: String?
+    let followers: Int?
+    let following: Int?
     
-    init(id: Int? = nil, name: String? = nil, email:String? = nil,  description: String? = nil, avatarUrl: String? = nil, type: String? = nil) {
+    init(id: Int? = nil, name: String? = nil, email:String? = nil,  description: String? = nil, avatarUrl: String? = nil, type: String? = nil, followers: Int? = nil, following: Int? = nil) {
         self.id = id
         self.name = name
         self.email = email
         self.description = description
         self.avatarUrl = avatarUrl
         self.type = type
+        self.followers = followers
+        self.following = following
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -32,6 +36,8 @@ struct User: Codable, Equatable {
         case description = "bio"
         case avatarUrl = "avatar_url"
         case type = "type"
+        case followers = "followers"
+        case following = "following"
     }
     
     static func ==(lhs: User, rhs: User) -> Bool {
