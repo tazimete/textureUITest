@@ -116,7 +116,9 @@ class AuthViewController: BaseViewController {
     
     //MARK: Authentication Process
     func authenticateUser() {
-        guard let url = URL(string: "https://github.com/login/oauth/authorize?state=state&redirect_uri=it.iacopo.github://authentication&scope=repo%20user&client_id=fd2d97030f7ca8dfe654") else {
+        let authCredential = AppConfig.shared.getServerConfig().getAuthCredential()
+        
+        guard let url = URL(string: "\((authCredential.authorizationUrl?.absoluteString).unwrappedValue)?state=state&redirect_uri=\((authCredential.redirectUri?.absoluteString).unwrappedValue)&scope=\((authCredential.scopes?.joined(separator: "%20")).unwrappedValue)&client_id=\(authCredential.clientId.unwrappedValue)") else {
             return
         }
         
